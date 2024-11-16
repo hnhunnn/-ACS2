@@ -1,0 +1,94 @@
+.add {
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border: 1px solid rgba(72, 78, 82, 0.2);
+    outline: none;
+    background-color: transparent; /* Nền trong suốt */
+    width: 150px;
+    margin-left: 15px;
+
+}
+.add a {
+    color: #333;
+}
+.search-container {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    border: 1px solid #ddd;
+    margin-left: 15px;
+    overflow: hidden;
+    background-color: #fff;
+}
+
+.search-input {
+    flex: 1;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    outline: none;
+    color: #333;
+    
+}
+
+.search-input::placeholder {
+    color: #aaa;
+}
+
+.search-button {
+    background-color: #007bff;
+    border: none;
+    padding: 14px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    outline: none;
+}
+
+.search-button img {
+    width: 16px;
+    height: 16px;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+}
+table th, table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+table th {
+    background-color: #f4f4f4;
+}
+.action-btn {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 16px;
+    margin: 0 5px;
+}
+.edit-btn {
+    color: #007bff;
+}
+.delete-btn {
+    color: #dc3545;
+}
+.delete-btn:hover {
+    color: #a71d2a;
+}
+.edit-btn:hover {
+    color: #0056b3;
+}

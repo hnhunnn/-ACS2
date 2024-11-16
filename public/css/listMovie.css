@@ -1,0 +1,50 @@
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+  }
+  table th,
+  table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    vertical-align: middle;
+  }
+  table th {
+    background-color: #f4f4f4;
+  }
+  table td img {
+    width: 50px;
+    height: auto;
+    display: block;
+  }
+  .action-btn {
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 16px;
+    margin: 0 5px;
+  }
+  .edit-btn {
+    color: #007bff;
+  }
+  .delete-btn {
+    color: #dc3545;
+  }
+  .schedule-btn {
+    color: #28a745;
+  }
+  .edit-btn:hover {
+    color: #0056b3;
+  }
+  .delete-btn:hover {
+    color: #a71d2a;
+  }
+  .schedule-btn:hover {
+    color: #1c7430;
+  }

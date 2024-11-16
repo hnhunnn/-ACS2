@@ -1,0 +1,214 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* body { */
+    /* font-family: Arial, sans-serif; */
+    /* overflow-x: hidden; */
+    
+/* } */
+body {
+    overflow: hidden; /* Ẩn thanh cuộn */
+}
+
+.wrapper {
+    height: 100vh; /* Đặt chiều cao của wrapper theo chiều cao màn hình */
+    width: 100vw; /* Đặt chiều rộng của wrapper theo chiều rộng màn hình */
+    overflow-y: scroll; /* Cho phép cuộn dọc */
+    /* overflow-x: scroll; Cho phép cuộn ngang nếu cần */
+    scrollbar-width: none; /* Ẩn thanh cuộn trong Firefox */
+}
+
+/* Ẩn thanh cuộn trên Chrome, Edge và Safari */
+.wrapper::-webkit-scrollbar {
+    display: none;
+}
+
+
+.header {
+    position: fixed;
+    z-index: 1000; /* Giữ header ở trên các phần tử khác */
+    background-color: rgba(0, 0, 0, 0.7); /* 70% đục */
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    /* background-color: #333;  Màu nền header */
+    color: white;
+}
+.logo img {
+    width: 100px;
+    height: 55px;
+    filter: brightness(1.2);
+}
+nav {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 20px; /* Khoảng cách giữa các mục menu */
+}
+
+.menu li {
+    margin: 0;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.menu a:hover {
+    background-color: #555;
+    border-radius: 4px;
+}
+.p3 {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 20px; /* Khoảng cách giữa các mục menu */
+}
+.dxuat {
+    color: green;
+    /* font-size: 18px; */
+    text-decoration: none;
+}
+.bantaydietquy img {
+    display: flex;
+    width: 100%;
+}
+
+.ticket {
+    width: 100%;
+    height: auto;
+    position: relative;
+    display: inline-block;
+    background-image: url(../img/ticket.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.ticket img {
+    width: 100%;
+    background-size: cover;
+    height: auto;
+}
+.button-chieu {
+    margin: 50px auto 30px 20px;
+}
+
+.ticket .button:hover {
+    background-color: #e67e22;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    margin: 10px 20px;
+    flex-wrap: nowrap;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    scrollbar-width: none;
+}
+.card {
+    flex: 0 0 auto;
+    margin-right: 50px;
+}
+
+.card img {
+    width: 100%;
+    height: 275px;
+}
+.card-body {
+    text-align: center;
+}
+
+.datveBtn {
+    height: 10px;
+    text-decoration: none;
+    color: rgb(171, 4, 4);
+    text-align: center;
+    border-radius: 3px;
+    border: none;
+    font-weight: bold;
+}
+.btn:hover {
+    background-color: cadetblue;
+}
+.card img {
+    transform: scale(1.05);
+}
+.carousel-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+/* Mũi tên trái và phải của hai list phim  */
+#left1 {
+    margin-top: -100px;
+    left: 0;
+}
+
+#right1 {
+    margin-top: -100px;
+    right: 0;
+}
+
+#left2 {
+    margin-top: 250px;
+    left: 0;
+}
+#right2 {
+    margin-top: 250px;
+    right: 0;
+}
+/* cinema,branch,schedule */
+.cinema-list {
+    width: 25%;
+    float: left;
+    background: #111;
+    color: white;
+    padding: 10px;
+}
+.cinema-list img {
+    width: 50px;
+    height: 50px;
+}
+.branch-details,
+.schedule-details {
+    width: 35%;
+    float: left;
+    padding: 10px;
+    color: green;
+}
+.branch-details {
+    background: #222;
+}
+.schedule-details {
+    background: #333;
+}
+.cinema-item,
+.branch-item,
+.schedule-time {
+    cursor: pointer;
+    margin: 10px 0;
+}
