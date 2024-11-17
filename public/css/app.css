@@ -1,0 +1,124 @@
+body {
+    background-color: #121212;
+    color: #fff;
+}
+a {
+    text-decoration: none;
+}
+.navbar {
+    margin-bottom: 20px;
+}
+.header {
+   
+    background-color: rgba(0, 0, 0, 0.7); /* 70% đục */
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    /* background-color: #333;  Màu nền header */
+    color: white;
+}
+.logo img {
+    width: 100px;
+    height: 55px;
+    filter: brightness(1.2);
+}
+nav {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 20px; /* Khoảng cách giữa các mục menu */
+}
+
+.menu li {
+    margin: 0;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+.menu a:hover {
+    background-color: #555;
+    border-radius: 4px;
+}
+.p3 {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 20px; /* Khoảng cách giữa các mục menu */
+}
+.dxuat {
+    color: green;
+    /* font-size: 18px; */
+    text-decoration: none;
+}
+/* footer */
+footer {
+    position: relative;
+    background-color: #222;
+    color: #fff;
+    padding: 5px 0;
+    text-align: left;
+   
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: auto;
+    flex-wrap: wrap;
+    height: 200px;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 20px;
+    min-width: 200px; /* Đảm bảo độ rộng tối thiểu cho các phần */
+}
+
+.footer-section h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #f4d03f;
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section a {
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.footer-section a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    color: #f4d03f;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    color: #bbb;
+}

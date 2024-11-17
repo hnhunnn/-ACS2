@@ -37,6 +37,10 @@ Route::get('/admin/add', function () {
     return view('admin.addUser');
 })->name('admin.add');
 
+Route::get('/booking', function () {
+    return view('booking');
+});
+
 Route::get('/profile', function () {
     return view('profile');
 });

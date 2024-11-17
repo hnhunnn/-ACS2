@@ -1,0 +1,23 @@
+.seat {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+}
+.seat:hover {
+    background-color: yellow;
+}
+.reserved {
+    background-color: orange;
+    cursor: not-allowed;
+}
+.selected {
+    background-color: green;
+    color: white;
+}
+.payment-info {
+    border-radius: 10px;
+}
