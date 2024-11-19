@@ -1,14 +1,15 @@
+// button cuộn list phim
 document.addEventListener("DOMContentLoaded", function () {
-    const carousel = document.querySelector(".card-container");
+    const scroll = document.querySelector(".movie-grid");
 
     // Hàm cuộn sang trái
     function scrollLeft() {
-        carousel.scrollBy({ left: -300, behavior: "smooth" });
+        scroll.scrollBy({ left: -300, behavior: "smooth" });
     }
 
     // Hàm cuộn sang phải
     function scrollRight() {
-        carousel.scrollBy({ left: 300, behavior: "smooth" });
+        scroll.scrollBy({ left: 300, behavior: "smooth" });
     }
 
     // Gán sự kiện cho các nút
@@ -16,16 +17,16 @@ document.addEventListener("DOMContentLoaded", function () {
     document.querySelector(".right").onclick = scrollRight;
 });
 
-function scrollLeft1() {
-    const container = document.querySelectorAll(".card-container")[1]; // Danh sách phim thứ 2
+function scrollLeft() {
+    const container = document.querySelectorAll(".movie-grid")[1]; // Danh sách phim thứ 2
     container.scrollBy({
         left: -300, // Điều chỉnh khoảng cách cuộn
         behavior: "smooth",
     });
 }
 
-function scrollRight1() {
-    const container = document.querySelectorAll(".card-container")[1]; // Danh sách phim thứ 2
+function scrollRight() {
+    const container = document.querySelectorAll(".movie-grid")[1]; // Danh sách phim thứ 2
     container.scrollBy({
         left: 300, // Điều chỉnh khoảng cách cuộn
         behavior: "smooth",
@@ -33,7 +34,7 @@ function scrollRight1() {
 }
 
 function scrollLeft2() {
-    const container = document.querySelectorAll(".card-container")[1]; // Danh sách phim thứ 2
+    const container = document.querySelectorAll(".movie-grid")[1]; // Danh sách phim thứ 2
     container.scrollBy({
         left: -300, // Điều chỉnh khoảng cách cuộn
         behavior: "smooth",
@@ -41,12 +42,15 @@ function scrollLeft2() {
 }
 
 function scrollRight2() {
-    const container = document.querySelectorAll(".card-container")[1]; // Danh sách phim thứ 2
+    const container = document.querySelectorAll(".movie-grid")[1]; // Danh sách phim thứ 2
     container.scrollBy({
         left: 300, // Điều chỉnh khoảng cách cuộn
         behavior: "smooth",
     });
 }
+
+
+
 
 // HIỂN THỊ CHI NHÁNH KHI NHẤN VÀO LOGO
 
@@ -98,22 +102,6 @@ function showSchedules(branch_id) {
         .catch((error) => console.error("Error:", error));
 }
 
-// function showSchedule(branch_id) {
-//     // Gửi yêu cầu lấy lịch chiếu từ server
-//     fetch(`/branch/${branch_id}/schedule`)
-//         .then(response => response.json())
-//         .then(schedules => {
-//             let scheduleHtml = '';
-//             schedules.forEach(schedule => {
-//                 scheduleHtml += `
-//                     <div class="schedule-item">
-//                         <strong>${schedule.movie_movieName}</strong> - ${schedule.showtime}
-//                     </div>
-//                 `;
-//             });
-//             document.getElementById('schedule-container').innerHTML = scheduleHtml;
-//         });
-// }
 
 
 
