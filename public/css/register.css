@@ -4,6 +4,9 @@
     box-sizing: border-box;
 }
 
+body{
+    font-family: Arial, sans-serif;
+}
 /* bố cục 2 phần */
 .register {
     display: flex; /* Sử dụng Flexbox */
@@ -31,7 +34,7 @@ p {
 }
 
 /* Nhóm nút */
-.button-group {
+/* .button-group {
     margin-left: 20px;
     display: flex;
     justify-content: space-between;
@@ -39,10 +42,10 @@ p {
 }
 
 .button-group{
-    display: flex;           /* Bố cục hàng ngang */
-    justify-content: space-between; /* Phân bố khoảng cách đều */
-    gap: 10px;               /* Khoảng cách giữa các nút */
-}
+    display: flex;          
+    justify-content: space-between;
+    gap: 10px;              
+} */
 .input-group input {
     width: 48%;
     padding: 10px;
@@ -50,29 +53,16 @@ p {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-
-/* .button-group button {
-    margin-top: 20px;
-    margin-left: 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    background-color: #6c63ff;
-    color: #fff;
-    transition: background-color 0.3s;
-    margin: 15px;
-} */
 button{ 
     padding: 15px; 
-    width: 80%;
+    text-align: center;
+    width: 150px;
     cursor: pointer;
     border: none;
     border-radius: 5px;
     background-color: #6c63ff;
     color: #fff;
     transition: background-color 0.3s;
-    gap: 20px;   
 }
 /* hiệu ứng khi focus chuột vào  */
 .button-group button:hover {
@@ -82,22 +72,16 @@ button{
 /* Phần hình */
 .benphai {
     flex: 1;
-    background-color: #e0e7ff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-image: url('../img/dangnhap.png'); 
+    background-position: center;
+    background-size: cover;
 }
-.benphai img {
-    width: 80%;
-    max-width: 400px;
-}
-
 input[type="text"],
 input[type="password"],
 input[type="email"] {
     margin-left: 20px;
     padding: 10px;
-    width: 300px;
+    width: 250px;
     font-size: 20px;
     border: 2px solid #ccc;
     border-radius: 10px;
@@ -109,12 +93,25 @@ input[type="email"] {
 }
 
 label {
-    font-size: 18px;
-    margin-left: -150px;
+    font-size: 1rem;
+    /* margin-left: -150px; */
     margin-bottom: 5px; /* Khoảng cách giữa label và input */
     color: #333;
-    font-weight: bold; /* Làm đậm chữ */
 }
+.tkhoan{
+    margin-left: -150px;
+}
+
+.email{
+    margin-left: -200px;
+}
+.mkhau1{
+    margin-left: -180px;
+}
+.mkhau2{
+    margin-left: -100px;
+}
+
 
 input {
     padding: 10px;

@@ -31,7 +31,7 @@
             <div class="p3">
                 <p>Hello!</p>
 
-                <a href="#" class="dxuat">Đăng xuất</a>
+                <a href="#" class="dxuat"><a href="{{ route('login') }}">Đăng xuất</a>
             </div>
         </header>
         <!--=============================== BANNER ========================-->

@@ -28,7 +28,9 @@
                 </div>
             
                 <button type="submit" class="btn btn-primary btn-user btn-block">Đăng nhập</button>
-                <hr>
+
+                <hr> 
+                <p style="text-align: center ">Bạn chưa có tài khoản <a href="{{ route('register') }}"> Đăng ký ? </a> </p>
             </form>
         </div>
 
