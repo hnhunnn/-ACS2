@@ -22,16 +22,16 @@
             </div>
             <nav>
                 <ul class="menu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#">Admin Pages</a></li>
+                    <li><a href="{{ route('home') }}">Home</a></li>
+                    <li><a href="{{ route('profile') }}">Profile</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
 
             <div class="p3">
                 <p>Hello!</p>
 
-                <a href="#" class="dxuat"><a href="{{ route('login') }}">Đăng xuất</a>
+                <a href="#" class="dxuat"><a href="{{ route('loginU') }}" class='text-white' style='text-decoration: none'>Đăng nhập</a>
             </div>
         </header>
         <!--=============================== BANNER ========================-->
@@ -128,7 +128,6 @@
                 @foreach ($cinemas as $cinema)
                     <div class="cinema-item" onclick="showBranches({{ $cinema->id }})">
                         <img src="{{ asset($cinema->logo) }}" alt="">
-
                     </div>
                 @endforeach
             </div>
@@ -137,12 +136,9 @@
                 <h3>Chi nhánh</h3>
                 <div id="branch-container" style="display: none;">
                     <!-- Danh sách chi nhánh sẽ được tải vào đây bằng JavaScript -->
-                    {{-- @foreach ($branches as $branch) --}}
                     <div class="branch-item" onclick="showSchedules(branch_id)">
                         <!-- Nội dung của chi nhánh -->
                     </div>
-                    {{-- @endforeach --}}
-
                 </div>
             </div>
 
@@ -156,7 +152,7 @@
             </div>
         </div>
        <!--=============================== FOOTER ========================-->
-       <div>
+       <div  id="contact">
             <footer>
                 <div class="footer-container">
                     <div class="footer-section">

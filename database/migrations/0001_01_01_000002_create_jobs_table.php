@@ -48,12 +48,13 @@ return new class extends Migration
 
         Schema::create('user', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); //tên ngdung
+            $table->string('name')->default(""); //tên ngdung
             $table->string('username'); //tài khoản
             $table->string('password'); //mật khẩu
             $table->string('email'); //email
-            $table->string('phone'); //sdt
+            $table->string('phone')->default("");  //sdt
             $table->enum('role', ['admin', 'customer']); // vai trò(qtv/ngdung)
+            $table->timestamps();
         });
 
         Schema::create('movie', function (Blueprint $table) {

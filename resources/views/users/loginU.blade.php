@@ -11,15 +11,16 @@
     <div class="container">
         <div class="signin-signup">
             <!-- Sign In -->
-            <form action="" class="sign-in-form">
+            <form action="{{ route('postLoginU') }}" class="sign-in-form" method="post">
+                @csrf
                 <h2 class="title">Sign in</h2>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Username">
+                    <input type="text" placeholder="Username" name="username" required>
                 </div>
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="Password">
+                    <input type="password" placeholder="Password" name="password" required>
                 </div>
                 <input type="submit" value="Login" class="btn">
                 <p class="social-text">Or Sign in with social platform ?</p>
@@ -37,19 +38,20 @@
                 <p class="account-text">Don't have account? <a href="#" id="sign-up-btn2">Sign up</a></p>
             </form>
             <!-- Sign Up -->
-            <form action="" class="sign-in-form">
+            <form action="{{ route('register') }}" method="POST" class="sign-in-form">
+                @csrf
                 <h2 class="title">Sign up</h2>
                 <div class="input-field">
                     <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Username">
+                    <input type="text" placeholder="Username" name="username" required>
                 </div>
                 <div class="input-field">
                     <i class="fas fa-envelope"></i>
-                    <input type="text" placeholder="Email">
+                    <input type="text" placeholder="Email" name="email" required>
                 </div>
                 <div class="input-field">
                     <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="Password">
+                    <input type="password" placeholder="Password" name="password" required>
                 </div>
                 <input type="submit" value="Sign up" class="btn">
                 <p class="social-text">Or Sign in with social platform ?</p>

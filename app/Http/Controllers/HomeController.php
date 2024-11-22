@@ -17,7 +17,7 @@ class HomeController extends Controller
     {
         // Lấy tất cả các rạp kèm theo chi nhánh và lịch chiếu
         $cinemas = cinema::all();
-        return view('home', compact('cinemas'));
+        return view('users/home', compact('cinemas'));
       
     }
 

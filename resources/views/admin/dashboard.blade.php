@@ -50,7 +50,7 @@
                         <td>0935126931</td>
                         <td>Khách Hàng</td>
                         <td>
-                            <button class="action-btn edit-btn"><i class='bx bx-edit'></i></button>
+                            <button class="action-btn edit-btn"><a href="{{ route('admin.editUser') }}"><i class='bx bx-edit'></i></a></button>
                             <button class="action-btn delete-btn"><i class='bx bx-trash'></i></button>
                         </td>
                     </tr>

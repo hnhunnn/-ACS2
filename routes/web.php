@@ -5,7 +5,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CinemaController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\ScheduleController;
-use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\AuthController;
 
 
@@ -13,34 +12,32 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// SIGN IN SIGN UP 
-Route::get('/index', function () {
-    return view('index');
-});
-// ----- xử lý signinsignup
-// Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-// Route::post('/login', [AuthController::class, 'login']);
 
-// Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
-// Route::post('/register', [AuthController::class, 'register']);
+// LOGIN-ADMIN
+Route::get('/loginA', function () {
+    return view('admin.loginA');
+})->name('loginA');
 
-// Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+// LOGIN-USER 
+Route::get('/loginU', function () {
+    return view(view: 'users/loginU');
+})->name('loginU');
+
+Route::post('/loginU', [AuthController::class, 'login'])->name('postLoginU');
+
+//-----xử lý đăng ký------
+Route::post('/register', [AuthController::class, 'register'])->name('register');
 
 
+// PROFILE
+Route::get('/profile', function () {
+    return view('users/profile');
+})->name('profile');
 
+// Route::get('home', function () {
+//     return view('users/home');
+// })->name('home');
 
-
-// ĐĂNG KÝ
-Route::get('/register', function () {
-    return view('register');
-})->name('register');
-// ----- xử lý đăng ký -----
-Route::post('/register', [RegisterController::class, 'register']);
-
-//ĐĂNG NHẬP 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
 
 // HOME
 Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -50,7 +47,7 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard');
 
-// LIST FILM
+// LIST FILMs
 Route::get('/listMovie', function () {
     return view('admin.listMovie');
 })->name('admin.listMovie');
@@ -66,19 +63,20 @@ Route::get('/editMovie', function () {
 })->name('admin.editMovie');
 
 // ADMIN
-Route::get('/admin/addUser', function () {
+Route::get('/addUser', function () {
     return view('admin.addUser');
 })->name('admin.addUser');
+
+// SỬA FILM
+Route::get('/editUser', function () {
+    return view('admin.editUser');
+})->name('admin.editUser');
 
 // BOOKING
 Route::get('/booking', function () {
     return view('booking');
 });
 
-// PROFILE
-Route::get('/profile', function () {
-    return view('profile');
-});
 
 // THÔNG TIN PHIM
 Route::get('/detail', function () {
