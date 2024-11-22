@@ -13,7 +13,10 @@
         <br>
         <br><br>
         <!-- form đăng ký  -->
-        <form>
+        <!-- form đăng ký -->
+      <form action="{{ route('register') }}" method="POST">
+        @csrf <!-- Token bảo mật bắt buộc -->
+
           <div class="input-group">
             <label for="tkhoan" class="tkhoan">Tên tài khoản</label>
             <input type="text" placeholder="Nhập tài khoản" id="tkhoan" name="tkhoan"/>

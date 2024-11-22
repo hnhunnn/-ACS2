@@ -14,7 +14,7 @@
 </div>
 
 <div class='add' >
-    <a href="#" >Thêm Phim</a>
+    <a href="{{ route('admin.addMovie') }}" >Thêm Phim</a>
     </div>
     <br>
     <div>

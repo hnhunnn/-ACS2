@@ -15,7 +15,7 @@
     </div>
 
     <div class='add' >
-        <a href="{{ route('admin.add') }}">Thêm người dùng</a>
+        <a href="{{ route('admin.addUser') }}">Thêm người dùng</a>
         </div>
         <br>
         <div>

@@ -35,7 +35,7 @@
         <label class="form-check-label" for="isComingSoon">Sắp chiếu</label>
       </div>
       <div class="d-flex justify-content-between">
-        <button type="button" class="btn btn-secondary">Trở lại</button>
+        <button type="button" class="btn btn-secondary"> <a href="{{ route('admin.listMovie') }}"> Trở lại </a></button>
         <button type="submit" class="btn btn-custom btn-success">Lưu</button>
       </div>
     </form>

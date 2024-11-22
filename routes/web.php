@@ -6,16 +6,36 @@ use App\Http\Controllers\CinemaController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\RegisterController;
-
+use App\Http\Controllers\AuthController;
 
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+// SIGN IN SIGN UP 
+Route::get('/index', function () {
+    return view('index');
+});
+// ----- xử lý signinsignup
+// Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+// Route::post('/login', [AuthController::class, 'login']);
+
+// Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+// Route::post('/register', [AuthController::class, 'register']);
+
+// Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+
+
+
 // ĐĂNG KÝ
 Route::get('/register', function () {
     return view('register');
 })->name('register');
+// ----- xử lý đăng ký -----
+Route::post('/register', [RegisterController::class, 'register']);
 
 //ĐĂNG NHẬP 
 Route::get('/login', function () {
@@ -46,9 +66,9 @@ Route::get('/editMovie', function () {
 })->name('admin.editMovie');
 
 // ADMIN
-Route::get('/admin/add', function () {
+Route::get('/admin/addUser', function () {
     return view('admin.addUser');
-})->name('admin.add');
+})->name('admin.addUser');
 
 // BOOKING
 Route::get('/booking', function () {
