@@ -48,7 +48,7 @@
                         <td>123456</td>
                         <td>hnhun@gmail.com</td>
                         <td>0935126931</td>
-                        <td>Khách Hàng</td>
+                        <td>Quản Trị</td>
                         <td>
                             <button class="action-btn edit-btn"><a href="{{ route('admin.editUser') }}"><i class='bx bx-edit'></i></a></button>
                             <button class="action-btn delete-btn"><i class='bx bx-trash'></i></button>
@@ -63,7 +63,7 @@
                         <td>0935126931</td>
                         <td>Quản Trị</td>
                         <td>
-                            <button class="action-btn edit-btn"><i class='bx bx-edit'></i></button>
+                            <button class="action-btn edit-btn"><a href="{{ route('admin.editUser') }}"><i class='bx bx-edit'></i></a></button>
                             <button class="action-btn delete-btn"><i class='bx bx-trash'></i></button>
                         </td>
                     </tr>

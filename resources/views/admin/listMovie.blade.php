@@ -45,7 +45,7 @@
               <td>The King's Man 2019</td>
               <td>As a collection of history's worst tyrants and criminals...</td>
               <td>
-                <button class="action-btn edit-btn"><i class='bx bx-edit'></i></button>
+                <button class="action-btn edit-btn"><a href="{{ route('admin.editMovie') }}"><i class='bx bx-edit'></i></a></button>
                 <button class="action-btn delete-btn"><i class='bx bx-trash'></i></button>
                 <button class="action-btn schedule-btn"><i class='bx bx-calendar'></i></button>
               </td>
