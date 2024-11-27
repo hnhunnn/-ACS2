@@ -27,7 +27,8 @@ Route::post('/loginU', [AuthController::class, 'login'])->name('postLoginU');
 
 //-----xử lý đăng ký------
 Route::post('/register', [AuthController::class, 'register'])->name('register');
-
+// route xử lý đăng xuất
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // PROFILE
 Route::get('/profile', function () {
@@ -74,14 +75,15 @@ Route::get('/editUser', function () {
 
 // BOOKING
 Route::get('/booking', function () {
-    return view('booking');
-});
+    return view('users.booking');
+})->name('booking');
 
 
 // THÔNG TIN PHIM
 Route::get('/detail', function () {
-    return view('detail');
-});
+    return view('users.detail');
+})->name('detail');
+
 
 //LẤY CHI NHÁNH
 Route::get('/cinema/{id}/branch', action: [CinemaController::class, 'getBranches'])->name('cinema.branch');

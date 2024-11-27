@@ -31,7 +31,24 @@
             <div class="p3">
                 <p>Hello!</p>
 
-                <a href="#" class="dxuat"><a href="{{ route('loginU') }}" class='text-white' style='text-decoration: none'>Đăng nhập</a>
+            @if (Auth::check())
+            <div class="dropdown">
+                <button 
+                    class="btn btn-secondary dropdown-toggle" 
+                    type="button" 
+                    id="dropdownMenuButton" 
+                    data-bs-toggle="dropdown" 
+                    aria-expanded="false">
+                    {{ Auth::user()->name }}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="{{ route('logout') }}">Đăng xuất</a></li>
+                </ul>
+            </div>
+            @else
+            <a href="{{ route('loginU') }}"  style='text-decoration: none ; color:green '>Đăng nhập</a>
+            @endif
+                
             </div>
         </header>
         <!--=============================== BANNER ========================-->

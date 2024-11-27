@@ -7,6 +7,7 @@ use App\Models\cinema;
 use App\Models\branch;
 use App\Models\schedule;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -15,6 +16,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+       
         // Lấy tất cả các rạp kèm theo chi nhánh và lịch chiếu
         $cinemas = cinema::all();
         return view('users/home', compact('cinemas'));

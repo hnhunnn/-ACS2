@@ -17,7 +17,7 @@
         <ul class="menu">
           <li><a href="{{ route('home') }}">Home</a></li>
           <li><a href="#" class="active">Profile</a></li>
-          <li><a href="#">Admin Pages</a></li>
+          {{-- <li><a href="#">Contact</a></li> --}}
         </ul>
       </nav>
 

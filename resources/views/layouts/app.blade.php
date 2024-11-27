@@ -5,40 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Cinema Management')</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/booking.css">
     <link rel="stylesheet" href="../css/app.css">
+    <link rel="stylesheet" href="../css/detail.css">
+    <link rel="stylesheet" href="../css/booking.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 </head>
 
 <body>
     <!--=============================== HEADER ========================-->
-    <header class="header">
+    <header class="header1">
         <div class="logo">
           <img src="../img/logo.png" alt="" />
         </div>
         <nav>
           <ul class="menu">
-            <li><a href="#">Home</a></li>
+            <li><a href="{{ route('home') }}">Home</a></li>
             <li><a href="#" class="active">Profile</a></li>
-            <li><a href="#">Admin Pages</a></li>
+            <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
   
         <div class="p3">
           <p>Hello!</p>
-          <a href="#" class="dxuat">Đăng xuất</a>
+          @if (Auth::check())
+            <div class="dropdown">
+                <button 
+                    class="btn btn-secondary dropdown-toggle" 
+                    type="button" 
+                    id="dropdownMenuButton" 
+                    data-bs-toggle="dropdown" 
+                    aria-expanded="false">
+                    {{ Auth::user()->name }}
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <li><a class="dropdown-item" href="{{ route('logout') }}">Đăng xuất</a></li>
+                </ul>
+            </div>
+            @else
+            <a href="{{ route('loginU') }}" class='text-white' style='text-decoration: none'>Đăng nhập</a>
+            @endif
         </div>
       </header>
     
     <!-- Content -->
     <div class="container">
         @yield('content')
-    </div> <br>
-    <div style="background-color: orange; width: 86%; height: 20px; margin: 0 auto; "></div> <br>
+    </div> 
 
 
     <!-- Footer -->
-    <footer>
+    <footer id="contact">
         <div class="footer-container">
             <div class="footer-section">
                 <h3>About Us</h3>

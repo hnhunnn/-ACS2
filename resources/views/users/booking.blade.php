@@ -3,6 +3,7 @@
 @section('title', 'Chọn ghế')
 
 @section('content')
+<br>
 <div class="container">
     <div class="row">
         <!-- Khu vực màn hình -->
@@ -63,12 +64,13 @@
                     @if ($i % 16 == 0) <br> @endif
                 @endfor
             </div>
-        </div>
-
+        </div> <br>
+        <div style="background-color: orange; width: 100%; height: 20px;"></div>
+        <br>
         <!-- Khu vực thanh toán -->
         <div class="col-12 mt-4">
             <div class="payment-info text-right p-3" style="background-color: #222; color: #fff;">
-                <h4 class="text-success">THANH TOÁN</h4>
+<h4 class="text-success">THANH TOÁN</h4>
                 <h3 class="text-success">324.000đ</h3>
                 <p><strong>House of Dragon</strong></p>
                 <p>Địa điểm: BHD Star Cineplex - 3/2 - Rạp 5</p>
@@ -82,6 +84,3 @@
     </div>
 </div>
 @endsection
-
-
-   

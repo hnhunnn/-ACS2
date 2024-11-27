@@ -1,31 +1,42 @@
-/* menu */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
 body {
-    font-family: Arial, sans-serif;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Ẩn thanh cuộn */
+}
+.wrapper {
+    height: 100vh; /* Đặt chiều cao của wrapper theo chiều cao màn hình */
+    width: 100%; /* Đặt chiều rộng của wrapper theo chiều rộng màn hình */
+    overflow-y: scroll; /* Cho phép cuộn dọc */
+    /* overflow-x: scroll; Cho phép cuộn ngang nếu cần */
+    scrollbar-width: none; /* Ẩn thanh cuộn trong Firefox */
+    flex: 1;
+}
+
+/* Ẩn thanh cuộn trên Chrome, Edge và Safari */
+.wrapper::-webkit-scrollbar {
+    display: none;
 }
 
 .header {
+    position: fixed;
+    z-index: 1000; /* Giữ header ở trên các phần tử khác */
+    background-color: rgba(0, 0, 0, 0.7); /* 70% đục */
     width: 100%;
     height: 70px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background-color: #333;
-    color: white; 
+    color: white;
 }
-
 .logo img {
-    width: 80px;
+    width: 100px;
     height: 55px;
+    filter: brightness(1.2);
 }
-
 nav {
     flex-grow: 1;
     text-align: center;
@@ -35,7 +46,7 @@ nav {
     display: flex;
     list-style: none;
     justify-content: center;
-    gap: 20px;
+    gap: 20px; /* Khoảng cách giữa các mục menu */
 }
 
 .menu li {
@@ -45,7 +56,7 @@ nav {
 .menu a {
     color: white;
     text-decoration: none;
-    font-size: 16px;
+    font-size: 20px;
     padding: 10px;
     transition: background-color 0.3s;
 }
@@ -54,17 +65,11 @@ nav {
     background-color: #555;
     border-radius: 4px;
 }
-
 .p3 {
     display: flex;
     list-style: none;
     justify-content: center;
-    gap: 20px; 
-}
-
-.dxuat {
-    color: green;
-    text-decoration: none;
+    gap: 20px;
 }
 
 /* thông tin phim inside */
@@ -75,8 +80,14 @@ nav {
 }
 
 .background {
-    width: 100%;
-    height: 100%;
+    position: absolute; /* Đặt ảnh nền bên trong .nen */
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%; /* Chiều rộng bằng với .nen */
+    height: 100%; /* Chiều cao bằng với .nen */
+    object-fit: cover; /* Đảm bảo ảnh lấp đầy toàn bộ vùng mà không bị biến dạng */
+    z-index: -1; /* Đưa ảnh nền ra sau các phần tử khác */
 }
 
 .inside2 {
@@ -86,7 +97,7 @@ nav {
     transform: translate(-190%, -100%);
     width: 300px;
     height: 300px;
-    object-fit: cover; 
+    object-fit: cover;
 }
 
 /* menu tt  */
@@ -100,7 +111,7 @@ nav {
     padding: 10px 20px; /* Tạo khoảng cách bên trong giữa các mục và viền */
     border-radius: 0;
     list-style-type: none;
-    background-color: #222
+    background-color: #222;
 }
 .menu_tt li a {
     color: white;
@@ -158,11 +169,11 @@ nav {
 
 .showtime a {
     text-decoration: none; /* Bỏ gạch chân */
-    color: white; 
-    font-size: 1.5em; 
-    padding: 10px; 
-    display: block; 
-    text-align: center; 
+    color: white;
+    font-size: 1.5em;
+    padding: 10px;
+    display: block;
+    text-align: center;
 }
 
 .showtime a:hover {

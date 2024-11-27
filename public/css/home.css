@@ -16,11 +16,23 @@ body {
     flex: 1;
 }
 
+/* dropdown */
+.dropdown-item:hover {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+/* tên ng dùng */
+#dropdownMenuButton {
+    background-color: transparent;
+    border: none;
+    margin-top: -6px;
+    color: green;
+}
 /* Ẩn thanh cuộn trên Chrome, Edge và Safari */
 .wrapper::-webkit-scrollbar {
     display: none;
 }
-
 
 .header {
     position: fixed;
@@ -74,16 +86,12 @@ nav {
     justify-content: center;
     gap: 20px; /* Khoảng cách giữa các mục menu */
 }
-.dxuat {
-    color: green;
-    /* font-size: 18px; */
-    text-decoration: none;
-}
+
 .carousel img {
     width: 100%; /* Điều chỉnh chiều cao */
     object-fit: cover;
     height: 650px;
-  }
+}
 
 .ticket {
     width: 100%;
@@ -107,7 +115,7 @@ nav {
     background-color: #e67e22;
 }
 
-.movie-grid  {
+.movie-grid {
     display: flex;
     flex-direction: row;
     width: 100%; /* Bảo đảm không vượt quá chiều rộng khung */
@@ -117,9 +125,8 @@ nav {
     overflow-y: hidden;
     overflow-x: auto; /* Chỉ cuộn ngang khi cần thiết */
     scrollbar-width: none; /* Ẩn thanh cuộn trong Firefox */
-    gap: 15px; 
+    gap: 15px;
     padding-left: 30px; /* Thêm khoảng cách giữa danh sách và lề trái */
-
 }
 /* .movie-card {
     flex: 0 0 auto;
@@ -129,7 +136,7 @@ nav {
     margin-top: 15px; 
 } */
 .movie-card {
-    width: 300px; /* Đặt chiều rộng cố định */   
+    width: 300px; /* Đặt chiều rộng cố định */
     flex: 0 0 auto; /* Đảm bảo không bị co giãn */
     border-radius: 10px;
     overflow: hidden;
@@ -176,12 +183,12 @@ nav {
 }
 .left {
     left: 0;
-    mix-blend-mode: lighten; 
+    mix-blend-mode: lighten;
 }
 
 .right {
     right: 0;
-    mix-blend-mode: lighten; 
+    mix-blend-mode: lighten;
 }
 #left {
     margin-top: -130px;
@@ -209,7 +216,9 @@ nav {
     background-color: #555;
 }
 
-.cinema-list, .branch-details, .schedule-details {
+.cinema-list,
+.branch-details,
+.schedule-details {
     width: 30%;
     background-color: #f7eaea;
     padding: 15px;
@@ -217,7 +226,9 @@ nav {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.cinema-list h3, .branch-details h3, .schedule-details h3 {
+.cinema-list h3,
+.branch-details h3,
+.schedule-details h3 {
     font-size: 1.2rem;
     margin-bottom: 10px;
     color: #333;
@@ -246,7 +257,7 @@ nav {
 
 .branch-item {
     padding: 10px;
-   
+
     border-radius: 6px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     cursor: pointer;
@@ -269,10 +280,10 @@ nav {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-#branch-container, #schedule-container {
+#branch-container,
+#schedule-container {
     display: none; /* Initially hidden */
 }
-
 
 /* footer */
 footer {
@@ -331,8 +342,6 @@ footer {
     color: #bbb;
 }
 
-
-
 /* Responsive layout for smaller screens */
 @media (max-width: 768px) {
     .ba {
@@ -340,7 +349,9 @@ footer {
         align-items: center;
     }
 
-    .cinema-list, .branch-details, .schedule-details {
+    .cinema-list,
+    .branch-details,
+    .schedule-details {
         width: 100%;
         margin-bottom: 20px;
     }

@@ -1,32 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thông tin phim</title>
-    <link rel="stylesheet" href="../css/detail.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-</head>
-<body>
-    <div>
-        <header class="header">
-            <div class="logo">
-                <img src="../img/logo.png" alt="" />
-            </div>
-            <!-- Thanh menu -->
-            <nav>
-                <ul class="menu">
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Profile</a></li>
-                    <li><a href="#">Admin Pages</a></li>
-                </ul>
-            </nav>
+@extends('layouts.app')
 
-            <div class="p3">
-                <p>Hello!</p>
-                <a href="#" class="dxuat">Đăng xuất</a>
-            </div>
-        </header>
+@section('title', 'Chọn ghế')
+
+@section('content')
 
         <div class="nen">
             <img src="../img/bgrInside2.png" class="background">
@@ -51,35 +27,5 @@
                 <div class="showtime"><a href="#">10:00 PM</a></div>
             </div>
         </div>
-    </div>
+@endsection
 
-    <footer>
-        <div class="footer-container">
-            <div class="footer-section">
-                <h3>About Us</h3>
-                <p>Welcome to HN & DL</p>
-            </div>
-            
-            <div class="footer-section">
-                <h3>Contact Info</h3>
-                <p><i class="fas fa-map-marker-alt"></i> 41 Hoàng Châu Ký, TP Đà Nẵng</p>
-                <p><i class="fas fa-phone-alt"></i> 0935126931</p>
-                <p><i class="fas fa-envelope"></i> honggnhungg@gmail.com</p>
-                <p><i class="fas fa-envelope"></i> dieulinh@gmail.com</p>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/profile.php?id=100069911256288" target="_blank"><i class="fab fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
-                    <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 HN & DL</p>
-        </div>
-    </footer>
-</body>
-</html>

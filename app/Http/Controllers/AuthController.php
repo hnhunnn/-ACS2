@@ -21,8 +21,6 @@ public function login(Request $request)
         'password' => 'required|string|min:6',
     ]);
 
-
-
     if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
         return redirect()->route('home');
     }
@@ -37,18 +35,17 @@ public function login(Request $request)
     return view('users.loginU'); 
    }
 
-public function register(Request $request)
-{
-    $request->validate([
-        'username' => 'required|string',
-        'email' => 'required|string|email',
-        'password' => 'required|string|min:6',
-
-    ]);
-
+   public function register(Request $request)
+   {
+       $request->validate([
+           'username' => 'required|string|max:255', // Kiểm tra username là chuỗi, không dài hơn 255 ký tự
+           'name' => 'required|string|max:255', // Kiểm tra name là chuỗi và tối đa 255 ký tự
+           'password' => 'required|string|min:6', // Kiểm tra password tối thiểu 6 ký tự
+       ]);
+   
     User::create([
         'username' => $request->username,
-        'email' => $request->email,
+        'name' => $request->name,
         'password' => Hash::make($request->password),
         'role' => 'customer',
     ]);
@@ -59,6 +56,6 @@ public function register(Request $request)
     public function logout()
 {
     Auth::logout();
-    return redirect()->route('login')->with('success', 'Logged out successfully.');
+    return redirect()->back()->with('success', 'Logged out successfully.');
 }
 }
