@@ -134,36 +134,58 @@
         </div>
 
 
-        <!--====================== CINEMA,BRANCH,SCHEDULE ===================-->
-        <div class="ba">
-            <div class="cinema-list">
-                <h3>Danh sách rạp</h3>
-                @foreach ($cinemas as $cinema)
-                    <div class="cinema-item" onclick="showBranches({{ $cinema->id }})">
-                        <img src="{{ asset($cinema->logo) }}" alt="">
+       <!--====================== CINEMA,BRANCH,SCHEDULE ===================-->
+       <div class="ba">
+        <div class="cinema-list">
+            <h3>Danh sách rạp</h3>
+            @foreach ($cinemas as $cinema)
+                <form action="{{ route('home') }}" method="GET" style="display: inline-block;">
+                    <input type="hidden" name="cinema_id" value="{{ $cinema->id }}">
+                    <button type="submit" style="border: none; background: none; cursor: pointer;">
+                        <img src="{{ asset($cinema->logo) }}" alt="Logo of {{ $cinema->cinemaName }}"
+                            style="width: 100px;">
+                    </button>
+                </form>
+            @endforeach
+        </div>
+
+        <div class="branch-details">
+            <h3>Chi nhánh</h3>
+            @if (!empty($branches))
+                @foreach ($branches as $branch)
+                    <form action="{{ route('home') }}" method="GET" class="branch-item">
+                        <input type="hidden" name="cinema_id" value="{{ request('cinema_id') }}">
+                        <input type="hidden" name="branch_id" value="{{ $branch->id }}">
+                        <button type="submit" style="border: none; background: none; cursor: pointer;">
+                            <div >
+                                <h4>{{ $branch->branchName }}</h4>
+                                <p>{{ $branch->address }}</p>
+                            </div>
+                        </button>
+                    </form>
+                @endforeach
+            {{-- @else
+                <p></p> --}}
+            @endif
+        </div>
+
+        <div class="schedule-details">
+            <h3>Giờ chiếu</h3>
+            @if (!empty($schedules))
+                @foreach ($schedules as $schedule)
+                    <div class="schedule-item">
+                        @foreach ($schedule->showtime as $item)
+                            <p>{{ $item }}</p>
+                        @endforeach
+
                     </div>
                 @endforeach
-            </div>
-
-            <div class="branch-details">
-                <h3>Chi nhánh</h3>
-                <div id="branch-container" style="display: none;">
-                    <!-- Danh sách chi nhánh sẽ được tải vào đây bằng JavaScript -->
-                    <div class="branch-item" onclick="showSchedules(branch_id)">
-                        <!-- Nội dung của chi nhánh -->
-                    </div>
-                </div>
-            </div>
-
-            <div class="schedule-details">
-                <h3>Giờ chiếu</h3>
-                <div id="schedule-container">
-                    <!-- Giờ chiếu sẽ được tải vào đây bằng JavaScript -->
-                    <div class="schedule-item">
-                    </div>
-                </div>
-            </div>
+            {{-- @else
+                <p></p> --}}
+            @endif
         </div>
+
+    </div>
         <!--=============================== FOOTER ========================-->
         <section class="footer">
             <div class="container">

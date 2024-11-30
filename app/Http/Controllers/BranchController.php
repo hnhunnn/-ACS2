@@ -8,19 +8,15 @@ use Illuminate\Http\Request;
 
 class BranchController extends Controller
 {
-    public function getSchedules($id)
+   
+     // LẤY CHI NHÁNH THEO RẠP
+    public function getBranches($id)
     {
-       // Lấy lịch chiếu của chi nhánh cùng thông tin phim
-        $schedules = schedule::where('branch_id', $id)->get();
-        return response()->json($schedules);
+        $branches = branch::where('cinema_id', $id)->get();
 
-        // $schedules = schedule::where('branch_id', $branchId)
-        //     ->with('movie') 
-        //     ->get();
-
-        // return response()->json($schedules);
-        
+        return response()->json($branches);
     }
+    
     public function index()
     {
         //

@@ -35,11 +35,6 @@ Route::get('/profile', function () {
     return view('users/profile');
 })->name('profile');
 
-// Route::get('home', function () {
-//     return view('users/home');
-// })->name('home');
-
-
 // HOME
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
@@ -84,11 +79,13 @@ Route::get('/detail', function () {
     return view('users.detail');
 })->name('detail');
 
+// LẤY RẠP CHIẾU PHIM
+Route::get('/home', [CinemaController::class, 'getCinemas'])->name('home');
 
 //LẤY CHI NHÁNH
-Route::get('/cinema/{id}/branch', action: [CinemaController::class, 'getBranches'])->name('cinema.branch');
+Route::get('/cinema/{id}/branch', action: [BranchController::class, 'getBranches'])->name('cinema.branch');
 
 //LẤY GIỜ CHIẾU
-Route::get('/branch/{branch_id}/schedule', action: [BranchController::class, 'getSchedules'])->name('branch.schedule');
+Route::get('/branch/{id}/schedules', action: [ScheduleController::class, 'getSchedules'])->name('branch.schedule');
 
 
