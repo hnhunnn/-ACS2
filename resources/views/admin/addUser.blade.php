@@ -3,7 +3,7 @@
 
 <div class="content-wrapper" style="background-color: white">
     
-    <div class="form-container" style="max-width: 500px; margin: 0 auto;">
+    <div class="form-container" style="max-width: 500px; margin: 40px auto;">
         <form>
             <h2 class="mb-2 text-center">Thêm người dùng</h2>
           <div class="mb-2">
@@ -31,7 +31,6 @@
             <select class="form-select" id="userType">
               <option value="Khách hàng">Khách hàng</option>
               <option value="Quản trị viên">Quản trị viên</option>
-              <option value="Nhân viên">Nhân viên</option>
             </select>
           </div>
           <div class="d-flex justify-content-between">

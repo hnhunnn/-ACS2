@@ -3,7 +3,7 @@
 
 <div class="content-wrapper" style="background-color: white">
     
-    <div class="form-container" style="max-width: 500px; margin: 0 auto;">
+    <div class="form-container" style="max-width: 500px; margin: 40px auto;">
         <form>
             <h2 class="mb-2 text-center">Chỉnh sửa người dùng</h2>
           <div class="mb-2">

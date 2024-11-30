@@ -20,58 +20,6 @@ body {
     display: none;
 }
 
-.header {
-    position: fixed;
-    z-index: 1000; /* Giữ header ở trên các phần tử khác */
-    background-color: rgba(0, 0, 0, 0.7); /* 70% đục */
-    width: 100%;
-    height: 70px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    color: white;
-}
-.logo img {
-    width: 100px;
-    height: 55px;
-    filter: brightness(1.2);
-}
-nav {
-    flex-grow: 1;
-    text-align: center;
-}
-
-.menu {
-    display: flex;
-    list-style: none;
-    justify-content: center;
-    gap: 20px; /* Khoảng cách giữa các mục menu */
-}
-
-.menu li {
-    margin: 0;
-}
-
-.menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-    padding: 10px;
-    transition: background-color 0.3s;
-}
-
-.menu a:hover {
-    background-color: #555;
-    border-radius: 4px;
-}
-.p3 {
-    display: flex;
-    list-style: none;
-    justify-content: center;
-    gap: 20px;
-}
-
 /* thông tin phim inside */
 .nen {
     position: relative;

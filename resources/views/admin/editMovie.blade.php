@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="content-wrapper" style="background-color: white">
-  <div class="form-container" style="max-width: 500px; margin: 0 auto;">
+  <div class="form-container" style="max-width: 500px; margin: 20px auto;">
     <h2 class="text-center mb-7">Chỉnh sửa phim</h2>
     <form method="POST" action="/movies/update" enctype="multipart/form-data">
       @csrf
