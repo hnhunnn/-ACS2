@@ -2,64 +2,38 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\movie;
+use App\Models\Movie;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the movies.
      */
     public function index()
     {
-        //
+        // Lấy danh sách tất cả các phim
+        $movies = Movie::all();
+        return view('movies.index', compact('movies'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display the specified movie details.
      */
-    public function create()
+    public function show($id)
     {
-        //
+        // Tìm phim theo ID
+        $movie = Movie::findOrFail($id);
+    
+        // Trả về view hiển thị chi tiết phim
+        return view('users.detail', compact('movie'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function showMovieDetail(Request $request)
     {
-        //
+        $id = $request->query('id');
+        $movieDetail = movie::findOrFail($id);
+        return view('users.detail', compact("movieDetail"));
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(movie $movie)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(movie $movie)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, movie $movie)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(movie $movie)
-    {
-        //
-    }
+    
+ 
 }

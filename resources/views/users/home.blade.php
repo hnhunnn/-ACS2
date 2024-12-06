@@ -71,74 +71,22 @@
                     <b>PHIM SẮP CHIẾU</b>
                 </button>
             </div>
-            <!------------------List phim  1------------------------>
-
-            <div class="movie-grid">
-                <button class="scroll-button left" id='left' onclick="scrollLeft()">&#10094;</button>
-                {{-- <div class="movie-card">
-                    <img src="../img/inside2.png" alt="Movie 1">
-                    <button>Đặt Vé</button>
-                </div>
-                <div class="movie-card">
-                    <img src="../img/nhabanu.jpg" alt="Movie 2">
-                    <button>Đặt Vé</button>
-                </div>
-                <div class="movie-card">
-                    <img src="../img/bogia.png" alt="Movie 3">
-                    <button>Đặt Vé</button>
-                </div>
-                <div class="movie-card">
-                    <img src="../img/inside2.png" alt="Movie 4">
-                    <button>Đặt Vé</button>
-                </div>
-                <div class="movie-card">
-                    <img src="../img/inside2.png" alt="Movie 5">
-                    <button>Đặt Vé</button>
-                </div>
-                <div class="movie-card">
-                    <img src="../img/inside2.png" alt="Movie 6">
-                    <button>Đặt Vé</button>
-                </div> --}}
-                @foreach ($movies as $movie)
-    <div class="movie-card">
-        <a href="{{ route('users.detail', $movie->id) }}">
-            <img src="{{ asset($movie->image_path) }}" alt="{{ $movie->title }}">
-        </a>
-        <button>Đặt Vé</button>
-    </div>
-@endforeach
-<button class="scroll-button right" id='right' onclick="scrollRight()">&#10095;</button>
-
-            <!------------------List phim  2------------------------>
-            <div class="movie-grid">
-                <button class="scroll-button left" id='left2' onclick="scrollLeft2()">&#10094;</button>
-                <div class="movie-card">
-                    <img src="../img/inside2.png" alt="Movie 1">
-                    <button>Đặt Vé</button>
-                </div>
-                <div class="movie-card">
-                    <img src="../img/inside2.png" alt="Movie 2">
-                    <button>Đặt Vé</button>
-                </div>
-                <div class="movie-card">
-                    <img src="../img/inside2.png" alt="Movie 3">
-                    <button>Đặt Vé</button>
-                </div>
-                <div class="movie-card">
-                    <img src="../img/inside2.png" alt="Movie 4">
-                    <button>Đặt Vé</button>
-                </div>
-                <div class="movie-card">
-                    <img src="../img/inside2.png" alt="Movie 5">
-                    <button>Đặt Vé</button>
-                </div>
-                <div class="movie-card">
-                    <img src="../img/inside2.png" alt="Movie 6">
-                    <button>Đặt Vé</button>
-                </div>
-                <button class="scroll-button right" id='right2'onclick="scrollRight2()">&#10095;</button>
+            <!------------------LIST PHIM  ------------------------>
+            <div class="movie-grid-container">
+                @foreach ($movies->chunk(4) as $movieRow) <!-- Chia phim thành từng nhóm 5 phim -->
+                    <div class="movie-grid">
+                        @foreach ($movieRow as $movie)
+                            <div class="movie-card">
+                                <a href="{{ route('users.detail', $movie->id) }}">
+                                    <img src="{{ asset($movie->image_path) }}" alt="{{ $movie->title }}">
+                                </a>
+                                <button>Đặt Vé</button>
+                            </div>
+                        @endforeach
+                    </div>
+                @endforeach
             </div>
-        </div>
+        
 
 
        <!--====================== CINEMA,BRANCH,SCHEDULE ===================-->
@@ -171,8 +119,6 @@
                         </button>
                     </form>
                 @endforeach
-            {{-- @else
-                <p></p> --}}
             @endif
         </div>
 
@@ -187,8 +133,6 @@
 
                     </div>
                 @endforeach
-            {{-- @else
-                <p></p> --}}
             @endif
         </div>
 
@@ -249,18 +193,9 @@
             <p>&copy;Bản quyền thuộc về HN & DL | Cung cấp bởi DieuLinh</p>
         </div>
 
-
-
-
         <!--=============================== SCRIPT ========================-->
         {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
-        <script src="{{ asset('../js/home.js') }}">
-            src =
-                "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js ";
-            integrity =
-                "sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz";
-            crossorigin = "anonymous";
-        </script>
+        <script src="{{ asset('../js/home.js') }}"></script>
 </body>
 
 </html>

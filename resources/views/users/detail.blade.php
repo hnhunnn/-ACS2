@@ -1,20 +1,42 @@
 @extends('layouts.app')
 
-@section('title', 'Thông tin phim')
+@section('title', $movie->movieName)
 
 @section('content')
-
-        <div class="nen">
-            <img src="../img/bgrInside2.png" class="background">
-            <img src="../img/inside2.png" class="inside2">
-            <p class="tieu_de_phim">Inside Out 2:</p>
-            <p class="mo_ta_phim">Cảm xúc cũng trưởng thành và mắc sai lầm (nhưng không sao cả)
-                Mỗi cảm xúc trong ta không tự sinh ra cũng không tự mất đi, nó luôn ở đó và trưởng thành sau ngàn lần đấu tranh.Tác phẩm do Kelsey Mann đạo diễn, lấy bối cảnh hai năm sau các sự kiện ở phần đầu. Riley (Amy Poehler lồng tiếng) lúc này bước sang tuổi 13, có nhiều thay đổi về tâm sinh lý. Năm cảm xúc Joy (Vui Vẻ), Sadness (Buồn Bã), Anger (Giận Dữ), Fear (Sợ Hãi) và Disgust (Ghê Tởm) sẽ cùng cô bạn đồng hành trải qua tuổi dậy thì.</p>
-            <nav>
-                
-                <div class="horizontal-line"></div> 
-            </nav>
-            
+    <div class="movie-detail-container">
+        
+        <div class="movie-image-container">
+            <img src="{{ asset($movie->image_path) }}" alt="{{ $movie->movieName }}" class="movie-image">
         </div>
-@endsection
 
+        <div class="movie-info">
+            <h1 class="movie-title">{{ $movie->movieName }}</h1> 
+            <p class="movie-description"><strong>Mô tả:</strong> {{ $movie->description }}</p>
+               <!-- Trailer -->
+            @if($movie->trailer_url)
+            @php
+                // Trích xuất VIDEO_ID từ trailer_url
+                $parsedUrl = parse_url($movie->trailer_url);
+                parse_str($parsedUrl['query'] ?? '', $queryParams);
+                $videoId = $queryParams['v'] ?? '';
+            @endphp
+
+            @if($videoId)
+                <div class="video-container">
+                    <iframe width="560" height="315" 
+                            src="https://www.youtube.com/embed/{{ $videoId }}" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            @else
+                <p>Trailer không khả dụng.</p>
+            @endif
+            @else
+                <p>Không có trailer.</p>
+            @endif
+        </div>
+    </div>
+
+@endsection

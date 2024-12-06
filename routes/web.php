@@ -6,6 +6,7 @@ use App\Http\Controllers\CinemaController;
 use App\Http\Controllers\BranchController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MovieController;
 
 
 Route::get('/', function () {
@@ -89,4 +90,6 @@ Route::get('/cinema/{id}/branch', action: [BranchController::class, 'getBranches
 Route::get('/branch/{id}/schedules', action: [ScheduleController::class, 'getSchedules'])->name('branch.schedule');
 
 // thongtinphim
-Route::get('/movie/{id}', [CinemaController::class, 'show'])->name('users.detail');
+Route::get('/movie/{id}', [MovieController::class, 'show'])->name('users.detail');
+
+

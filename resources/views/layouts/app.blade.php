@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../css/detail.css">
     <link rel="stylesheet" href="../css/booking.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -103,7 +104,7 @@
                 </ul>
             </div>
         </div>
-    </section>
+    </section>  
 
     <div class="copyrightText">
         <p>&copy;Bản quyền thuộc về HN & DL | Cung cấp bởi DieuLinh</p>

@@ -1,80 +1,70 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
-    overflow-x: hidden; /* Ẩn thanh cuộn */
-}
-.wrapper {
-    height: 100vh; /* Đặt chiều cao của wrapper theo chiều cao màn hình */
-    width: 100%; /* Đặt chiều rộng của wrapper theo chiều rộng màn hình */
-    overflow-y: scroll; /* Cho phép cuộn dọc */
-    /* overflow-x: scroll; Cho phép cuộn ngang nếu cần */
-    scrollbar-width: none; /* Ẩn thanh cuộn trong Firefox */
-    flex: 1;
+/* Bố trí ảnh và thông tin phim cạnh nhau */
+.movie-detail-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 40px auto;
+    max-width: 1200px;
+    padding: 10px;
+    background-color: #000000;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Ẩn thanh cuộn trên Chrome, Edge và Safari */
-.wrapper::-webkit-scrollbar {
-    display: none;
+/* Thêm một container cho ảnh và tên phim */
+.movie-image-container {
+    width: 40%;
+    text-align: center;
 }
 
-/* thông tin phim inside */
-.nen {
-    position: relative;
+/* Ảnh phim */
+.movie-image {
     width: 100%;
-    height: 900px;
-}
-
-.background {
-    position: absolute; /* Đặt ảnh nền bên trong .nen */
-    top: 0;
-    left: 0;
-    right: 0;
-    width: 100%; /* Chiều rộng bằng với .nen */
-    height: 100%; /* Chiều cao bằng với .nen */
-    object-fit: cover; /* Đảm bảo ảnh lấp đầy toàn bộ vùng mà không bị biến dạng */
-    z-index: -1; /* Đưa ảnh nền ra sau các phần tử khác */
-}
-
-.inside2 {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-190%, -100%);
-    width: 300px;
-    height: 300px;
+    height: 500px;
+    border-radius: 10px;
     object-fit: cover;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* menu tt  */
-
-.mo_ta_phim {
-    position: absolute;
-    top: 10%;
-    left: 50%;
-    transform: translate(-40%, 19%);
-    width: auto;
-    height: 200px;
-    flex: 1; /* Cho phép đoạn văn chiếm không gian còn lại */
-    font-size: 1.2em;
-    line-height: 1.5; /* Điều chỉnh chiều cao dòng để dễ đọc */
-    color: white;
-}
-
-.tieu_de_phim {
-    position: absolute;
-    top: 2%;
-    left: 50%;
-    transform: translate(-100%, 20%);
-    width: auto;
-    height: 200px;
-    flex: 1;
+/* Tiêu đề phim dưới ảnh */
+.movie-title {
     font-size: 2em;
-    line-height: 2; /* Điều chỉnh chiều cao dòng để dễ đọc */
-    color: white;
     font-weight: bold;
+    color: #ffffff;
+    margin-top: -20px; /* Khoảng cách giữa ảnh và tiêu đề */
+    text-align: center;
+}
+
+/* Thông tin phim bên phải */
+.movie-info {
+    width: 55%;
+    margin-top: 50px;
+    margin-left: 10px;
+}
+
+/* Mô tả phim */
+.movie-description {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Các thông tin khác về phim */
+.movie-detail-container p {
+    font-size: 1.1em;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.movie-detail-container a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.movie-detail-container a:hover {
+    text-decoration: underline;
 }
 
 /* footer */
