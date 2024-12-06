@@ -75,7 +75,7 @@
 
             <div class="movie-grid">
                 <button class="scroll-button left" id='left' onclick="scrollLeft()">&#10094;</button>
-                <div class="movie-card">
+                {{-- <div class="movie-card">
                     <img src="../img/inside2.png" alt="Movie 1">
                     <button>Đặt Vé</button>
                 </div>
@@ -98,9 +98,16 @@
                 <div class="movie-card">
                     <img src="../img/inside2.png" alt="Movie 6">
                     <button>Đặt Vé</button>
-                </div>
-            </div>
-            <button class="scroll-button right" id='right'onclick="scrollRight()">&#10095;</button>
+                </div> --}}
+                @foreach ($movies as $movie)
+    <div class="movie-card">
+        <a href="{{ route('users.detail', $movie->id) }}">
+            <img src="{{ asset($movie->image_path) }}" alt="{{ $movie->title }}">
+        </a>
+        <button>Đặt Vé</button>
+    </div>
+@endforeach
+<button class="scroll-button right" id='right' onclick="scrollRight()">&#10095;</button>
 
             <!------------------List phim  2------------------------>
             <div class="movie-grid">
@@ -129,8 +136,8 @@
                     <img src="../img/inside2.png" alt="Movie 6">
                     <button>Đặt Vé</button>
                 </div>
+                <button class="scroll-button right" id='right2'onclick="scrollRight2()">&#10095;</button>
             </div>
-            <button class="scroll-button right" id='right2'onclick="scrollRight2()">&#10095;</button>
         </div>
 
 

@@ -16,7 +16,8 @@ class CinemaController extends Controller
         $cinemas = Cinema::all(); // Lấy toàn bộ danh sách rạp
         $branches = [];
         $schedules = [];
-
+        $movies = \App\Models\Movie::all(); // Lấy tất cả các bộ phim
+ 
         if ($request->has('cinema_id')) {
             $cinemaId = $request->input('cinema_id');
 
@@ -39,8 +40,10 @@ class CinemaController extends Controller
 
         // dd($cinemas, $branches, $schedules);
 
-        return view('users.home', compact('cinemas', 'branches', 'schedules'));
+        return view('users.home', compact('cinemas', 'branches', 'schedules','movies'));
     }
+    // thongtinphim
+    
 
 
 

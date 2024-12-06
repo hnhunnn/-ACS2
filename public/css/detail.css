@@ -49,27 +49,6 @@ body {
 }
 
 /* menu tt  */
-.menu_tt {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    gap: 20px; /* Khoảng cách giữa các mục trong menu */
-    padding: 10px 20px; /* Tạo khoảng cách bên trong giữa các mục và viền */
-    border-radius: 0;
-    list-style-type: none;
-    background-color: #222;
-}
-.menu_tt li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-.menu_tt li a:hover {
-    color: #b2f43f;
-}
 
 .mo_ta_phim {
     position: absolute;
@@ -96,36 +75,6 @@ body {
     line-height: 2; /* Điều chỉnh chiều cao dòng để dễ đọc */
     color: white;
     font-weight: bold;
-}
-
-/* giờ chiếu phim  */
-.showtimes {
-    padding: 20px;
-    position: absolute;
-    top: 62%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-wrap: wrap; /* Cho phép xuống hàng */
-    justify-content: center; /* Căn giữa các mục */
-}
-
-.showtime {
-    margin: 1px; /* Khoảng cách giữa các suất */
-    flex: 0 0 calc(40% - 20px); /* Đặt chiều rộng cho mỗi suất chiếu (50% - khoảng cách) */
-}
-
-.showtime a {
-    text-decoration: none; /* Bỏ gạch chân */
-    color: white;
-    font-size: 1.5em;
-    padding: 10px;
-    display: block;
-    text-align: center;
-}
-
-.showtime a:hover {
-    background-color: #b2f43f;
 }
 
 /* footer */

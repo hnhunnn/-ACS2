@@ -36,7 +36,7 @@ Route::get('/profile', function () {
 })->name('profile');
 
 // HOME
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // DASHBOARD
 Route::get('/dashboard', function () {
@@ -88,4 +88,5 @@ Route::get('/cinema/{id}/branch', action: [BranchController::class, 'getBranches
 //LẤY GIỜ CHIẾU
 Route::get('/branch/{id}/schedules', action: [ScheduleController::class, 'getSchedules'])->name('branch.schedule');
 
-
+// thongtinphim
+Route::get('/movie/{id}', [CinemaController::class, 'show'])->name('users.detail');
