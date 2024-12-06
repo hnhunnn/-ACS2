@@ -75,11 +75,6 @@ Route::get('/booking', function () {
 })->name('booking');
 
 
-// THÔNG TIN PHIM
-Route::get('/detail', function () {
-    return view('users.detail');
-})->name('detail');
-
 // LẤY RẠP CHIẾU PHIM
 Route::get('/home', [CinemaController::class, 'getCinemas'])->name('home');
 
@@ -89,7 +84,7 @@ Route::get('/cinema/{id}/branch', action: [BranchController::class, 'getBranches
 //LẤY GIỜ CHIẾU
 Route::get('/branch/{id}/schedules', action: [ScheduleController::class, 'getSchedules'])->name('branch.schedule');
 
-// thongtinphim
+// THÔNG TIN PHIM
 Route::get('/movie/{id}', [MovieController::class, 'show'])->name('users.detail');
 
 

@@ -1,7 +1,4 @@
 @extends('layouts.app')
-
-@section('title', $movie->movieName)
-
 @section('content')
     <div class="movie-detail-container">
         
