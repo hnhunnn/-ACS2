@@ -73,6 +73,7 @@
 
             <!-- List of movies -->
             <div class="movie-grid-container">
+<<<<<<< HEAD
                 <!-- Phim Đang Chiếu -->
                 <div id="dang-chieu" class="movie-list">
                     @foreach ($dangChieu->chunk(4) as $movieRow)
@@ -86,6 +87,37 @@
                                 </div>
                             @endforeach
                         </div>
+=======
+                @foreach ($movies->chunk(4) as $movieRow)
+                    <!-- Chia phim thành từng nhóm 5 phim -->
+                    <div class="movie-grid">
+                        @foreach ($movieRow as $movie)
+                            <div class="movie-card">
+                                <a href="{{ route('users.detail', $movie->id) }}">
+                                    <img src="{{ asset($movie->image_path) }}" alt="{{ $movie->title }}">
+                                </a>
+                                <button onclick="location.href='{{ route('booking', $movie->id) }}'">Đặt Vé</button>
+                            </div>
+                        @endforeach
+                    </div>
+                @endforeach
+            </div>
+
+
+
+            <!--====================== CINEMA,BRANCH,SCHEDULE ===================-->
+            <div class="ba">
+                <div class="cinema-list">
+                    <h3>Danh sách rạp</h3>
+                    @foreach ($cinemas as $cinema)
+                        <form action="{{ route('home') }}" method="GET" style="display: inline-block;">
+                            <input type="hidden" name="cinema_id" value="{{ $cinema->id }}">
+                            <button type="submit" style="border: none; background: none; cursor: pointer;">
+                                <img src="{{ asset($cinema->logo) }}" alt="Logo of {{ $cinema->cinemaName }}"
+                                    style="width: 100px;">
+                            </button>
+                        </form>
+>>>>>>> f1d0f5d46a62e6263c4963a0123e3d8ad39b7833
                     @endforeach
                 </div>
 
