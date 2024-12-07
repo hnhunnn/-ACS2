@@ -87,4 +87,7 @@ Route::get('/branch/{id}/schedules', action: [ScheduleController::class, 'getSch
 // THÔNG TIN PHIM
 Route::get('/movie/{id}', [MovieController::class, 'show'])->name('users.detail');
 
+// Route::get('/movie', [MovieController::class, 'index'])->name('movie.index');
+
+
 

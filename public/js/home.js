@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Gán sự kiện cho các nút
     document.querySelector(".left").onclick = scrollLeft;
     document.querySelector(".right").onclick = scrollRight;
+    
 });
 
 function scrollLeft() {
@@ -96,3 +97,6 @@ $(document).on("click", ".branch-item", function () {
         },
     });
 });
+
+
+

@@ -64,139 +64,198 @@
 
         <!--=============================== LIST FILM ========================-->
         <div class="ticket">
-            <!-- button đang chiếu và sắp chiếu  -->
+            <!-- button đang chiếu và sắp chiếu -->
             <div class="button-chieu">
-                <button type="submit" class="btn btn-light"><b>PHIM ĐANG CHIẾU</b></button>
-                <button type="submit" class="btn" style="background-color: #91D9BF">
-                    <b>PHIM SẮP CHIẾU</b>
-                </button>
+                <button id="btn-dang-chieu" class="btn btn-light"><b>PHIM ĐANG CHIẾU</b></button>
+                <button id="btn-sap-chieu" class="btn btn-light" style="background-color: #91D9BF"><b>PHIM SẮP
+                        CHIẾU</b></button>
             </div>
-            <!------------------LIST PHIM  ------------------------>
+
+            <!-- List of movies -->
             <div class="movie-grid-container">
-                @foreach ($movies->chunk(4) as $movieRow)
-                    <!-- Chia phim thành từng nhóm 5 phim -->
-                    <div class="movie-grid">
-                        @foreach ($movieRow as $movie)
-                            <div class="movie-card">
-                                <a href="{{ route('users.detail', $movie->id) }}">
-                                    <img src="{{ asset($movie->image_path) }}" alt="{{ $movie->title }}">
-                                </a>
-                                <button>Đặt Vé</button>
-                            </div>
-                        @endforeach
-                    </div>
-                @endforeach
-            </div>
-
-
-
-            <!--====================== CINEMA,BRANCH,SCHEDULE ===================-->
-            <div class="ba">
-                <div class="cinema-list">
-                    <h3>Danh sách rạp</h3>
-                    @foreach ($cinemas as $cinema)
-                        <form action="{{ route('home') }}" method="GET" style="display: inline-block;">
-                            <input type="hidden" name="cinema_id" value="{{ $cinema->id }}">
-                            <button type="submit" style="border: none; background: none; cursor: pointer;">
-                                <img src="{{ asset($cinema->logo) }}" alt="Logo of {{ $cinema->cinemaName }}"
-                                    style="width: 100px;">
-                            </button>
-                        </form>
+                <!-- Phim Đang Chiếu -->
+                <div id="dang-chieu" class="movie-list">
+                    @foreach ($dangChieu->chunk(4) as $movieRow)
+                        <div class="movie-grid">
+                            @foreach ($movieRow as $movie)
+                                <div class="movie-card">
+                                    <a href="{{ route('users.detail', $movie->id) }}">
+                                        <img src="{{ asset($movie->image_path) }}" alt="{{ $movie->title }}">
+                                    </a>
+                                    <button>Đặt Vé</button>
+                                </div>
+                            @endforeach
+                        </div>
                     @endforeach
                 </div>
 
-                <div class="branch-details">
-                    <h3>Chi nhánh</h3>
-                    @if (!empty($branches))
-                        @foreach ($branches as $branch)
-                            <form action="{{ route('home') }}" method="GET" class="branch-item">
-                                <input type="hidden" name="cinema_id" value="{{ request('cinema_id') }}">
-                                <input type="hidden" name="branch_id" value="{{ $branch->id }}">
-                                <button type="submit" style="border: none; background: none; cursor: pointer;">
-                                    <div>
-                                        <h4>{{ $branch->branchName }}</h4>
-                                        <p>{{ $branch->address }}</p>
-                                    </div>
-                                </button>
-                            </form>
-                        @endforeach
-                    @endif
-                </div>
-
-                <div class="schedule-details">
-                    <h3>Giờ chiếu</h3>
-                    @if (!empty($schedules))
-                        @foreach ($schedules as $schedule)
-                            <div class="schedule-item">
-                                @foreach ($schedule->showtime as $item)
-                                    <p>{{ $item }}</p>
-                                @endforeach
-
-                            </div>
-                        @endforeach
-                    @endif
-                </div>
-
-            </div>
-            <!--=============================== FOOTER ========================-->
-            <section id="contact" class="footer">
-                <div class="container">
-                    <div class="sec aboutus">
-                        <div class="logo-container">
-                            <img src="../img/HN&DL.png" alt="Footer Logo">
+                <!-- Phim Sắp Chiếu -->
+                <div id="sap-chieu" class="movie-list" style="display: none;">
+                    @foreach ($sapChieu->chunk(4) as $movieRow)
+                        <div class="movie-grid">
+                            @foreach ($movieRow as $movie)
+                                <div class="movie-card">
+                                    <a href="{{ route('users.detail', $movie->id) }}">
+                                        <img src="{{ asset($movie->image_path) }}" alt="{{ $movie->title }}">
+                                    </a>
+                                    <button>Đặt Vé</button>
+                                </div>
+                            @endforeach
                         </div>
-
-                    </div>
-
-                    <div class="sec quicklinks">
-                        <h2>Về chúng tôi</h2>
-                        <ul>
-                            <li><a href="#">Trang chủ</a></li>
-                            <li><a href="#">Phim</a></li>
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">Liên hệ</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="sec quicklinks">
-                        <h2>Hỗ trợ khách hàng</h2>
-                        <ul>
-                            <li><a href="#">Giúp đỡ</a></li>
-                            <li><a href="#">Liên lạc</a></li>
-                            <li><a href="#">Chính sách bảo mật</a></li>
-                            <li><a href="#">Điều khoản sử dụng</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="sec contact">
-                        <h2>Liên hệ chúng tôi</h2>
-                        <ul class="info">
-                            <li>
-                                <span><i class='bx bxs-phone-call'></i></span>
-                                <p><a href="tel:+12345678900">+1 234 567 8900</a></p>
-                            </li>
-                            <li>
-                                <span><i class='bx bxs-envelope'></i></span>
-                                <p><a href="mailto:hn&dl@gmail.com">hn&dl@gmail.com</a></p>
-                            </li>
-                        </ul>
-                        <ul class="sci">
-                            <li><a href="#"><i class='bx bxl-facebook'></i></a></li>
-                            <li><a href="#"><i class='bx bxl-instagram'></i></a></li>
-                            <li><a href="#"><i class='bx bxl-twitter'></i></a></li>
-                            <li><a href="#"><i class='bx bxl-youtube'></i></a></li>
-                        </ul>
-                    </div>
+                    @endforeach
                 </div>
-            </section>
+            </div>
+        </div>
 
-            <div class="copyrightText">
-                <p>&copy;Bản quyền thuộc về HN & DL | Cung cấp bởi DieuLinh</p>
+
+
+
+
+
+
+        <!--====================== CINEMA,BRANCH,SCHEDULE ===================-->
+
+        <div class="ba">
+            {{-- CINEMA --}}
+            <div class="cinema-list">
+                <h3>Danh sách rạp</h3>
+                @foreach ($cinemas as $cinema)
+                    <form action="{{ route('home') }}" method="GET" style="display: inline-block;">
+                        <input type="hidden" name="cinema_id" value="{{ $cinema->id }}">
+                        <button type="submit" style="border: none; background: none; cursor: pointer;">
+                            <img src="{{ asset($cinema->logo) }}" alt="Logo of {{ $cinema->cinemaName }}"
+                                style="width: 100px;">
+                        </button>
+                    </form>
+                @endforeach
             </div>
 
-            <!--=============================== SCRIPT ========================-->
-            {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
-            <script src="{{ asset('../js/home.js') }}"></script>
+            {{-- BRANCH --}}
+            <div class="branch-details">
+                <h3>Chi nhánh</h3>
+                @if (!empty($branches))
+                    @foreach ($branches as $branch)
+                        <form action="{{ route('home') }}" method="GET" class="branch-item">
+                            <input type="hidden" name="cinema_id" value="{{ request('cinema_id') }}">
+                            <input type="hidden" name="branch_id" value="{{ $branch->id }}">
+                            <button type="submit" style="border: none; background: none; cursor: pointer;">
+                                <div>
+                                    <h4>{{ $branch->branchName }}</h4>
+                                    <p>{{ $branch->address }}</p>
+                                </div>
+                            </button>
+                        </form>
+                    @endforeach
+                @endif
+            </div>
+
+            {{-- SCHEDULE --}}
+            <div class="schedule-details">
+                <h3>Lịch Chiếu</h3>
+                @if (!empty($schedules))
+                    @foreach ($schedules as $schedule)
+                        <div class="schedule-item">
+                            <!-- Thông tin phim -->
+                            <div class="movie-info">
+                                <h4>{{ $schedule->movie->movieName }}</h4>
+                                <img src="{{ asset($schedule->movie->image_path) }}"
+                                    alt="{{ $schedule->movie->movieName }}">
+                            </div>
+
+                            <!-- Giờ chiếu -->
+                            <div class="showtimes">
+                                @foreach ($schedule->showtime as $item)
+                                    <div class="time">{{ $item }}</div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    {{-- <p>Không có lịch chiếu nào được tìm thấy.</p> --}}
+                @endif
+            </div>
+
+        </div>
+        <!--=============================== FOOTER ========================-->
+        <section id="contact" class="footer">
+            <div class="container">
+                <div class="sec aboutus">
+                    <div class="logo-container">
+                        <img src="../img/HN&DL.png" alt="Footer Logo">
+                    </div>
+
+                </div>
+
+                <div class="sec quicklinks">
+                    <h2>Về chúng tôi</h2>
+                    <ul>
+                        <li><a href="#">Trang chủ</a></li>
+                        <li><a href="#">Phim</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+
+                <div class="sec quicklinks">
+                    <h2>Hỗ trợ khách hàng</h2>
+                    <ul>
+                        <li><a href="#">Giúp đỡ</a></li>
+                        <li><a href="#">Liên lạc</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+
+                <div class="sec contact">
+                    <h2>Liên hệ chúng tôi</h2>
+                    <ul class="info">
+                        <li>
+                            <span><i class='bx bxs-phone-call'></i></span>
+                            <p><a href="tel:+12345678900">+1 234 567 8900</a></p>
+                        </li>
+                        <li>
+                            <span><i class='bx bxs-envelope'></i></span>
+                            <p><a href="mailto:hn&dl@gmail.com">hn&dl@gmail.com</a></p>
+                        </li>
+                    </ul>
+                    <ul class="sci">
+                        <li><a href="#"><i class='bx bxl-facebook'></i></a></li>
+                        <li><a href="#"><i class='bx bxl-instagram'></i></a></li>
+                        <li><a href="#"><i class='bx bxl-twitter'></i></a></li>
+                        <li><a href="#"><i class='bx bxl-youtube'></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="copyrightText">
+            <p>&copy;Bản quyền thuộc về HN & DL | Cung cấp bởi DieuLinh</p>
+        </div>
+
+        <!--=============================== SCRIPT ========================-->
+        {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
+        <script src="{{ asset('js/home.js') }}"></script>
+        <script>
+            document.getElementById('btn-dang-chieu').addEventListener('click', function() {
+                // Ẩn Phim Sắp Chiếu và hiển thị Phim Đang Chiếu
+                document.getElementById('sap-chieu').style.display = 'none';
+                document.getElementById('dang-chieu').style.display = 'block';
+
+                // Thay đổi màu nền của nút
+                document.getElementById('btn-dang-chieu').style.backgroundColor = '#91D9BF';
+                document.getElementById('btn-sap-chieu').style.backgroundColor = '';
+            });
+
+            document.getElementById('btn-sap-chieu').addEventListener('click', function() {
+                // Ẩn Phim Đang Chiếu và hiển thị Phim Sắp Chiếu
+                document.getElementById('dang-chieu').style.display = 'none';
+                document.getElementById('sap-chieu').style.display = 'block';
+
+                // Thay đổi màu nền của nút
+                document.getElementById('btn-sap-chieu').style.backgroundColor = '#91D9BF';
+                document.getElementById('btn-dang-chieu').style.backgroundColor = '';
+            });
+        </script>
 </body>
 
 </html>
