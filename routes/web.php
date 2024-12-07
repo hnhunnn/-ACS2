@@ -91,3 +91,4 @@ Route::get('/movie/{id}', [MovieController::class, 'show'])->name('users.detail'
 // ĐẶT VÉ BOOKING
 Route::get('/booking/{id}', [BookingController::class, 'show'])->name('booking');
 Route::post('/booking/process', [BookingController::class, 'process'])->name('booking.process');
+
