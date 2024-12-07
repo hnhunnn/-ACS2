@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-body{
+body {
     font-family: Arial, sans-serif;
 }
 /* bố cục 2 phần */
@@ -12,7 +12,8 @@ body{
     display: flex; /* Sử dụng Flexbox */
     height: 100vh; /* Chiều cao toàn màn hình */
 }
-.benphai, .bentrai {
+.benphai,
+.bentrai {
     flex: 1; /* Chia đều 2 cột */
     padding: 20px;
     text-align: center;
@@ -23,7 +24,7 @@ form {
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
-h1{
+h1 {
     text-align: center;
     margin-bottom: 10px;
 }
@@ -53,8 +54,8 @@ p {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-button{ 
-    padding: 15px; 
+button {
+    padding: 15px;
     text-align: center;
     width: 150px;
     cursor: pointer;
@@ -72,7 +73,7 @@ button{
 /* Phần hình */
 .benphai {
     flex: 1;
-    background-image: url('../img/dangnhap.png'); 
+    background-image: url("../img/dangnhap.png");
     background-position: center;
     background-size: cover;
 }
@@ -98,20 +99,19 @@ label {
     margin-bottom: 5px; /* Khoảng cách giữa label và input */
     color: #333;
 }
-.tkhoan{
+.tkhoan {
     margin-left: -150px;
 }
 
-.email{
+.email {
     margin-left: -200px;
 }
-.mkhau1{
+.mkhau1 {
     margin-left: -180px;
 }
-.mkhau2{
+.mkhau2 {
     margin-left: -100px;
 }
-
 
 input {
     padding: 10px;

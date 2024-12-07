@@ -68,8 +68,8 @@ body {
 }
 
 .dangnhap {
-    width: 50%; 
-    background-image: url('../img/dangnhap.png'); 
+    width: 50%;
+    background-image: url("../img/dangnhap.png");
     background-position: center;
     background-size: cover;
 }

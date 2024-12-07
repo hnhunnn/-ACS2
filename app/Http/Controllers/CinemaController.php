@@ -17,35 +17,27 @@ class CinemaController extends Controller
         $branches = [];
         $schedules = [];
         $movies = \App\Models\Movie::all(); // Lấy tất cả các bộ phim
- 
+
         if ($request->has('cinema_id')) {
             $cinemaId = $request->input('cinema_id');
 
             // Lấy danh sách chi nhánh theo rạp đã chọn
             $branches = Branch::where('cinema_id', $cinemaId)->get();
-
-
         } else {
-        
+
             $branches = [];
         }
         if ($request->has('branch_id')) {
             $branchId = $request->input('branch_id');; // Lấy id của chi nhánh
             $schedules = json_decode(Schedule::where('branch_id', $branchId)->get()); // 
-        }
-         else {
-            
+        } else {
+
             $schedules = [];
         }
 
-        // dd($cinemas, $branches, $schedules);
 
-        return view('users.home', compact('cinemas', 'branches', 'schedules','movies'));
+        return view('users.home', compact('cinemas', 'branches', 'schedules', 'movies'));
     }
-    // thongtinphim
-    
-
-
 
 
     public function create()

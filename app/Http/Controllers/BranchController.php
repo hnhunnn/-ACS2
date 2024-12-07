@@ -8,15 +8,15 @@ use Illuminate\Http\Request;
 
 class BranchController extends Controller
 {
-   
-     // LẤY CHI NHÁNH THEO RẠP
+
+    // LẤY CHI NHÁNH THEO RẠP
     public function getBranches($id)
     {
         $branches = branch::where('cinema_id', $id)->get();
 
         return response()->json($branches);
     }
-    
+
     public function index()
     {
         //

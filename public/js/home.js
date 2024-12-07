@@ -1,4 +1,4 @@
-// button cuộn list phim
+// BUTTON CUỘN LIST PHIM
 document.addEventListener("DOMContentLoaded", function () {
     const scroll = document.querySelector(".movie-grid");
 
@@ -49,13 +49,9 @@ function scrollRight2() {
     });
 }
 
-
-
-
 // HIỂN THỊ CHI NHÁNH KHI NHẤN VÀO LOGO
 
 function showBranches(cinemaId) {
-    
     fetch(`/cinema/${cinemaId}/branch`)
         .then((response) => response.json())
         .then((branches) => {
@@ -76,16 +72,16 @@ function showBranches(cinemaId) {
         .catch((error) => console.error("Error:", error));
 }
 
-$(document).on('click', '.branch-item', function () {
-    const branchId = $(this).data('id');
+$(document).on("click", ".branch-item", function () {
+    const branchId = $(this).data("id");
 
     // Gửi AJAX để lấy lịch chiếu theo chi nhánh
     $.ajax({
         url: `/branch/${branchId}/schedules`,
-        type: 'GET',
+        type: "GET",
         success: function (schedules) {
-            let scheduleHtml = '';
-            schedules.forEach(schedule => {
+            let scheduleHtml = "";
+            schedules.forEach((schedule) => {
                 scheduleHtml += `
                     <div class="schedule-item">
                         <strong>${schedule.movie_id}</strong> - ${schedule.showtime}
@@ -93,16 +89,10 @@ $(document).on('click', '.branch-item', function () {
             });
 
             // Hiển thị lịch chiếu trong #schedule-container
-            $('#schedule-container').html(scheduleHtml);
+            $("#schedule-container").html(scheduleHtml);
         },
         error: function () {
-            alert('Không thể tải lịch chiếu.');
-        }
+            alert("Không thể tải lịch chiếu.");
+        },
     });
 });
-
-
-
-
-
-

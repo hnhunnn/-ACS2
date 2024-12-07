@@ -8,12 +8,12 @@ use Illuminate\Http\Request;
 
 class ScheduleController extends Controller
 {
-    
+
     public function getSchedules($branchId)
     {
         // Lấy danh sách lịch chiếu theo chi nhánh
         $schedules = schedule::where('branch_id', $branchId)->get();
-    
+
         // Trả về dưới dạng JSON
         return response()->json($schedules);
     }

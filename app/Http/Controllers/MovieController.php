@@ -12,9 +12,7 @@ class MovieController extends Controller
      */
     public function index()
     {
-        // Lấy danh sách tất cả các phim
-        $movies = Movie::all();
-        return view('movies.index', compact('movies'));
+        //
     }
 
     /**

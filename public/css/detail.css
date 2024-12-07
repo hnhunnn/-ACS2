@@ -1,3 +1,6 @@
+.body1 {
+    background-color: white;
+}
 /* Bố trí ảnh và thông tin phim cạnh nhau */
 .movie-detail-container {
     display: flex;
@@ -6,7 +9,7 @@
     margin: 40px auto;
     max-width: 1200px;
     padding: 10px;
-    background-color: #000000;
+    background-color: #efe3e3;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
@@ -30,7 +33,7 @@
 .movie-title {
     font-size: 2em;
     font-weight: bold;
-    color: #ffffff;
+    color: #0b0909;
     margin-top: -20px; /* Khoảng cách giữa ảnh và tiêu đề */
     text-align: center;
 }
@@ -46,7 +49,7 @@
 .movie-description {
     font-size: 1.1em;
     line-height: 1.6;
-    color: #ffffff;
+    color: #000000;
     margin-bottom: 20px;
     text-align: justify;
 }
@@ -54,7 +57,7 @@
 /* Các thông tin khác về phim */
 .movie-detail-container p {
     font-size: 1.1em;
-    color: #ffffff;
+    color: #000000;
     margin-bottom: 10px;
 }
 
@@ -65,61 +68,4 @@
 
 .movie-detail-container a:hover {
     text-decoration: underline;
-}
-
-/* footer */
-footer {
-    position: relative;
-    background-color: #222;
-    color: #fff;
-    padding: 5px 0;
-    text-align: left;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    max-width: 1000px;
-    margin: auto;
-    flex-wrap: wrap;
-}
-
-.footer-section {
-    flex: 1;
-    margin: 20px;
-    min-width: 200px; /* Đảm bảo độ rộng tối thiểu cho các phần */
-}
-
-.footer-section h3 {
-    font-size: 20px;
-    margin-bottom: 20px;
-    color: #f4d03f;
-}
-
-.footer-section p,
-.footer-section ul,
-.footer-section a {
-    font-size: 14px;
-    line-height: 1.8;
-}
-
-.footer-section a {
-    color: #fff;
-    text-decoration: none;
-}
-
-.footer-section a:hover {
-    color: #f4d03f;
-}
-
-.footer-bottom {
-    text-align: center;
-    margin-top: 30px;
-    border-top: 1px solid #444;
-    padding-top: 20px;
-}
-
-.footer-bottom p {
-    font-size: 14px;
-    color: #bbb;
 }

@@ -4,24 +4,24 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-  }
+}
 
-  .container {
+.container {
     max-width: 600px;
     margin: auto;
     padding: 20px;
-  }
-  form {
+}
+form {
     background-color: rgba(34, 34, 34, 0.8);
     padding: 20px;
     border-radius: 8px;
     margin-left: -20px;
-  }
-  nav li a.active {
+}
+nav li a.active {
     color: white;
     border-bottom: 2px solid white;
-  }
-  .header {
+}
+.header {
     background-color: rgba(0, 0, 0, 0.9); /* 90% đục */
     height: 30px;
     display: flex;
@@ -29,104 +29,104 @@ body {
     align-items: center;
     padding: 20px;
     color: white;
-  }
-  .logo img {
+}
+.logo img {
     width: 100px;
     height: 55px;
     filter: brightness(1.2);
-  }
-  nav {
+}
+nav {
     flex-grow: 1;
     text-align: center;
-  }
+}
 
-  .menu {
+.menu {
     display: flex;
     list-style: none;
     justify-content: center;
     gap: 20px; /* Khoảng cách giữa các mục menu */
-  }
+}
 
-  .menu li {
+.menu li {
     margin: 0;
-  }
+}
 
-  .menu a {
+.menu a {
     color: white;
     text-decoration: none;
     font-size: 20px;
     padding: 10px;
     transition: background-color 0.3s;
-  }
+}
 
-  .menu a:hover {
+.menu a:hover {
     background-color: #555;
     border-radius: 4px;
-  }
-  .p3 {
+}
+.p3 {
     display: flex;
     list-style: none;
     justify-content: center;
     gap: 20px; /* Khoảng cách giữa các mục menu */
-  }
-  .dxuat {
+}
+.dxuat {
     color: green;
     text-decoration: none;
     margin-top: 15px;
-  }
+}
 
-  .editP {
+.editP {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px;
-  }
+}
 
-  .tab-bar {
+.tab-bar {
     display: flex;
     border-bottom: 1px solid #444;
     margin-bottom: 20px;
-  }
+}
 
-  .tab-bar a {
+.tab-bar a {
     color: #aaa;
     padding: 10px 15px;
     text-decoration: none;
-  }
+}
 
-  .tab-bar a.active {
+.tab-bar a.active {
     color: #007bff;
     border-bottom: 2px solid #007bff;
-  }
+}
 
-  .form-group {
+.form-group {
     margin-bottom: 20px;
-  }
+}
 
-  .form-group label {
+.form-group label {
     display: block;
     font-size: 0.9em;
     margin-bottom: 5px;
     color: #bbb;
-  }
+}
 
-  .form-group input[type="text"],
-  .form-group input[type="email"],
-  .form-group input[type="password"] {
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
     width: 95%;
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
     background-color: rgba(0, 0, 0, 0.9);
     color: white;
-  }
+}
 
-  .form-group input:focus {
+.form-group input:focus {
     border-color: #b2f43f;
     outline: none;
-  }
+}
 
-  .save-button {
+.save-button {
     display: block;
     width: 80%;
     padding: 10px;
@@ -137,8 +137,8 @@ body {
     border-radius: 5px;
     cursor: pointer;
     margin-left: 50px;
-  }
+}
 
-  .save-button:hover {
+.save-button:hover {
     background-color: #007bff;
-  }
+}

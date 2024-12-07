@@ -55,7 +55,7 @@
 
 
     <!-- Footer -->
-    <section class="footer">
+    <section id="contact" class="footer">
         <div class="container">
             <div class="sec aboutus">
                 <div class="logo-container">

@@ -1,27 +1,46 @@
-/* .seat {
-    width: 40px;
-    height: 40px;
-    margin: 5px;
+body {
+    background-color: black;
+}
+.seat-selection {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Căn giữa các ghế */
+    gap: 10px; /* Khoảng cách giữa các ghế */
+    max-width: 800px; /* Giới hạn chiều rộng tổng thể */
+    margin: 0 auto; /* Căn giữa toàn bộ khu vực ghế */
+}
+
+.seat {
+    width: 50px; /* Chiều rộng đồng bộ */
+    height: 50px; /* Chiều cao đồng bộ */
+    line-height: 50px; /* Căn giữa số trong ghế */
+    text-align: center;
+    background-color: white; /* Màu ghế mặc định */
     border: 1px solid #ccc;
-    background-color: white;
-    color: black;
-    border-radius: 5px;
+    border-radius: 5px; /* Bo tròn góc ghế */
+    font-size: 14px; /* Kích thước chữ */
+    cursor: pointer;
 }
-.seat:hover {
-    background-color: yellow;
-}
-.reserved {
-    background-color: orange;
-    cursor: not-allowed;
-}
-.selected {
-    background-color: green;
+
+.seat.selected {
+    background-color: green; /* Ghế được chọn */
     color: white;
 }
-.payment-info {
-    border-radius: 10px;
-} */
 
+.seat.vip {
+    background-color: orange; /* Ghế VIP */
+}
+
+.seat.reserved {
+    background-color: yellow; /* Ghế đã đặt */
+    pointer-events: none; /* Không thể click */
+}
+
+/* Đặt khoảng cách dòng */
+.seat-selection > br {
+    content: ""; /* Loại bỏ khoảng trống không mong muốn */
+    margin-top: 10px;
+}
 .seat {
     width: 40px;
     height: 40px;
@@ -49,4 +68,29 @@
 }
 .seat:hover {
     background-color: yellow;
+}
+
+.payment-info {
+    background-color: #222; /* Màu nền */
+    color: #fff; /* Màu chữ */
+    padding: 10px 15px; /* Giảm padding */
+    font-size: 14px; /* Kích thước chữ nhỏ hơn */
+    border-radius: 5px; /* Bo góc */
+    max-width: 350px; /* Giới hạn chiều rộng */
+    margin: 0 auto; /* Căn giữa nếu cần */
+}
+
+.payment-info h4 {
+    font-size: 18px; /* Tiêu đề nhỏ hơn */
+    margin-bottom: 10px;
+}
+
+.payment-info h3 {
+    font-size: 20px; /* Giá nhỏ hơn */
+    margin-bottom: 10px;
+}
+
+.payment-info p {
+    margin-bottom: 5px; /* Giảm khoảng cách giữa các đoạn văn */
+    line-height: 1.4; /* Khoảng cách dòng hợp lý */
 }
