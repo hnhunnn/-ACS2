@@ -8,7 +8,7 @@
         <div class="row">
             <!-- Khu vực màn hình -->
             <div class="col-12 text-center mb-4">
-                <h3 style="color:white">Màn hình</h3>
+                <h3 style="color: white">Màn hình</h3>
                 <div style="background-color: orange; width: 100%; height: 20px;"></div>
             </div>
 
@@ -19,7 +19,7 @@
                     <div class="col-md-4">
                         <!-- Khu vực phân loại ghế -->
                         <div class="mb-4">
-                            <h5 class="text-center" style="color:white">Phân loại ghế</h5>
+                            <h5 class="text-center" style="color: white">Phân loại ghế</h5>
                             <table class="table table-dark table-bordered">
                                 <thead>
                                     <tr>
@@ -65,71 +65,119 @@
                         </div>
 
                         <!-- Khu vực thanh toán -->
-                        <div class="payment-info text-right p-3" style="background-color: #222; color: #fff;">
-                            <h4 class="text-success">THANH TOÁN</h4>
-                            <h3 class="text-success">324.000đ</h3>
-                            <p><strong>House of Dragon</strong></p>
-                            <p>Địa điểm: BHD Star Cineplex - 3/2 - Rạp 5</p>
-                            <p>Ngày chiếu: 30/07/2022 - 09:07</p>
-                            <p>Ghế: <span class="text-danger selected-seats">[88] [89] [90]</span></p>
-                            <p>Email: 321321321321@gmail.com</p>
-                            <p>Phone: 0123456789</p>
-                            <button class="btn btn-success">Đặt</button>
+                        <div class="payment-info p-3" style="background-color: #222; color: white;">
+                            <h4 class="text-success">THANH TOÁN</h4> <br>
+                            <h1 class="movie-title">{{ $movie->movieName }}</h1>
+                            <h3 class="text-success total-price">0 VNĐ</h3>
+                            <p><strong>{{ $movie->title }}</strong></p>
+                            <p>Địa điểm: <span id="location"></span></p>
+                            <p>Ngày chiếu: <span id="date">01/01/2025</span> - <span id="time">18:30</span></p>
+                            <p>Ghế: <span class="text-danger selected-seats">Chưa chọn</span></p>
+                            <button class="btn btn-success" id="confirmBooking">Đặt Vé</button>
                         </div>
                     </div>
 
                     <!-- Bên phải: Khu vực ghế ngồi -->
                     <div class="col-md-8 text-center">
                         <div class="seat-selection">
-                            @for ($i = 1; $i <= 104; $i++)
+                            @for ($i = 1; $i <= 88; $i++)
                                 <button
                                     class="seat 
-                                    @if ($i >= 79 && $i <= 104) vip 
+                                    @if ($i >= 67 && $i <= 88) vip 
                                     @else normal @endif"
                                     data-seat="{{ $i }}">
                                     {{ $i }}
                                 </button>
-                                @if ($i % 13 == 0)
+                                @if ($i % 11     == 0)
                                     <br>
                                 @endif
                             @endfor
                         </div>
                     </div>
-
                 </div>
             </div>
-
-            <!-- Khu vực kết thúc màn hình -->
-            {{-- <div class="col-12 mt-4">
-            <div style="background-color: orange; width: 100%; height: 20px;"></div>
-        </div> --}}
         </div>
     </div>
     <br>
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const seats = document.querySelectorAll('.seat');
-            const selectedSeats = document.querySelector('.selected-seats');
-            const selectedSeatsList = [];
+            const selectedSeatsElement = document.querySelector('.selected-seats');
+            const totalPriceElement = document.querySelector('.total-price');
+            const confirmButton = document.querySelector('#confirmBooking');
+
+            const selectedSeats = [];
+            const seatPrice = {
+                normal: 50000,
+                vip: 80000
+            };
+
+            function updatePaymentInfo() {
+                const total = selectedSeats.reduce((sum, seat) => sum + seatPrice[seat.type], 0);
+
+                selectedSeatsElement.textContent = selectedSeats
+                    .map(seat => `[${seat.number}]`)
+                    .join(', ') || 'Chưa chọn';
+
+                totalPriceElement.textContent = `${total.toLocaleString()} VNĐ`;
+            }
 
             seats.forEach(seat => {
                 seat.addEventListener('click', () => {
                     const seatNumber = parseInt(seat.getAttribute('data-seat'), 10);
+                    const seatType = seat.classList.contains('vip') ? 'vip' : 'normal';
 
-                    if (seat.classList.contains('reserved')) return;
+                    if (seat.classList.contains('reserved')) {
+                        alert('Ghế này đã được đặt!');
+                        return;
+                    }
 
                     if (seat.classList.contains('selected')) {
                         seat.classList.remove('selected');
-                        seat.classList.add(seatNumber >= 97 ? 'vip' : 'normal');
-                        const index = selectedSeatsList.indexOf(seatNumber);
-                        if (index !== -1) selectedSeatsList.splice(index, 1);
+                        const index = selectedSeats.findIndex(s => s.number === seatNumber);
+                        if (index !== -1) selectedSeats.splice(index, 1);
                     } else {
-                        seat.classList.remove(seatNumber >= 97 ? 'vip' : 'normal');
                         seat.classList.add('selected');
-                        selectedSeatsList.push(seatNumber);
+                        selectedSeats.push({ number: seatNumber, type: seatType });
                     }
 
-                    selectedSeats.textContent = selectedSeatsList.map(num => `[${num}]`).join(' ');
+                    updatePaymentInfo();
+                });
+            });
+
+            confirmButton.addEventListener('click', () => {
+                if (selectedSeats.length === 0) {
+                    alert('Vui lòng chọn ghế trước khi đặt vé!');
+                    return;
+                }
+
+                const selectedSeatNumbers = selectedSeats.map(seat => seat.number);
+                const bookingData = {
+                    movie_id: {{ $movie->id }},
+                    seats: selectedSeatNumbers
+                };
+
+                fetch('{{ route('booking.process', $movie->id) }}', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    body: JSON.stringify(bookingData)
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        alert('Đặt vé thành công!');
+                        window.location.reload();
+                    } else {
+                        alert('Có lỗi xảy ra khi đặt vé. Vui lòng thử lại.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Lỗi:', error);
+                    alert('Không thể gửi yêu cầu đặt vé.');
                 });
             });
         });

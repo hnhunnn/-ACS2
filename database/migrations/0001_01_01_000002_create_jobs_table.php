@@ -63,9 +63,9 @@ return new class extends Migration
             $table->string('movieName'); //tên phim
             $table->text('description'); //mô tả phim
             $table->string('trailer_url')->nullable(); // URL trailer
+            $table->boolean('showing')->default(0);//0:sắp chiếu 1:đang chiếu
             $table->date('release_date')->nullable(); // Ngày khởi chiếu
-            $table->boolean('now_showing')->default(false); // Đang chiếu
-            $table->boolean('coming_soon')->default(false); // Sắp chiếu
+
             $table->timestamps();  //Thời gian tạo và cập nhật
         });
 

@@ -7,6 +7,7 @@ use App\Http\Controllers\BranchController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MovieController;
+use App\Http\Controllers\BookingController;
 
 
 Route::get('/', function () {
@@ -87,4 +88,6 @@ Route::get('/branch/{id}/schedules', action: [ScheduleController::class, 'getSch
 // THÔNG TIN PHIM
 Route::get('/movie/{id}', [MovieController::class, 'show'])->name('users.detail');
 
-
+// ĐẶT VÉ BOOKING
+Route::get('/booking/{id}', [BookingController::class, 'show'])->name('booking');
+Route::post('/booking/process', [BookingController::class, 'process'])->name('booking.process');

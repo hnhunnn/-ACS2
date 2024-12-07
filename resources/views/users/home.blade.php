@@ -81,7 +81,7 @@
                                 <a href="{{ route('users.detail', $movie->id) }}">
                                     <img src="{{ asset($movie->image_path) }}" alt="{{ $movie->title }}">
                                 </a>
-                                <button>Đặt Vé</button>
+                                <button onclick="location.href='{{ route('booking', $movie->id) }}'">Đặt Vé</button>
                             </div>
                         @endforeach
                     </div>
