@@ -21,7 +21,7 @@
         <nav>
           <ul class="menu">
             <li><a href="{{ route('home') }}">Trang chủ</a></li>
-            <li><a href="#" class="active">Thông tin</a></li>
+            <li><a href="{{ route('profile') }}" class="active">Thông tin</a></li>
             <li><a href="#contact">Liên hệ</a></li>
           </ul>
         </nav>
