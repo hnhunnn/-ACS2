@@ -65,11 +65,6 @@ return new class extends Migration
             $table->string('trailer_url')->nullable(); // URL trailer
             $table->boolean('showing')->default(0);//0:sắp chiếu 1:đang chiếu
             $table->date('release_date')->nullable(); // Ngày khởi chiếu
-<<<<<<< HEAD
-            $table->boolean('showing')->default(0); // 0:sắp chiếu 1:đang chiếu
-=======
-
->>>>>>> f1d0f5d46a62e6263c4963a0123e3d8ad39b7833
             $table->timestamps();  //Thời gian tạo và cập nhật
         });
 

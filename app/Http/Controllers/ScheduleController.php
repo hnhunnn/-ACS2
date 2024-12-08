@@ -11,12 +11,20 @@ class ScheduleController extends Controller
 
     public function getSchedules($branchId)
     {
-        // Lấy danh sách lịch chiếu theo chi nhánh
-        $schedules = schedule::where('branch_id', $branchId)->get();
+        $schedules = Schedule::with('movie')
+            ->where('branch_id', $branchId)
+            ->get()
+            ->map(function ($schedule) {
+                return [
+                    'movieName' => $schedule->movie->movieName,
+                    'image' => asset($schedule->movie->image_path),
+                    'showtimes' => $schedule->showtime,
+                ];
+            });
 
-        // Trả về dưới dạng JSON
         return response()->json($schedules);
     }
+
 
     public function index()
     {

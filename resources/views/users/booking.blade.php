@@ -66,12 +66,12 @@
 
                         <!-- Khu vực thanh toán -->
                         <div class="payment-info p-3" style="background-color: #222; color: white;">
-                            <h4 class="text-success">THANH TOÁN</h4> <br>
-                            <h1 class="movie-title">{{ $movie->movieName }}</h1>
-                            <h3 class="text-success total-price">0 VNĐ</h3>
-                            <p><strong>{{ $movie->title }}</strong></p>
+                            <h4 class="text-success">THANH TOÁN</h4> 
+                            <h3 class="text-success total-price">0 VNĐ</h3> <br>
+                            <h1 class="movie-title" style='color:white'>{{ $movie->movieName }}</h1>
+                            {{-- <p><strong>{{ $movie->title }}</strong></p> --}}
                             <p>Địa điểm: <span id="location"></span></p>
-                            <p>Ngày chiếu: <span id="date">01/01/2025</span> - <span id="time">18:30</span></p>
+                            <p>Ngày chiếu: <span id="date">{{ $movie->release_date }}</span> - <span id="time">18:30</span></p>
                             <p>Ghế: <span class="text-danger selected-seats">Chưa chọn</span></p>
                             <button class="btn btn-success" id="confirmBooking">Đặt Vé</button>
                         </div>
@@ -80,15 +80,15 @@
                     <!-- Bên phải: Khu vực ghế ngồi -->
                     <div class="col-md-8 text-center">
                         <div class="seat-selection">
-                            @for ($i = 1; $i <= 88; $i++)
+                            @for ($i = 1; $i <= 104; $i++)
                                 <button
                                     class="seat 
-                                    @if ($i >= 67 && $i <= 88) vip 
+                                    @if ($i >= 79 && $i <= 104) vip 
                                     @else normal @endif"
                                     data-seat="{{ $i }}">
                                     {{ $i }}
                                 </button>
-                                @if ($i % 11     == 0)
+                                @if ($i % 13== 0)
                                     <br>
                                 @endif
                             @endfor

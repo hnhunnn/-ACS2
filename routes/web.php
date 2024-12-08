@@ -88,13 +88,6 @@ Route::get('/branch/{id}/schedules', action: [ScheduleController::class, 'getSch
 // THÔNG TIN PHIM
 Route::get('/movie/{id}', [MovieController::class, 'show'])->name('users.detail');
 
-<<<<<<< HEAD
-// Route::get('/movie', [MovieController::class, 'index'])->name('movie.index');
-
-
-
-=======
 // ĐẶT VÉ BOOKING
 Route::get('/booking/{id}', [BookingController::class, 'show'])->name('booking');
 Route::post('/booking/process', [BookingController::class, 'process'])->name('booking.process');
->>>>>>> f1d0f5d46a62e6263c4963a0123e3d8ad39b7833
