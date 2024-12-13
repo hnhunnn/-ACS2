@@ -13,27 +13,27 @@
     <!--=============================== HEADER ========================-->
     <header class="header">
         <div class="logo">
-            <img src="../img/logo.png" alt="" />
+            <img src="../img/lgo.png" alt="" />
         </div>
         <nav>
             <ul class="menu">
                 <li><a href="{{ route('home') }}">Trang chủ</a></li>
-                <li><a href="#" class="active">Thông tin</a></li>
+                <li><a href="#" >Thông tin</a></li>
             </ul>
         </nav>
 
         <div class="p3">
-            <p>Hello!</p>
-            <a href="#" class="dxuat">Đăng xuất</a>
+            <p style='margin-top: 10px'>Xin chào!</p>
+            <a href="#" id="dxuat">Đăng xuất</a>
         </div>
     </header>
-<br>
+<div class="nen">
+    <br>
     <div class="container">
         <div class="tab-bar">
             <a href="#" class="active">THÔNG TIN CÁ NHÂN</a>
             <a href="#">LỊCH SỬ ĐẶT VÉ</a>
         </div>
-
         <!-- ==================== FORM ============================ -->
         <form>
           <div class="form-group">
@@ -46,7 +46,7 @@
           </div>
           <div class="form-group">
             <label for="fullname">Họ tên</label>
-            <input type="text" id="fullname" value="{{ $user->fullname }}" />
+            <input type="text" id="fullname" value="{{ $user->name }}" />
         </div>
           <div class="form-group">
               <label for="phone">Số điện thoại</label>
@@ -60,6 +60,7 @@
       </form>
       
     </div>
+</div>
 </body>
 
 </html>

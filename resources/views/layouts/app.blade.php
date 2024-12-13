@@ -27,7 +27,7 @@
         </nav>
   
         <div class="p3">
-          <p>Hello!</p>
+          <p>Xin chào!</p>
           @if (Auth::check())
             <div class="dropdown">
                 <button 
@@ -59,7 +59,7 @@
         <div class="container">
             <div class="sec aboutus">
                 <div class="logo-container">
-                    <img src="../img/HN&DL.png" alt="Footer Logo">
+                    <img src="../img/bap.png" alt="Footer Logo">
                 </div>
          
             </div>

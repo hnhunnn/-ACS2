@@ -3,13 +3,12 @@
 @section('title', 'Chọn ghế')
 
 @section('content')
-    <br>
-    <div class="container">
+    <div class="containerb">
         <div class="row">
             <!-- Khu vực màn hình -->
             <div class="col-12 text-center mb-4">
-                <h3 style="color: white">Màn hình</h3>
-                <div style="background-color: orange; width: 100%; height: 20px;"></div>
+                <br>
+                
             </div>
 
             <!-- Chia bố cục làm hai phần -->
@@ -67,9 +66,8 @@
                         <!-- Khu vực thanh toán -->
                         <div class="payment-info p-3" style="background-color: #222; color: white;">
                             <h4 class="text-success">THANH TOÁN</h4> 
-                            <h3 class="text-success total-price">0 VNĐ</h3> <br>
-                            <h1 class="movie-title" style='color:white'>{{ $movie->movieName }}</h1>
-                            {{-- <p><strong>{{ $movie->title }}</strong></p> --}}
+                            <h3 class="text-success total-price">0 VNĐ</h3>
+                            <p>Tên phim: {{ $movie->movieName }}</p>
                             <p>Địa điểm: <span id="location"></span></p>
                             <p>Ngày chiếu: <span id="date">{{ $movie->release_date }}</span> - <span id="time">18:30</span></p>
                             <p>Ghế: <span class="text-danger selected-seats">Chưa chọn</span></p>
@@ -79,6 +77,8 @@
 
                     <!-- Bên phải: Khu vực ghế ngồi -->
                     <div class="col-md-8 text-center">
+                        <h3 style="color: white">Màn hình</h3>
+                <div style="background-color: orange; width: 80%; height: 10px; margin-left: 85px"></div><br>
                         <div class="seat-selection">
                             @for ($i = 1; $i <= 104; $i++)
                                 <button

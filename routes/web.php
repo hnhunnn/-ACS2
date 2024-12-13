@@ -89,3 +89,5 @@ Route::post('/booking/process', [BookingController::class, 'process'])->name('bo
 // HIỂN THỊ VÀ LƯU THÔNG TIN (PROFILE)
 Route::get('/profile', [UserController::class, 'showProfile'])->name('profile');
 
+
+
