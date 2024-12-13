@@ -8,7 +8,7 @@
             <!-- Khu vực màn hình -->
             <div class="col-12 text-center mb-4">
                 <br>
-                
+
             </div>
 
             <!-- Chia bố cục làm hai phần -->
@@ -16,6 +16,7 @@
                 <div class="row">
                     <!-- Bên trái: Phân loại ghế + Thanh toán -->
                     <div class="col-md-4">
+                        <br> <br>
                         <!-- Khu vực phân loại ghế -->
                         <div class="mb-4">
                             <h5 class="text-center" style="color: white">Phân loại ghế</h5>
@@ -49,7 +50,7 @@
                                                 style="width: 30px; height: 30px; background-color: green; border: 1px solid #ccc; margin: auto;">
                                             </div>
                                         </td>
-                                        <td>Ghế đang chọn bởi bạn (Click lần 1 để chọn, lần 2 để hủy)</td>
+                                        <td>Ghế đang chọn bởi bạn</td>
                                     </tr>
                                     <tr>
                                         <td class="text-center">
@@ -65,11 +66,12 @@
 
                         <!-- Khu vực thanh toán -->
                         <div class="payment-info p-3" style="background-color: #222; color: white;">
-                            <h4 class="text-success">THANH TOÁN</h4> 
+                            <h4 class="text-success">THANH TOÁN</h4>
                             <h3 class="text-success total-price">0 VNĐ</h3>
                             <p>Tên phim: {{ $movie->movieName }}</p>
-                            <p>Địa điểm: <span id="location"></span></p>
-                            <p>Ngày chiếu: <span id="date">{{ $movie->release_date }}</span> - <span id="time">18:30</span></p>
+                            <p>Địa điểm: <span id="location">{{ $branch->address }}</span></p>
+                            <p>Ngày chiếu: <span id="date">{{ $movie->release_date }}</span> - <span
+                                    id="time">{{ $schedule->showtime }}</span></p>
                             <p>Ghế: <span class="text-danger selected-seats">Chưa chọn</span></p>
                             <button class="btn btn-success" id="confirmBooking">Đặt Vé</button>
                         </div>
@@ -78,7 +80,7 @@
                     <!-- Bên phải: Khu vực ghế ngồi -->
                     <div class="col-md-8 text-center">
                         <h3 style="color: white">Màn hình</h3>
-                <div style="background-color: orange; width: 80%; height: 10px; margin-left: 85px"></div><br>
+                        <div style="background-color: orange; width: 80%; height: 10px; margin-left: 85px"></div><br>
                         <div class="seat-selection">
                             @for ($i = 1; $i <= 104; $i++)
                                 <button
@@ -88,7 +90,7 @@
                                     data-seat="{{ $i }}">
                                     {{ $i }}
                                 </button>
-                                @if ($i % 13== 0)
+                                @if ($i % 13 == 0)
                                     <br>
                                 @endif
                             @endfor
@@ -139,7 +141,10 @@
                         if (index !== -1) selectedSeats.splice(index, 1);
                     } else {
                         seat.classList.add('selected');
-                        selectedSeats.push({ number: seatNumber, type: seatType });
+                        selectedSeats.push({
+                            number: seatNumber,
+                            type: seatType
+                        });
                     }
 
                     updatePaymentInfo();
@@ -159,26 +164,26 @@
                 };
 
                 fetch('{{ route('booking.process', $movie->id) }}', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
-                    },
-                    body: JSON.stringify(bookingData)
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        alert('Đặt vé thành công!');
-                        window.location.reload();
-                    } else {
-                        alert('Có lỗi xảy ra khi đặt vé. Vui lòng thử lại.');
-                    }
-                })
-                .catch(error => {
-                    console.error('Lỗi:', error);
-                    alert('Không thể gửi yêu cầu đặt vé.');
-                });
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                        },
+                        body: JSON.stringify(bookingData)
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Đặt vé thành công!');
+                            window.location.reload();
+                        } else {
+                            alert('Có lỗi xảy ra khi đặt vé. Vui lòng thử lại.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Lỗi:', error);
+                        alert('Không thể gửi yêu cầu đặt vé.');
+                    });
             });
         });
     </script>

@@ -18,7 +18,7 @@
         <nav>
             <ul class="menu">
                 <li><a href="{{ route('home') }}">Trang chủ</a></li>
-                <li><a href="#" >Thông tin</a></li>
+                <li><a href="#">Thông tin</a></li>
             </ul>
         </nav>
 
@@ -27,40 +27,40 @@
             <a href="#" id="dxuat">Đăng xuất</a>
         </div>
     </header>
-<div class="nen">
-    <br>
-    <div class="container">
-        <div class="tab-bar">
-            <a href="#" class="active">THÔNG TIN CÁ NHÂN</a>
-            <a href="#">LỊCH SỬ ĐẶT VÉ</a>
+    <div class="nen">
+        <br>
+        <div class="container">
+            <div class="tab-bar">
+                <a href="#" class="active">THÔNG TIN CÁ NHÂN</a>
+                <a href="#">LỊCH SỬ ĐẶT VÉ</a>
+            </div>
+            <!-- ==================== FORM ============================ -->
+            <form>
+                <div class="form-group">
+                    <label for="username">Tài khoản</label>
+                    <input type="text" id="username" value="{{ $user->username }}" />
+                </div>
+                <div class="form-group">
+                    <label for="password">Mật khẩu</label>
+                    <input type="password" id="password" value="{{ $user->password }}" />
+                </div>
+                <div class="form-group">
+                    <label for="fullname">Họ tên</label>
+                    <input type="text" id="fullname" value="{{ $user->name }}" />
+                </div>
+                <div class="form-group">
+                    <label for="phone">Số điện thoại</label>
+                    <input type="text" id="phone" value="{{ $user->phone }}" />
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" value="{{ $user->email }}" />
+                </div>
+                <button type="submit" class="save-button">Lưu</button>
+            </form>
+
         </div>
-        <!-- ==================== FORM ============================ -->
-        <form>
-          <div class="form-group">
-              <label for="username">Tài khoản</label>
-              <input type="text" id="username" value="{{ $user->username }}" />
-          </div>
-          <div class="form-group">
-              <label for="password">Mật khẩu</label>
-              <input type="password" id="password" value="{{ $user->password }}" />
-          </div>
-          <div class="form-group">
-            <label for="fullname">Họ tên</label>
-            <input type="text" id="fullname" value="{{ $user->name }}" />
-        </div>
-          <div class="form-group">
-              <label for="phone">Số điện thoại</label>
-              <input type="text" id="phone" value="{{ $user->phone }}" />
-          </div>
-          <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" value="{{ $user->email }}" />
-          </div>
-          <button type="submit" class="save-button">Lưu</button>
-      </form>
-      
     </div>
-</div>
 </body>
 
 </html>

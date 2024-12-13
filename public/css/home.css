@@ -101,15 +101,6 @@ nav {
     background-repeat: no-repeat;
     background-size: cover;
 }
-/* .ticket img {
-    width: 100%;
-    background-size: cover;
-    height: auto;
-} */
-/* .ticket .button:hover {
-    background-color: #e67e22;
-} */
- 
 .button-chieu {
     margin: 50px auto 30px 20px;
 }
@@ -205,9 +196,6 @@ nav {
         left: -100%; /* Kết thúc ở bên trái */
     }
 }
-
-
-
 
 .cinema-list,
 .branch-details,
@@ -319,7 +307,7 @@ nav {
 }
 
 
-/* footer */
+/* FOOTER */
 .footer {
     position: relative;
     width: 100%;
