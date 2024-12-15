@@ -1,7 +1,5 @@
 body {
-    background-color: #111;
-    color: white;
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -10,6 +8,17 @@ body {
     max-width: 600px;
     margin: auto;
     padding: 20px;
+    
+}
+
+.nen {
+    width: 100%;
+    height: 730px;
+    position: relative;
+    display: inline-block;
+    background-image: url(../img/tket.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 form {
     background-color: rgba(34, 34, 34, 0.8);
@@ -31,8 +40,10 @@ nav li a.active {
     color: white;
 }
 .logo img {
-    width: 100px;
-    height: 55px;
+    margin-top: 10px;
+    margin-left: -5px;
+    width: 200px;
+    height: 150px;
     filter: brightness(1.2);
 }
 nav {
@@ -44,7 +55,8 @@ nav {
     display: flex;
     list-style: none;
     justify-content: center;
-    gap: 20px; /* Khoảng cách giữa các mục menu */
+    margin-left: -150px;
+    gap: 40px; /* Khoảng cách giữa các mục menu */
 }
 
 .menu li {
@@ -60,19 +72,20 @@ nav {
 }
 
 .menu a:hover {
-    background-color: #555;
+    background-color: #58814e;
     border-radius: 4px;
 }
 .p3 {
     display: flex;
+    font-size: 20px;
     list-style: none;
     justify-content: center;
     gap: 20px; /* Khoảng cách giữa các mục menu */
 }
-.dxuat {
+#dxuat {
     color: green;
     text-decoration: none;
-    margin-top: 15px;
+    margin-top: 10px;
 }
 
 .editP {

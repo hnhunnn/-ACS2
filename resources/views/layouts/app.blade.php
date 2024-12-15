@@ -21,13 +21,13 @@
         <nav>
           <ul class="menu">
             <li><a href="{{ route('home') }}">Trang chủ</a></li>
-            <li><a href="#" class="active">Thông tin</a></li>
+            <li><a href="{{ route('profile') }}" class="active">Thông tin</a></li>
             <li><a href="#contact">Liên hệ</a></li>
           </ul>
         </nav>
   
         <div class="p3">
-          <p>Hello!</p>
+          <p>Xin chào!</p>
           @if (Auth::check())
             <div class="dropdown">
                 <button 
@@ -59,7 +59,7 @@
         <div class="container">
             <div class="sec aboutus">
                 <div class="logo-container">
-                    <img src="../img/HN&DL.png" alt="Footer Logo">
+                    <img src="../img/bap.png" alt="Footer Logo">
                 </div>
          
             </div>
@@ -97,10 +97,10 @@
                     </li>
                 </ul>
                 <ul class="sci">
-                    <li><a href="#"><i class='bx bxl-facebook'></i></a></li>
-                    <li><a href="#"><i class='bx bxl-instagram'></i></a></li>
-                    <li><a href="#"><i class='bx bxl-twitter'></i></a></li>
-                    <li><a href="#"><i class='bx bxl-youtube'></i></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100069911256288"><i class='bx bxl-facebook'></i></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100069911256288"><i class='bx bxl-instagram'></i></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100069911256288"><i class='bx bxl-twitter'></i></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100069911256288"><i class='bx bxl-youtube'></i></a></li>
                 </ul>
             </div>
         </div>

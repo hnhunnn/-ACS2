@@ -8,6 +8,8 @@ use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\BookingController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\PasswordResetController;
 
 
 Route::get('/', function () {
@@ -20,6 +22,23 @@ Route::get('/loginA', function () {
     return view('admin.loginA');
 })->name('loginA');
 
+// XỬ LÝ QUÊN MẬT KHẨU ADMIN
+Route::get('/forgot', function () {
+    return view('pass.forgotPass');
+})->name('forgot');
+
+Route::post('/forgot', [PasswordResetController::class, 'sendResetLink'])->name('forgot');
+
+Route::get('reset/{token}', function ($token) {
+    return view('pass.resetPass', ['token' => $token]);
+})->name('password.reset');
+
+Route::post('password/reset', [PasswordResetController::class, 'reset'])->name('resetPass');
+
+
+
+
+
 // LOGIN-USER 
 Route::get('/loginU', function () {
     return view(view: 'users/loginU');
@@ -31,14 +50,6 @@ Route::post('/loginU', [AuthController::class, 'login'])->name('postLoginU');
 Route::post('/register', [AuthController::class, 'register'])->name('register');
 // route xử lý đăng xuất
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
-
-// PROFILE
-Route::get('/profile', function () {
-    return view('users/profile');
-})->name('profile');
-
-// HOME
-// Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 // DASHBOARD
 Route::get('/dashboard', function () {
@@ -91,4 +102,10 @@ Route::get('/movie/{id}', [MovieController::class, 'show'])->name('users.detail'
 // ĐẶT VÉ BOOKING
 Route::get('/booking/{id}', [BookingController::class, 'show'])->name('booking');
 Route::post('/booking/process', [BookingController::class, 'process'])->name('booking.process');
+
+// HIỂN THỊ VÀ LƯU THÔNG TIN (PROFILE)
+Route::get('/profile', [UserController::class, 'showProfile'])->name('profile');
+
+// XỬ LÝ ĐẶT VÉ
+Route::post('/booking/{id}/process', [BookingController::class, 'process'])->name('booking.process');
 

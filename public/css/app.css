@@ -1,3 +1,8 @@
+body {
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+}
 a {
     text-decoration: none;
 }
@@ -5,7 +10,7 @@ a {
     margin-bottom: 20px;
 }
 .header1 {
-    background-color: rgba(121, 115, 115, 0.7); /* 70% đục */
+    background-color: rgba(121, 115, 115, 0.5); /* 70% đục */
     width: 100%;
     height: 70px;
     display: flex;
@@ -131,11 +136,25 @@ nav {
 }
 
 .logo-container img {
-    margin-top: -100px;
+    margin-top: -10px;
     margin-left: -150px;
-    width: 20rem;
+    width: 17rem;
     height: auto;
+    animation: move 2s infinite ease-in-out; /* Thêm animation */
 }
+
+@keyframes move {
+    0% {
+        transform: translateX(0); /* Bắt đầu tại vị trí gốc */
+    }
+    50% {
+        transform: translateX(20px); /* Di chuyển sang phải 20px */
+    }
+    100% {
+        transform: translateX(0); /* Quay lại vị trí ban đầu */
+    }
+}
+
 .contact .info li {
     display: flex;
     align-items: center;
