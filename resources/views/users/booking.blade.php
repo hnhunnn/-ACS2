@@ -70,11 +70,24 @@
                             <h3 class="text-success total-price">0 VNĐ</h3>
                             <p>Tên phim: {{ $movie->movieName }}</p>
                             <p>Địa điểm: <span id="location">{{ $branch->address }}</span></p>
-                            <p>Ngày chiếu: <span id="date">{{ $movie->release_date }}</span> - <span
-                                    id="time">{{ $schedule->showtime }}</span></p>
+                            <p>Ngày chiếu: <span id="date">{{ $movie->release_date }}</span></p>
+
+                            <!-- Dropdown chọn giờ chiếu -->
+                            <p>Chọn giờ chiếu:
+                                <select id="timeSelect" class="form-select">
+                                    <option value="">Chọn giờ chiếu</option>
+                                    @foreach ($showtimes as $time)
+                                        <option value="{{ $time }}">{{ $time }}</option>
+                                    @endforeach
+                                </select>
+                            </p>
+
+                            <p>Giờ đã chọn: <span id="selectedTime" class="text-primary">Chưa chọn</span></p>
                             <p>Ghế: <span class="text-danger selected-seats">Chưa chọn</span></p>
                             <button class="btn btn-success" id="confirmBooking">Đặt Vé</button>
                         </div>
+
+
                     </div>
 
                     <!-- Bên phải: Khu vực ghế ngồi -->
@@ -185,6 +198,13 @@
                         alert('Không thể gửi yêu cầu đặt vé.');
                     });
             });
+        });
+
+
+        // Xử lý hiển thị giờ chiếu đã chọn
+        document.getElementById('timeSelect').addEventListener('change', function() {
+            const selectedTime = this.value;
+            document.getElementById('selectedTime').innerText = selectedTime || 'Chưa chọn';
         });
     </script>
 @endsection

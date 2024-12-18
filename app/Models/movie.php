@@ -17,4 +17,13 @@ class movie extends Model
     {
         return $this->hasMany(schedule::class); // Một phim có nhiều lịch chiếu
     }
+    public function seat()
+    {
+        return $this->hasMany(seat::class);
+    }
+
+    public function booking()
+    {
+        return $this->hasMany(booking::class);
+    }
 }

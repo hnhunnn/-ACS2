@@ -130,8 +130,8 @@ nav {
     padding: 10px;
     border-radius: 5px;
     border: 1px solid #ccc;
-    background-color: rgba(0, 0, 0, 0.9);
-    color: white;
+    background-color: light-dark rgb(232, 240, 254);
+    color: black;
 }
 
 .form-group input:focus {

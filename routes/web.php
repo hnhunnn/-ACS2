@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CinemaController;
 use App\Http\Controllers\BranchController;
@@ -9,6 +10,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SeatController;
+
 
 
 
@@ -29,17 +32,36 @@ Route::get('/loginU', function () {
 
 Route::post('/loginU', [AuthController::class, 'login'])->name('postLoginU');
 
-//-----xử lý đăng ký------
+// XỬ LÝ ĐĂNG KÝ
 Route::post('/register', [AuthController::class, 'register'])->name('register');
-// route xử lý đăng xuất
+// XỬ LÝ ĐĂNG XUẤT
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
+// HIỂN THỊ VÀ LƯU THÔNG TIN (PROFILE)
+Route::get('/profile', [UserController::class, 'showProfile'])->name('profile');
+
+// CẬP NHẬT THÔNG TIN NGƯỜI DÙNG
+Route::post('/user/update', [UserController::class, 'update'])->name('user.update');
+
+// LẤY RẠP CHIẾU PHIM
+Route::get('/home', [CinemaController::class, 'getCinemas'])->name('home');
+
+//LẤY CHI NHÁNH
+Route::get('/cinema/{id}/branch', action: [BranchController::class, 'getBranches'])->name('cinema.branch');
+
+//LẤY GIỜ CHIẾU
+Route::get('/branch/{id}/schedules', action: [ScheduleController::class, 'getSchedules'])->name('branch.schedule');
+
+// THÔNG TIN PHIM
+Route::get('/movie/{id}', [MovieController::class, 'show'])->name('users.detail');
 
 // DASHBOARD
 Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard');
 
-// LIST FILMs
+// LIST FILMS
 Route::get('/listMovie', function () {
     return view('admin.listMovie');
 })->name('admin.listMovie');
@@ -69,25 +91,12 @@ Route::get('/booking', function () {
     return view('users.booking');
 })->name('booking');
 
-
-// LẤY RẠP CHIẾU PHIM
-Route::get('/home', [CinemaController::class, 'getCinemas'])->name('home');
-
-//LẤY CHI NHÁNH
-Route::get('/cinema/{id}/branch', action: [BranchController::class, 'getBranches'])->name('cinema.branch');
-
-//LẤY GIỜ CHIẾU
-Route::get('/branch/{id}/schedules', action: [ScheduleController::class, 'getSchedules'])->name('branch.schedule');
-
-// THÔNG TIN PHIM
-Route::get('/movie/{id}', [MovieController::class, 'show'])->name('users.detail');
-
 // ĐẶT VÉ BOOKING
 Route::get('/booking/{id}', [BookingController::class, 'show'])->name('booking');
-Route::post('/booking/process', [BookingController::class, 'process'])->name('booking.process');
 
-// HIỂN THỊ VÀ LƯU THÔNG TIN (PROFILE)
-Route::get('/profile', [UserController::class, 'showProfile'])->name('profile');
+Route::post('/booking/{id}/process', [BookingController::class, 'processBooking'])->name('booking.process');
+
+// Route::post('/booking/{movie}', [BookingController::class, 'processBooking'])->name('booking.process');
 
 
 

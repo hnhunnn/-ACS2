@@ -105,10 +105,11 @@ return new class extends Migration
             $table->string('number'); // Số ghế
             $table->enum('type', ['Thường', 'VIP']); // Loại ghế
             $table->boolean('is_available')->default(true); // Trạng thái ghế
-    
+            $table->unsignedBigInteger('movie_id');
             // Ràng buộc khóa ngoại
             $table->foreign('cinema_id')->references('id')->on('cinema')->onDelete('cascade');
-    
+            $table->foreign('movie_id')->references('id')->on('movie')->onDelete('cascade');
+
             $table->timestamps();
         });
 
