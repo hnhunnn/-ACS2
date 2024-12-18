@@ -96,7 +96,6 @@ Route::get('/booking/{id}', [BookingController::class, 'show'])->name('booking')
 
 Route::post('/booking/{id}/process', [BookingController::class, 'processBooking'])->name('booking.process');
 
-// Route::post('/booking/{movie}', [BookingController::class, 'processBooking'])->name('booking.process');
 
 
 
