@@ -97,10 +97,10 @@
                     </li>
                 </ul>
                 <ul class="sci">
-                    <li><a href="#"><i class='bx bxl-facebook'></i></a></li>
-                    <li><a href="#"><i class='bx bxl-instagram'></i></a></li>
-                    <li><a href="#"><i class='bx bxl-twitter'></i></a></li>
-                    <li><a href="#"><i class='bx bxl-youtube'></i></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100069911256288"><i class='bx bxl-facebook'></i></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100069911256288"><i class='bx bxl-instagram'></i></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100069911256288"><i class='bx bxl-twitter'></i></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100069911256288"><i class='bx bxl-youtube'></i></a></li>
                 </ul>
             </div>
         </div>

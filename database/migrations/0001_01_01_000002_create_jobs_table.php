@@ -126,7 +126,8 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');
             $table->foreign('movie_id')->references('id')->on('movie')->onDelete('cascade');
             $table->foreign('seat_id')->references('id')->on('seat')->onDelete('cascade');
-           
+            $table->unique(['movie_id', 'seat_id']); // Đảm bảo không trùng đặt ghế cho cùng một phim
+            
             $table->timestamps();  // Thời gian tạo và cập nhật bản ghi
 
         });

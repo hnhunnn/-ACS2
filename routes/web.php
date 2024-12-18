@@ -10,9 +10,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\SeatController;
-
-
+use App\Http\Controllers\PasswordResetController;
 
 
 Route::get('/', function () {
@@ -24,6 +22,23 @@ Route::get('/', function () {
 Route::get('/loginA', function () {
     return view('admin.loginA');
 })->name('loginA');
+
+// XỬ LÝ QUÊN MẬT KHẨU ADMIN
+Route::get('/forgot', function () {
+    return view('pass.forgotPass');
+})->name('forgot');
+
+Route::post('/forgot', [PasswordResetController::class, 'sendResetLink'])->name('forgot');
+
+Route::get('reset/{token}', function ($token) {
+    return view('pass.resetPass', ['token' => $token]);
+})->name('password.reset');
+
+Route::post('password/reset', [PasswordResetController::class, 'reset'])->name('resetPass');
+
+
+
+
 
 // LOGIN-USER 
 Route::get('/loginU', function () {
@@ -95,7 +110,5 @@ Route::get('/booking', function () {
 Route::get('/booking/{id}', [BookingController::class, 'show'])->name('booking');
 
 Route::post('/booking/{id}/process', [BookingController::class, 'processBooking'])->name('booking.process');
-
-
 
 

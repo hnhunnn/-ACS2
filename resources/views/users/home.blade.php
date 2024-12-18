@@ -75,7 +75,7 @@
             <div class="movie-grid-container">
                 <!-- Phim Đang Chiếu -->
                 <div id="dang-chieu" class="movie-list">
-                    @foreach ($dangChieu->chunk(5) as $movieRow)
+                    @foreach ($dangChieu->chunk(4) as $movieRow)
                         <div class="movie-grid">
                             @foreach ($movieRow as $movie)
                                 <div class="movie-card">

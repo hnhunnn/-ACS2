@@ -36,6 +36,7 @@
                     </a>
                 </div>
                 <p class="account-text">Don't have account? <a href="#" id="sign-up-btn2">Sign up</a></p>
+                <a href="{{ route('forgot') }}">Forgot Password?</a>
             </form>
             <!-- Sign Up -->
             <form action="{{ route('register') }}" method="POST" class="sign-in-form">

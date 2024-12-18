@@ -84,7 +84,7 @@
 
                             <p>Giờ đã chọn: <span id="selectedTime" class="text-primary">Chưa chọn</span></p>
                             <p>Ghế: <span class="text-danger selected-seats">Chưa chọn</span></p>
-                            <button class="btn btn-success" id="confirmBooking">Đặt Vé</button>
+                            <button class="btn btn-success" id="confirmBooking" data-movie-id="{{ $movie->id }}">Đặt Vé</button>
                         </div>
 
 
