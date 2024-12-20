@@ -80,7 +80,7 @@ Route::get('/dashboard', function () {
 })->name('admin.dashboard');
 
 
-// HIỂN THỊ LIST NGƯỜI DÙNG(DASHBOARD) 
+// LIST NGƯỜI DÙNG(DASHBOARD) 
 Route::get('/dashboard', [AdminController::class, 'manageUsers'])->name('admin.dashboard');
 // SỬA NGƯỜI DÙNG(ADMIN)
 Route::get('/admin/edit-user/{id}', [AdminController::class, 'edit'])->name('admin.editUser');
@@ -92,29 +92,26 @@ Route::post('/admin/add-user', [AdminController::class, 'store'])->name('admin.s
 // XÓA NGƯỜI DÙNG
 Route::delete('/admin/user/{id}', [AdminController::class, 'destroy'])->name('admin.deleteUser');
 // TÌM NGƯỜI DÙNG
-Route::get('/admin/users', [AdminController::class, 'index'])->name('admin.users');
-// Route::get('/admin/users', [AdminController::class, 'index'])->name('admin.indexUser'); // Route cho index
-// Route::get('/admin/users/search', [AdminController::class, 'search'])->name('admin.searchUser'); // Route cho tìm kiếm
-
-
+Route::get('/admin/users', [AdminController::class, 'index2'])->name('admin.users');
 
 // LIST FILMS
-Route::get('/listMovie', function () {
-    return view('admin.listMovie');
-})->name('admin.listMovie');
-// Route::get('/admin/movies', [MovieController::class, 'index'])->name('admin.movies.index');
-
-
+Route::get('/listMovie', [AdminController::class, 'index'])->name('admin.listMovie');
+// SỬA FILM
+Route::get('/admin/movie/edit/{id}', [AdminController::class, 'editM'])->name('admin.editMovie');
+Route::post('/admin/movies/update', [AdminController::class, 'updateM'])->name('admin.updateMovie');
+// XÓA PHIM
+Route::get('/admin/movie/delete/{id}', [AdminController::class, 'deleteM'])->name('admin.deleteMovie');
 // THÊM FILM
+Route::post('/movies/store', [AdminController::class, 'storeM'])->name('admin.storeMovie');
 Route::get('/addMovie', function () {
     return view('admin.addMovie');
 })->name('admin.addMovie');
-
-// SỬA FILM
-Route::get('/editMovie', function () {
-    return view('admin.editMovie');
-})->name('admin.editMovie');
-
+// TÌM KIẾM FILM
+Route::get('/admin/movies', [AdminController::class, 'listMovies'])->name('admin.listMovies');
+// ADMIN
+Route::get('/addUser', function () {
+    return view('admin.addUser');
+})->name('admin.addUser');
 
 // BOOKING
 Route::get('/booking', function () {
