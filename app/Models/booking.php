@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class booking extends Model
 {
     use HasFactory;
-    protected $table = 'movie';
+    protected $table = 'booking';
 
     protected $fillable = ['user_id', 'movie_id', 'seat_id', 'booking_time', 'booking_date'];
 

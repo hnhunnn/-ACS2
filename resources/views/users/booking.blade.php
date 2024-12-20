@@ -84,7 +84,8 @@
 
                             <p>Giờ đã chọn: <span id="selectedTime" class="text-primary">Chưa chọn</span></p>
                             <p>Ghế: <span class="text-danger selected-seats">Chưa chọn</span></p>
-                            <button class="btn btn-success" id="confirmBooking" data-movie-id="{{ $movie->id }}">Đặt Vé</button>
+                            <button class="btn btn-success" id="confirmBooking" data-movie-id="{{ $movie->id }} ">Đặt
+                                chỗ</button>
                         </div>
 
 
@@ -94,12 +95,28 @@
                     <div class="col-md-8 text-center">
                         <h3 style="color: white">Màn hình</h3>
                         <div style="background-color: orange; width: 80%; height: 10px; margin-left: 85px"></div><br>
-                        <div class="seat-selection">
+                        {{-- <div class="seat-selection">
+                            @foreach ($seats as $seat)
+                                <button
+                                    class="seat 
+                                @if (!$seat->is_available) reserved @endif
+                                @if ($seat->type == 'VIP') vip @else normal @endif"
+                                    data-seat="{{ $seat->id }}"
+                                    style="background-color: {{ !$seat->is_available ? 'yellow' : 'initial' }}">
+                                    {{ $seat->number }}
+                                </button>
+                                @if ($loop->iteration % 13 == 0)
+                                    <br>
+                                @endif
+                            @endforeach
+
+
+
                             @for ($i = 1; $i <= 104; $i++)
                                 <button
                                     class="seat 
-                                    @if ($i >= 79 && $i <= 104) vip 
-                                    @else normal @endif"
+                                @if ($i >= 79 && $i <= 104) vip 
+                                @else normal @endif"
                                     data-seat="{{ $i }}">
                                     {{ $i }}
                                 </button>
@@ -107,7 +124,25 @@
                                     <br>
                                 @endif
                             @endfor
+                        </div> --}}
+                        <div class="seat-selection">
+                            @foreach ($seats as $seat)
+                                <button
+                                    class="seat 
+                                @if (in_array($seat->id, $bookedSeats->toArray())) reserved @endif
+                                @if ($seat->type == 'VIP') vip @else normal @endif"
+                                    data-seat="{{ $seat->id }}"
+                                    style="background-color: 
+                                @if (in_array($seat->id, $bookedSeats->toArray())) yellow @else white @endif;">
+                                    {{ $seat->number }}
+                                </button>
+                                @if ($loop->iteration % 13 == 0)
+                                    <br>
+                                @endif
+                            @endforeach
                         </div>
+
+
                     </div>
                 </div>
             </div>
@@ -115,12 +150,17 @@
     </div>
     <br>
 
+@endsection
+
+@section('scripts')
+
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const seats = document.querySelectorAll('.seat');
             const selectedSeatsElement = document.querySelector('.selected-seats');
             const totalPriceElement = document.querySelector('.total-price');
             const confirmButton = document.querySelector('#confirmBooking');
+            const movieId = confirmButton.getAttribute('data-movie-id');
 
             const selectedSeats = [];
             const seatPrice = {
@@ -170,27 +210,25 @@
                     return;
                 }
 
-                const selectedSeatNumbers = selectedSeats.map(seat => seat.number);
-                const bookingData = {
-                    movie_id: {{ $movie->id }},
-                    seats: selectedSeatNumbers
-                };
+                const selectedSeatIds = selectedSeats.map(seat => seat.number);
 
-                fetch('{{ route('booking.process', $movie->id) }}', {
+                fetch(`/movies/${movieId}/book-seats`, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
                             'X-CSRF-TOKEN': '{{ csrf_token() }}'
                         },
-                        body: JSON.stringify(bookingData)
+                        body: JSON.stringify({
+                            seats: selectedSeatIds
+                        })
                     })
                     .then(response => response.json())
                     .then(data => {
                         if (data.success) {
-                            alert('Đặt vé thành công!');
+                            alert(data.message);
                             window.location.reload();
                         } else {
-                            alert('Có lỗi xảy ra khi đặt vé. Vui lòng thử lại.');
+                            alert(data.message);
                         }
                     })
                     .catch(error => {
@@ -198,13 +236,15 @@
                         alert('Không thể gửi yêu cầu đặt vé.');
                     });
             });
-        });
 
 
-        // Xử lý hiển thị giờ chiếu đã chọn
-        document.getElementById('timeSelect').addEventListener('change', function() {
-            const selectedTime = this.value;
-            document.getElementById('selectedTime').innerText = selectedTime || 'Chưa chọn';
-        });
+
+            // Xử lý hiển thị giờ chiếu đã chọn
+            document.getElementById('timeSelect').addEventListener('change', function() {
+                const selectedTime = this.value;
+                document.getElementById('selectedTime').innerText = selectedTime || 'Chưa chọn';
+            });
+
+        })
     </script>
 @endsection

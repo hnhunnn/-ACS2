@@ -22,8 +22,7 @@ class seat extends Model
         return $this->hasMany(Booking::class);
     }
     public function markAsUnavailable()
-{
-    $this->update(['is_available' => false]);
-}
-
+    {
+        $this->update(['is_available' => false]);
+    }
 }

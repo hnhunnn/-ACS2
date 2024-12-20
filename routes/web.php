@@ -12,7 +12,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PasswordResetController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\LoginAdminController;
+use App\Http\Controllers\SeatController;
 
 
 
@@ -122,3 +122,7 @@ Route::get('/booking', function () {
 Route::get('/booking/{id}', [BookingController::class, 'show'])->name('booking');
 
 Route::post('/booking/{id}/process', [BookingController::class, 'processBooking'])->name('booking.process');
+
+Route::get('/movies/{movieId}/seats', [BookingController::class, 'getSeats'])->name('get.seats');
+Route::post('/movies/{movieId}/book-seats', [BookingController::class, 'bookSeats'])->name('book.seats');
+
