@@ -53,7 +53,7 @@ return new class extends Migration
             $table->string('password'); //mật khẩu
             $table->string('email'); //email
             $table->string('phone')->default("");  //sdt
-            $table->enum('role', ['admin', 'customer']); // vai trò(qtv/ngdung)
+            $table->enum('role', ['Khách hàng', 'Quản trị viên']); // vai trò(qtv/ngdung)
             $table->timestamps();
         });
 

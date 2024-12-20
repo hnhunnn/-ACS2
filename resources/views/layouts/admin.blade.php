@@ -40,10 +40,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li>
-                    <a href="#">Đăng Xuất</a>
-
+                    <form action="{{ route('logoutA') }}" method="POST" style="display: inline;">
+                        @csrf
+                        <button type="submit" class="btn btn-link" style="color: blue; text-decoration: none;">
+                            Đăng Xuất
+                        </button>
+                    </form>
                 </li>
             </ul>
+            
         </nav>
 
         <!-- Main Sidebar Container -->
@@ -59,12 +64,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar -->
             <div class="sidebar">
                 <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex" >
+                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
                         <img src="../img/admin.avif" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Dieu Linh</a>
+                        <!-- Hiển thị tên người dùng đã đăng nhập -->
+                        <a href="#" class="d-block">{{ Auth::user()->name }}</a>
                     </div>
                 </div>
 

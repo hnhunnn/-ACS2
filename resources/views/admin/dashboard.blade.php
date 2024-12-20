@@ -1,75 +1,81 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="content-wrapper" style="background-color: white">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-            <div class="col-sm-6">
-                <h1 class="m-0">Quản lý người dùng </h1>
-            </div><!-- /.col --> 
-            
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
-    </div>
+    <div class="content-wrapper" style="background-color: white">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Quản lý người dùng </h1>
+                    </div><!-- /.col -->
 
-    <div class='add' >
-        <a href="{{ route('admin.addUser') }}">Thêm người dùng</a>
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+        <div class='add'>
+            <a href="{{ route('admin.addUser') }}">Thêm người dùng</a>
         </div>
         <br>
         <div>
-        <div class="search-container">
-            <input type="text" class="search-input" placeholder="Nhập thông tin người dùng">
-            <button class="search-button">
-                <img src="https://img.icons8.com/ios-filled/24/FFFFFF/search--v1.png" alt="Search Icon">
-            </button>
-        </div>
-        <div class="table-container">
-            <table>
-                <thead>
-                    <tr>
-                        <th>STT</th>
-                        <th>Họ tên</th>
-                        <th>Tài khoản</th>
-                        <th>Mật khẩu</th>
-                        <th>Email</th>
-                        <th>Số điện thoại</th>
-                        <th>Loại người dùng</th>
-                        <th>Hành động</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Dòng dữ liệu mẫu -->
-                    <tr>
-                        <td>1</td>
-                        <td>Hồ Thị Hồng nhung </td>
-                        <td>Hồng Nhung</td>
-                        <td>123456</td>
-                        <td>hnhun@gmail.com</td>
-                        <td>0935126931</td>
-                        <td>Quản Trị</td>
-                        <td>
-                            <button class="action-btn edit-btn"><a href="{{ route('admin.editUser') }}"><i class='bx bx-edit'></i></a></button>
-                            <button class="action-btn delete-btn"><i class='bx bx-trash'></i></button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Hoàng Thị Diệu Linh</td>
-                        <td>Diệu Linh</td>
-                        <td>123</td>
-                        <td>dlinh@gmail.com</td>
-                        <td>0935126931</td>
-                        <td>Quản Trị</td>
-                        <td>
-                            <button class="action-btn edit-btn"><a href="{{ route('admin.editUser') }}"><i class='bx bx-edit'></i></a></button>
-                            <button class="action-btn delete-btn"><i class='bx bx-trash'></i></button>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="Nhập thông tin người dùng">
+                <button class="search-button">
+                    <img src="https://img.icons8.com/ios-filled/24/FFFFFF/search--v1.png" alt="Search Icon">
+                </button>
+            </div>
+            {{-- <div class="search-container">
+                <form action="{{ route('admin.searchUser') }}" method="GET">
+                    <input type="text" name="search" class="search-input" placeholder="Nhập thông tin người dùng"
+                        value="{{ request('search') }}">
+                    <button type="submit" class="search-button">
+                        <img src="https://img.icons8.com/ios-filled/24/FFFFFF/search--v1.png" alt="Search Icon">
+                    </button>
+                </form>
+            </div --}}
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Họ tên</th>
+                            <th>Tài khoản</th>
+                            {{-- <th>Mật khẩu</th> --}}
+                            <th>Email</th>
+                            <th>Số điện thoại</th>
+                            <th>Loại người dùng</th>
+                            <th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($users as $index => $user)
+                            <tr>
+                                <td>{{ $index + 1 }}</td>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->username }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->phone }}</td>
+                                <td>{{ $user->role }}</td>
+                                <td>
+                                    <button class="action-btn edit-btn"><a
+                                            href="{{ route('admin.editUser', $user->id) }}"><i
+                                                class='bx bx-edit'></i></a></button>
+
+                                    <!-- Form xóa người dùng -->
+                                    <form action="{{ route('admin.deleteUser', $user->id) }}" method="POST"
+                                        style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="action-btn delete-btn"><i
+                                                class='bx bx-trash'></i></button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+
+                </table>
+            </div>
         </div>
     </div>
-</div>
 @endsection

@@ -9,6 +9,7 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
+    // I. USER
     //Hiển thị form đăng nhập
     public function showLoginForm()
     {
@@ -60,5 +61,46 @@ class AuthController extends Controller
     {
         Auth::logout();
         return redirect()->back()->with('success', 'Logged out successfully.');
+    }
+
+    // II. ADMIN 
+
+    // Hiển thị form đăng nhập
+    public function showLoginForm22()
+    {
+        return view('admin.loginA');
+    }
+
+    // Xử lý đăng nhập
+    public function loginAdmin(Request $request)
+    {
+        $request->validate([
+            'username' => 'required|string',
+            'password' => 'required|string',
+        ]);
+
+        $credentials = $request->only('username', 'password');
+
+        if (Auth::attempt($credentials, $request->remember)) {
+            // Đăng nhập thành công, chuyển hướng đến trang dashboard
+            return redirect()->intended('/dashboard');
+        }
+
+        // Đăng nhập thất bại, quay lại trang login với lỗi
+        return back()->withErrors([
+            'username' => 'Tài khoản hoặc mật khẩu không đúng.',
+        ])->withInput($request->except('password'));
+    }
+
+    // Xử lý đăng xuất
+    public function logoutAdmin(Request $request)
+    {
+        Auth::logout();
+
+        // Xóa session và chuyển hướng về trang đăng nhập
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('loginA');
     }
 }

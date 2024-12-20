@@ -11,6 +11,11 @@ use App\Http\Controllers\MovieController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PasswordResetController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\LoginAdminController;
+
+
+
 
 
 Route::get('/', function () {
@@ -22,6 +27,10 @@ Route::get('/', function () {
 Route::get('/loginA', function () {
     return view('admin.loginA');
 })->name('loginA');
+// LOGIN-LOGOUT (ADMIN)
+Route::get('/login', [AuthController::class, 'showLoginForm2'])->name('login');
+Route::post('/loginA', [AuthController::class, 'loginAdmin'])->name('loginA');
+Route::post('/logoutA', [AuthController::class, 'logoutAdmin'])->name('logoutA');
 
 // XỬ LÝ QUÊN MẬT KHẨU ADMIN
 Route::get('/forgot', function () {
@@ -37,19 +46,13 @@ Route::get('reset/{token}', function ($token) {
 Route::post('password/reset', [PasswordResetController::class, 'reset'])->name('resetPass');
 
 
-
-
-
 // LOGIN-USER 
 Route::get('/loginU', function () {
     return view(view: 'users/loginU');
 })->name('loginU');
-
+// LOGIN-LOGOUT-REGISTER (USER)
 Route::post('/loginU', [AuthController::class, 'login'])->name('postLoginU');
-
-// XỬ LÝ ĐĂNG KÝ
 Route::post('/register', [AuthController::class, 'register'])->name('register');
-// XỬ LÝ ĐĂNG XUẤT
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 
 
@@ -76,10 +79,30 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->name('admin.dashboard');
 
+
+// HIỂN THỊ LIST NGƯỜI DÙNG(DASHBOARD) 
+Route::get('/dashboard', [AdminController::class, 'manageUsers'])->name('admin.dashboard');
+// SỬA NGƯỜI DÙNG(ADMIN)
+Route::get('/admin/edit-user/{id}', [AdminController::class, 'editUser'])->name('admin.editUser');
+Route::post('/admin/update-user/{id}', [AdminController::class, 'updateUser'])->name('admin.updateUser');
+
+// THÊM NGƯỜI DÙNG
+Route::get('/admin/add-user', [AdminController::class, 'create'])->name('admin.addUser');
+Route::post('/admin/add-user', [AdminController::class, 'store'])->name('admin.storeUser');
+// XÓA NGƯỜI DÙNG
+Route::delete('/admin/user/{id}', [AdminController::class, 'destroy'])->name('admin.deleteUser');
+// TÌM NGƯỜI DÙNG
+Route::get('/admin/users', [AdminController::class, 'index'])->name('admin.indexUser'); // Route cho index
+Route::get('/admin/users/search', [AdminController::class, 'search'])->name('admin.searchUser'); // Route cho tìm kiếm
+
+
+
 // LIST FILMS
 Route::get('/listMovie', function () {
     return view('admin.listMovie');
 })->name('admin.listMovie');
+// Route::get('/admin/movies', [MovieController::class, 'index'])->name('admin.movies.index');
+
 
 // THÊM FILM
 Route::get('/addMovie', function () {
@@ -110,5 +133,3 @@ Route::get('/booking', function () {
 Route::get('/booking/{id}', [BookingController::class, 'show'])->name('booking');
 
 Route::post('/booking/{id}/process', [BookingController::class, 'processBooking'])->name('booking.process');
-
-

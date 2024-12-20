@@ -21,4 +21,14 @@ class MovieController extends Controller
         $movieDetail = movie::findOrFail($id);
         return view('users.detail', compact("movieDetail"));
     }
+// HIỂN THỊ LIST PHIM
+//     public function index()
+// {
+//     // Lấy tất cả các phim từ cơ sở dữ liệu
+//     $movies = Movie::all(); 
+
+//     // Truyền dữ liệu vào view
+//     return view('admin.listMovie', compact('movies')); // Sử dụng compact để truyền biến
+// }
+
 }
