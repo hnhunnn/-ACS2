@@ -27,7 +27,7 @@
 
         <div class="p3">
             <p style='margin-top: 10px'>Xin chào!</p>
-            <a href="#" id="dxuat">Đăng xuất</a>
+            
         </div>
     </header>
     <div class="nen">

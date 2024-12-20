@@ -229,8 +229,13 @@ public function storeM(Request $request)
 
         
         // Handle image upload
+        // if ($request->hasFile('image_path')) {
+        //     $movie->image_path = $request->file('image_path')->store('movies', 'public');
+        // }
         if ($request->hasFile('image_path')) {
-            $movie->image_path = $request->file('image_path')->store('movies', 'public');
+            $file = $request->file('image_path');
+            $path = $file->store('movies', 'public'); // Lưu ảnh vào 'storage/app/public/images'
+            $movie->image_path = 'storage/' . $path; // Lưu đường dẫn ảnh
         }
 
         $movie->save();
