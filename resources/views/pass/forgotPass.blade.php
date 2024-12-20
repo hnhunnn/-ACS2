@@ -9,7 +9,7 @@
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
             @error('email')
-                <span class="error">{{ $message }}</span>
+                <div class="error">{{ $message }}</div>
             @enderror
         </div>
             <br><button type="submit">Đặt lại mật khẩu</button>

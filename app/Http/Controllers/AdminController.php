@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\movie;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
 
@@ -134,4 +136,123 @@ public function updateUser(Request $request, $id)
 //      return view('admin.dashboard', compact('users')); // Trả lại kết quả tìm kiếm
 //  }
  
+
+
+// LIST PHIM
+public function index()
+{
+    // Lấy tất cả dữ liệu từ bảng 'movie'
+    $movies = DB::table('movie')->get(); 
+    return view('admin.listMovie', compact('movies'));
+}
+
+    // XỬ LÝ XÓA PHIM
+    public function deleteM($id)
+{
+    // Tìm người dùng theo ID và xóa
+    $movies = movie ::find($id);
+    
+    if ($movies) {
+        $movies->delete(); // Xóa phim
+        return redirect()->route('admin.listMovie')->with('success', 'Xóa phim thành công!');
+    }
+
+    return redirect()->route('admin.listMovie')->with('error', 'Phim không tồn tại.');
+}
+    public function listMovie()
+{
+    $movies = DB::table('movie')->get();
+    return view('admin.listMovie', compact('movies'));
+}
+
+// SỬA PHIM
+
+public function editM($id)
+{
+    // Lấy thông tin phim theo ID
+    $movie = DB::table('movie')->where('id', $id)->first();
+
+    if (!$movie) {
+        return redirect()->route('admin.listMovie')->with('error', 'Không tìm thấy phim!');
+    }
+
+    // Trả về view chỉnh sửa phim
+    return view('admin.editMovie', compact('movie'));
+}
+public function updateM(Request $request)
+{
+    $validatedData = $request->validate([
+        'movie_name' => 'required|string|max:255',
+        'trailer' => 'nullable|url',
+        'description' => 'nullable|string',
+        'release_date' => 'nullable|date',
+        'movie_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+    ]);
+
+    $movie = Movie::findOrFail($request->movie_id);
+
+    // Cập nhật các trường
+    $movie->movieName = $validatedData['movie_name'];
+    $movie->trailer_url = $validatedData['trailer'];
+    $movie->description = $validatedData['description'];
+    $movie->release_date = $validatedData['release_date'];
+    $movie->showing = $request->has('is_showing') ? 1 : 0;
+
+    // Xử lý ảnh mới nếu có
+    if ($request->hasFile('movie_image')) {
+        $imagePath = $request->file('movie_image')->store('public/movies');
+        $movie->image_path = str_replace('public/', 'storage/', $imagePath);
+    }
+
+    $movie->save();
+
+    return redirect()->route('admin.listMovie')->with('success', 'Cập nhật phim thành công.');
+}
+
+// THÊM PHIM
+public function storeM(Request $request)
+    {
+        // Validate input
+        $request->validate([
+            'movie_name' => 'required|string|max:255',
+            'trailer_url' => 'nullable|url',
+            'description' => 'required|string',
+            'release_date' => 'required|date',
+            'image_path' => 'required|image',
+        ]);
+
+        // Store data
+        $movie = new Movie();
+        $movie->movieName = $request->input('movie_name');
+        $movie->trailer_url = $request->input('trailer_url');
+        $movie->description = $request->input('description');
+        $movie->release_date = $request->input('release_date');
+        $movie->showing = $request->has('is_showing') ? 1 : 0;
+
+        
+        // Handle image upload
+        if ($request->hasFile('image_path')) {
+            $movie->image_path = $request->file('image_path')->store('movies', 'public');
+        }
+
+        $movie->save();
+
+        return redirect()->route('admin.listMovie')->with('success', 'Thêm phim thành công!');
+    }
+
+    // TÌM KIẾM PHIM
+    public function listMovies(Request $request)
+{
+    $search = $request->input('search'); // Lấy từ khóa tìm kiếm từ request
+
+    // Tìm kiếm theo tên phim hoặc mô tả
+    $movies = Movie::query()
+        ->when($search, function ($query, $search) {
+            $query->where('movieName', 'LIKE', "%{$search}%")
+                  ->orWhere('description', 'LIKE', "%{$search}%");
+        })
+        ->get();
+
+    return view('admin.listMovie', compact('movies', 'search'));
+}
 }
