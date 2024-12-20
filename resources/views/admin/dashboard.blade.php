@@ -19,20 +19,14 @@
         <br>
         <div>
             <div class="search-container">
-                <input type="text" class="search-input" placeholder="Nhập thông tin người dùng">
-                <button class="search-button">
-                    <img src="https://img.icons8.com/ios-filled/24/FFFFFF/search--v1.png" alt="Search Icon">
-                </button>
-            </div>
-            {{-- <div class="search-container">
-                <form action="{{ route('admin.searchUser') }}" method="GET">
-                    <input type="text" name="search" class="search-input" placeholder="Nhập thông tin người dùng"
+                <form action="{{ route('admin.users') }}" method="GET">
+                    <input type="text" class="search-input" name="search" placeholder="Nhập thông tin người dùng"
                         value="{{ request('search') }}">
                     <button type="submit" class="search-button">
                         <img src="https://img.icons8.com/ios-filled/24/FFFFFF/search--v1.png" alt="Search Icon">
                     </button>
                 </form>
-            </div --}}
+            </div>
             <div class="table-container">
                 <table>
                     <thead>
@@ -48,30 +42,35 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($users as $index => $user)
+                        @if ($users->isEmpty())
                             <tr>
-                                <td>{{ $index + 1 }}</td>
-                                <td>{{ $user->name }}</td>
-                                <td>{{ $user->username }}</td>
-                                <td>{{ $user->email }}</td>
-                                <td>{{ $user->phone }}</td>
-                                <td>{{ $user->role }}</td>
-                                <td>
-                                    <button class="action-btn edit-btn"><a
-                                            href="{{ route('admin.editUser', $user->id) }}"><i
-                                                class='bx bx-edit'></i></a></button>
-
-                                    <!-- Form xóa người dùng -->
-                                    <form action="{{ route('admin.deleteUser', $user->id) }}" method="POST"
-                                        style="display:inline;">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="action-btn delete-btn"><i
-                                                class='bx bx-trash'></i></button>
-                                    </form>
-                                </td>
+                                <td colspan="7" style="text-align: center;">Không tìm thấy người dùng phù hợp.</td>
                             </tr>
-                        @endforeach
+                        @else
+                            @foreach ($users as $index => $user)
+                                <tr>
+                                    <td>{{ $index + 1 }}</td>
+                                    <td>{{ $user->name }}</td>
+                                    <td>{{ $user->username }}</td>
+                                    <td>{{ $user->email }}</td>
+                                    <td>{{ $user->phone }}</td>
+                                    <td>{{ $user->role }}</td>
+                                    <td>
+                                        <a class="action-btn edit-btn"><a href="{{ route('admin.editUser', $user->id) }}"><i
+                                                    class='bx bx-edit'></i></a></a>
+
+                                        <!-- Form xóa người dùng -->
+                                        <form action="{{ route('admin.deleteUser', $user->id) }}" method="POST"
+                                            style="display:inline;">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="action-btn delete-btn"><i
+                                                    class='bx bx-trash'></i></button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        @endif
                     </tbody>
 
                 </table>

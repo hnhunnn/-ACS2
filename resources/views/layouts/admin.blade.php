@@ -55,7 +55,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <aside class="main-sidebar sidebar-dark-primary ">
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
-                <img src="../img/lgoS.png" alt="AdminLTE Logo" class="brand-image" style="width: 50px; height: 500px; ">
+            <img src="{{ asset('img/lgoS.png') }}" alt="AdminLTE Logo" class="brand-image" style="width: 50px; height: 500px; ">
                 <span class="brand-text font-weight-light"
                     style="color: rgb(221, 43, 43);font-family: Brush Script MT;font-size: 1.5rem;">Cinema
                     Manager</span>
@@ -66,7 +66,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="../img/admin.avif" class="img-circle elevation-2" alt="User Image">
+                        <img src="{{ asset('img/admin.avif') }}" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <!-- Hiển thị tên người dùng đã đăng nhập -->

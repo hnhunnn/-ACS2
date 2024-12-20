@@ -61,7 +61,11 @@ class AdminController extends Controller
     }
 
     return redirect()->route('admin.dashboard')->with('error', 'Người dùng không tồn tại.');
-}
+}   
+
+
+
+
 
 // CHỈNH SỬA NGƯỜI DÙNG
 // Hiển thị form chỉnh sửa người dùng
@@ -88,7 +92,7 @@ public function updateUser(Request $request, $id)
         'username' => 'required|max:255',
         'email' => 'required|email|max:255',
         'phone' => 'required|max:15',
-        'user_type' => 'required',
+        'role' => 'required',
         'password' => 'nullable|min:6',
     ]);
 
@@ -96,8 +100,8 @@ public function updateUser(Request $request, $id)
     $user->username = $request->input('username');
     $user->email = $request->input('email');
     $user->phone = $request->input('phone');
-    $user->user_type = $request->input('user_type');
-    
+    $user->role = $request->input('role'); // Sử dụng đúng cột 'role'
+
     // Nếu người dùng nhập mật khẩu mới, cập nhật mật khẩu
     if ($request->filled('password')) {
         $user->password = bcrypt($request->input('password'));
@@ -107,31 +111,25 @@ public function updateUser(Request $request, $id)
 
     return redirect()->route('admin.dashboard')->with('success', 'Thông tin người dùng đã được cập nhật');
 }
-// TÌM NGƯỜI DÙNG 
-//  public function index(Request $request)
-//  {
-//      $search = $request->input('search'); // Lấy từ khóa tìm kiếm
 
-//      $users = User::when($search, function($query) use ($search) {
-//          $query->where('name', 'like', "%$search%")
-//                ->orWhere('email', 'like', "%$search%")
-//                ->orWhere('username', 'like', "%$search%");
-//      })->paginate(10); // Phân trang (tuỳ chọn)
+public function index(Request $request)
+{
+    $search = $request->input('search');
 
-//      return view('admin.dashboard', compact('users'));
-//  }
+    $users = User::query();
 
-//  // Phương thức tìm kiếm người dùng (nếu bạn muốn tách riêng search ra khỏi index)
-//  public function search(Request $request)
-//  {
-//      $search = $request->input('search'); // Nhận từ khóa tìm kiếm
+    if ($search) {
+        $users = $users->where('name', 'LIKE', "%{$search}%")
+                       ->orWhere('username', 'LIKE', "%{$search}%")
+                       ->orWhere('email', 'LIKE', "%{$search}%")
+                       ->orWhere('phone', 'LIKE', "%{$search}%")
+                       ->orWhere('role', 'LIKE', "%{$search}%");
+    }
 
-//      $users = User::where('name', 'like', "%$search%")
-//                   ->orWhere('email', 'like', "%$search%")
-//                   ->orWhere('username', 'like', "%$search%")
-//                   ->get(); // Lấy tất cả người dùng khớp với tìm kiếm
+    $users = $users->get();
 
-//      return view('admin.dashboard', compact('users')); // Trả lại kết quả tìm kiếm
-//  }
+    return view('admin.dashboard', ['users' => $users]);
+}
+
  
 }

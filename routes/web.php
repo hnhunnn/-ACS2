@@ -83,8 +83,8 @@ Route::get('/dashboard', function () {
 // HIỂN THỊ LIST NGƯỜI DÙNG(DASHBOARD) 
 Route::get('/dashboard', [AdminController::class, 'manageUsers'])->name('admin.dashboard');
 // SỬA NGƯỜI DÙNG(ADMIN)
-Route::get('/admin/edit-user/{id}', [AdminController::class, 'editUser'])->name('admin.editUser');
-Route::post('/admin/update-user/{id}', [AdminController::class, 'updateUser'])->name('admin.updateUser');
+Route::get('/admin/edit-user/{id}', [AdminController::class, 'edit'])->name('admin.editUser');
+Route::put('/admin/update-user/{id}', [AdminController::class, 'updateUser'])->name('admin.updateUser');
 
 // THÊM NGƯỜI DÙNG
 Route::get('/admin/add-user', [AdminController::class, 'create'])->name('admin.addUser');
@@ -92,8 +92,9 @@ Route::post('/admin/add-user', [AdminController::class, 'store'])->name('admin.s
 // XÓA NGƯỜI DÙNG
 Route::delete('/admin/user/{id}', [AdminController::class, 'destroy'])->name('admin.deleteUser');
 // TÌM NGƯỜI DÙNG
-Route::get('/admin/users', [AdminController::class, 'index'])->name('admin.indexUser'); // Route cho index
-Route::get('/admin/users/search', [AdminController::class, 'search'])->name('admin.searchUser'); // Route cho tìm kiếm
+Route::get('/admin/users', [AdminController::class, 'index'])->name('admin.users');
+// Route::get('/admin/users', [AdminController::class, 'index'])->name('admin.indexUser'); // Route cho index
+// Route::get('/admin/users/search', [AdminController::class, 'search'])->name('admin.searchUser'); // Route cho tìm kiếm
 
 
 
@@ -114,15 +115,6 @@ Route::get('/editMovie', function () {
     return view('admin.editMovie');
 })->name('admin.editMovie');
 
-// ADMIN
-Route::get('/addUser', function () {
-    return view('admin.addUser');
-})->name('admin.addUser');
-
-// SỬA FILM
-Route::get('/editUser', function () {
-    return view('admin.editUser');
-})->name('admin.editUser');
 
 // BOOKING
 Route::get('/booking', function () {
