@@ -19,13 +19,30 @@
         <div class="logo">
           <img src="{{ asset('img/lgo.png') }}" alt="" />
         </div>
-        <nav>
-          <ul class="menu">
-            <li><a href="{{ route('home') }}">Trang chủ</a></li>
-            <li><a href="{{ route('profile') }}" class="active">Thông tin</a></li>
-            <li><a href="#contact">Liên hệ</a></li>
-          </ul>
-        </nav>
+
+         <!-- Nút hamburger -->
+<button class="hamburger" id="hamburger">
+    <span class="bar"></span>
+    <span class="bar"></span>
+    <span class="bar"></span>
+</button>
+
+<!-- Menu -->
+<nav>
+    <ul class="menu hidden" id="menu">
+        <li><a href="{{ route('home') }}">Trang chủ</a></li>
+        <li><a href="{{ route('profile') }}" class="active">Thông tin</a></li>
+        <li><a href="#contact">Liên hệ</a></li>
+    </ul>
+</nav>
+
+
+         {{-- <!-- Nút hamburger -->
+    <button class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button> --}}
   
         <div class="p3">
           <p>Xin chào!</p>

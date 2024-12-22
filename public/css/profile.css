@@ -8,7 +8,6 @@ body {
     max-width: 600px;
     margin: auto;
     padding: 20px;
-    
 }
 
 .nen {
@@ -154,4 +153,111 @@ nav {
 
 .save-button:hover {
     background-color: #007bff;
+}
+
+/* RESPONSIVE */
+/* Responsive for tablets and smaller laptops (max-width: 991px) */
+@media (max-width: 991px) {
+    .container {
+        width: 90%; /* Giảm chiều rộng container */
+        padding: 10px;
+    }
+
+    .nen {
+        height: 500px; /* Giảm chiều cao của hình nền */
+    }
+
+    form {
+        margin-left: 0; /* Loại bỏ margin trái để form có thể chiếm toàn bộ chiều rộng */
+    }
+
+    .menu {
+        margin-left: 0;
+        gap: 20px; /* Giảm khoảng cách giữa các mục menu */
+    }
+
+    .logo img {
+        width: 150px; /* Giảm kích thước logo cho màn hình nhỏ */
+        height: 120px;
+    }
+
+    .menu li a {
+        font-size: 18px; /* Giảm kích thước chữ của menu */
+    }
+
+    .p3 {
+        font-size: 18px; /* Giảm kích thước chữ trong phần .p3 */
+    }
+
+    .tab-bar {
+        flex-direction: column; /* Đặt các tab thành dạng cột */
+        align-items: center;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="password"] {
+        width: 100%; /* Đảm bảo các input chiếm toàn bộ chiều rộng */
+        padding: 8px;
+    }
+
+    .save-button {
+        width: 90%; /* Giảm chiều rộng của nút save */
+        margin-left: 5%;
+    }
+}
+
+/* Responsive for mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .container {
+        width: 100%; /* Full width container trên mobile */
+        padding: 5px;
+    }
+
+    .nen {
+        height: 350px; /* Giảm chiều cao hình nền */
+    }
+
+    .header {
+        flex-direction: column; /* Đặt các phần tử trong header thành cột */
+        padding: 15px;
+    }
+
+    .logo img {
+        width: 120px; /* Giảm kích thước logo */
+        height: 100px;
+    }
+
+    .menu {
+        flex-direction: column; /* Đặt các mục menu thành cột */
+        gap: 10px; /* Khoảng cách giữa các mục menu */
+        margin-left: 0;
+    }
+
+    .menu li a {
+        font-size: 16px; /* Giảm kích thước chữ menu */
+        padding: 8px;
+    }
+
+    .p3 {
+        font-size: 16px; /* Giảm kích thước chữ trong phần .p3 */
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .tab-bar {
+        flex-direction: column; /* Đặt các tab thành cột */
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group input[type="password"] {
+        width: 100%; /* Đảm bảo các input chiếm toàn bộ chiều rộng */
+        padding: 8px;
+    }
+
+    .save-button {
+        width: 90%; /* Giảm chiều rộng của nút save */
+        margin-left: 5%;
+    }
 }

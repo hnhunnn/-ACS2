@@ -1,50 +1,153 @@
 .table-container {
     width: 100%;
     overflow-x: auto;
-  }
-  table {
+}
+table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
     font-size: 16px;
     text-align: left;
-  }
-  table th,
-  table td {
+}
+table th,
+table td {
     padding: 12px;
     border: 1px solid #ddd;
     vertical-align: middle;
-  }
-  table th {
+}
+table th {
     background-color: #f4f4f4;
-  }
-  table td img {
+}
+table td img {
     width: 50px;
     height: auto;
     display: block;
-  }
-  .action-btn {
+}
+.action-btn {
     cursor: pointer;
     border: none;
     background: none;
     font-size: 16px;
     margin: 0 5px;
-  }
-  .edit-btn {
+}
+.edit-btn {
     color: #007bff;
-  }
-  .delete-btn {
+}
+.delete-btn {
     color: #dc3545;
-  }
-  .schedule-btn {
+}
+.schedule-btn {
     color: #28a745;
-  }
-  .edit-btn:hover {
+}
+.edit-btn:hover {
     color: #0056b3;
-  }
-  .delete-btn:hover {
+}
+.delete-btn:hover {
     color: #a71d2a;
-  }
-  .schedule-btn:hover {
+}
+.schedule-btn:hover {
     color: #1c7430;
-  }
+}
+
+/* RESPONSIVE */
+/* Responsive for tablets and smaller laptops (max-width: 991px) */
+@media (max-width: 991px) {
+    .table-container {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    table {
+        font-size: 14px; /* Giảm kích thước font cho phù hợp */
+    }
+
+    table th,
+    table td {
+        padding: 10px;
+    }
+
+    /* Điều chỉnh độ rộng ảnh để không chiếm quá nhiều diện tích */
+    table td img {
+        width: 40px;
+        height: auto;
+    }
+
+    /* Thu nhỏ các nút hành động */
+    .action-btn {
+        font-size: 14px;
+        margin: 0 3px;
+    }
+
+    .edit-btn,
+    .delete-btn,
+    .schedule-btn {
+        font-size: 14px;
+    }
+
+    /* Căn giữa các thẻ */
+    table th {
+        text-align: center;
+    }
+
+    /* Đảm bảo các nút hành động trong bảng không quá gần nhau */
+    .action-btn {
+        margin: 0 3px;
+    }
+}
+
+/* Responsive for mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .table-container {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    table {
+        font-size: 12px; /* Giảm thêm kích thước font */
+    }
+
+    table th,
+    table td {
+        padding: 8px;
+    }
+
+    /* Đảm bảo ảnh không quá lớn trên thiết bị di động */
+    table td img {
+        width: 30px;
+        height: auto;
+    }
+
+    /* Thu nhỏ các nút hành động */
+    .action-btn {
+        font-size: 12px;
+        margin: 0 2px;
+    }
+
+    .edit-btn,
+    .delete-btn,
+    .schedule-btn {
+        font-size: 12px;
+    }
+
+    /* Điều chỉnh bảng thành dạng cuộn ngang khi cần */
+    .table-container {
+        overflow-x: auto;
+    }
+
+    /* Thêm khoảng cách giữa các cột */
+    table th,
+    table td {
+        padding: 8px 5px;
+    }
+
+    /* Điều chỉnh các nút hành động để không bị lệch */
+    .action-btn {
+        margin: 0 2px;
+    }
+
+    /* Giảm kích thước nút hành động */
+    .action-btn {
+        padding: 5px;
+        font-size: 12px;
+    }
+}

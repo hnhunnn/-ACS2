@@ -306,7 +306,6 @@ nav {
     color: rgb(0, 0, 0);
 }
 
-
 /* FOOTER */
 .footer {
     position: relative;
@@ -386,8 +385,6 @@ nav {
     }
 }
 
-
-
 .contact .info li {
     display: flex;
     align-items: center;
@@ -453,3 +450,94 @@ nav {
 /* Responsive for tablets and smaller laptops (max-width: 991px) */
 
 /* Responsive for mobile devices (max-width: 768px) */
+/* RESPONSIVE */
+/* Responsive for tablets and smaller laptops (max-width: 991px) */
+@media (max-width: 991px) {
+    .wrapper {
+        padding: 0 15px; /* Thêm khoảng padding để nội dung không sát lề */
+    }
+
+    .header {
+        flex-direction: column; /* Căn dọc tiêu đề */
+        height: auto;
+        text-align: center;
+    }
+
+    .menu {
+        flex-wrap: wrap; /* Cho phép menu xuống dòng */
+        gap: 20px; /* Giảm khoảng cách giữa các mục */
+    }
+
+    .carousel img {
+        height: 500px; /* Giảm chiều cao cho ảnh carousel */
+    }
+
+    .movie-grid {
+        flex-wrap: wrap; /* Cho phép xuống dòng nếu cần */
+        justify-content: center; /* Căn giữa các card phim */
+        gap: 20px; /* Giảm khoảng cách giữa các card */
+    }
+
+    .ba {
+        flex-direction: column; /* Căn dọc các mục cinema, branch, schedule */
+        gap: 30px; /* Tăng khoảng cách giữa các khối */
+    }
+
+    .footer .container {
+        grid-template-columns: 1fr; /* Hiển thị các mục footer theo cột */
+    }
+}
+
+/* Responsive for mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .header {
+        padding: 15px;
+    }
+
+    .logo img {
+        width: 150px; /* Giảm kích thước logo */
+        height: auto;
+    }
+
+    .menu {
+        font-size: 16px; /* Giảm kích thước chữ menu */
+        gap: 15px; /* Giảm khoảng cách giữa các mục menu */
+    }
+
+    .carousel img {
+        height: 300px; /* Giảm chiều cao thêm nữa */
+    }
+
+    .movie-card {
+        width: 300px; /* Giảm kích thước card */
+        height: auto;
+    }
+
+    .movie-card img {
+        height: 300px; /* Giảm chiều cao ảnh */
+    }
+
+    .ba {
+        gap: 30px; /* Giảm khoảng cách giữa các khối */
+    }
+
+    .cinema-list,
+    .branch-details,
+    .schedule-details {
+        width: 100%; /* Đặt chiều rộng 100% */
+        padding: 10px; /* Giảm padding */
+    }
+
+    .footer {
+        padding: 2rem 3rem; /* Giảm padding của footer */
+    }
+
+    .footer .sec h2 {
+        font-size: 1rem; /* Giảm kích thước chữ của tiêu đề */
+    }
+
+    .footer .container .sci li a {
+        width: 2rem; /* Giảm kích thước biểu tượng mạng xã hội */
+        height: 2rem;
+    }
+}

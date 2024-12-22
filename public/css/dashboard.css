@@ -91,3 +91,81 @@ table th {
 .edit-btn:hover {
     color: #0056b3;
 }
+
+/* RESPONSIVE */
+/* Responsive for tablets and smaller laptops (max-width: 991px) */
+@media (max-width: 991px) {
+    .add {
+        width: 120px; /* Giảm chiều rộng nút */
+        font-size: 14px; /* Giảm kích thước chữ */
+        margin-left: 10px; /* Điều chỉnh khoảng cách */
+    }
+
+    .search-container {
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        margin-left: 0; /* Đảm bảo căn giữa */
+    }
+
+    .search-input {
+        font-size: 14px; /* Giảm kích thước chữ */
+        padding: 8px 12px; /* Giảm padding */
+    }
+
+    .search-button {
+        padding: 10px; /* Giảm kích thước nút */
+    }
+
+    table {
+        font-size: 14px; /* Giảm kích thước chữ */
+    }
+
+    table th,
+    table td {
+        padding: 10px; /* Giảm padding */
+    }
+}
+
+/* Responsive for mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .add {
+        width: 100%; /* Full-width */
+        font-size: 12px; /* Giảm font chữ hơn nữa */
+        margin-left: 0; /* Loại bỏ khoảng cách */
+        text-align: center; /* Căn giữa chữ */
+    }
+
+    .search-container {
+        flex-direction: column; /* Chuyển thành dạng cột */
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        margin: 10px 0; /* Khoảng cách trên và dưới */
+    }
+
+    .search-input {
+        width: 100%; /* Full-width */
+        font-size: 12px; /* Giảm font chữ */
+        padding: 8px; /* Giảm padding */
+    }
+
+    .search-button {
+        width: 100%; /* Full-width */
+        padding: 10px; /* Điều chỉnh kích thước */
+    }
+
+    table-container {
+        width: 100%; /* Đảm bảo không bị tràn */
+        overflow-x: auto; /* Bật scroll ngang nếu cần */
+    }
+
+    table {
+        font-size: 12px; /* Giảm kích thước chữ */
+    }
+
+    table th,
+    table td {
+        padding: 8px; /* Giảm padding */
+    }
+
+    .action-btn {
+        font-size: 14px; /* Giảm kích thước chữ */
+    }
+}

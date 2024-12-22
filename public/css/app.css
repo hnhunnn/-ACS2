@@ -217,3 +217,75 @@ nav {
 .copyrightText p {
     margin: 0;
 }
+
+/* Đảm bảo menu không bị ẩn khi màn hình rộng */
+.menu {
+    display: flex;
+    list-style: none;
+    gap: 40px;
+    transition: max-height 0.3s ease;
+    overflow: hidden;
+}
+
+/* Khi menu được kích hoạt, hiển thị nó */
+.menu.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Nút hamburger chỉ hiển thị khi màn hình nhỏ */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.hamburger .bar {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease-in-out;
+}
+/* Khi mở hamburger */
+.hamburger.open .bar:nth-child(1) {
+    transform: rotate(45deg);
+    position: relative;
+    top: 7px;
+}
+
+.hamburger.open .bar:nth-child(2) {
+    opacity: 0; /* Ẩn thanh giữa */
+}
+
+.hamburger.open .bar:nth-child(3) {
+    transform: rotate(-45deg);
+    position: relative;
+    bottom: 7px;
+}
+
+/* Responsive: Menu sẽ ẩn và hamburger sẽ hiển thị trên màn hình nhỏ */
+@media (max-width: 767px) {
+    .hamburger {
+        display: flex; /* Hiển thị hamburger trên màn hình nhỏ */
+    }
+
+    .menu {
+        display: none; /* Menu ẩn khi chưa kích hoạt */
+    }
+
+    .menu.active {
+        display: flex; /* Hiển thị menu khi có class 'active' */
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+}

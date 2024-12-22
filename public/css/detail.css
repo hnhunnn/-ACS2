@@ -69,3 +69,71 @@
 .movie-detail-container a:hover {
     text-decoration: underline;
 }
+
+/* RESPONSIVE */
+/* Responsive for tablets and smaller laptops (max-width: 991px) */
+@media (max-width: 991px) {
+    .movie-detail-container {
+        flex-direction: column; /* Chuyển thành dạng cột */
+        align-items: center; /* Căn giữa nội dung */
+        padding: 20px; /* Tăng padding để hiển thị tốt hơn */
+    }
+
+    .movie-image-container {
+        width: 80%; /* Giảm kích thước ảnh */
+    }
+
+    .movie-image {
+        height: 400px; /* Giảm chiều cao ảnh */
+    }
+
+    .movie-title {
+        font-size: 1.8em; /* Giảm kích thước tiêu đề */
+        margin-top: 10px; /* Căn chỉnh lại khoảng cách */
+    }
+
+    .movie-info {
+        width: 90%; /* Chiếm toàn bộ chiều rộng trừ padding */
+        margin-top: 20px; /* Tăng khoảng cách giữa ảnh và thông tin */
+        text-align: center; /* Căn giữa nội dung thông tin */
+    }
+
+    .movie-description {
+        font-size: 1em; /* Giảm kích thước chữ */
+        line-height: 1.4; /* Giảm khoảng cách dòng */
+    }
+}
+
+/* Responsive for mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .movie-detail-container {
+        padding: 15px; /* Giảm padding */
+    }
+
+    .movie-image-container {
+        width: 100%; /* Full-width */
+    }
+
+    .movie-image {
+        height: 300px; /* Giảm chiều cao hơn nữa */
+    }
+
+    .movie-title {
+        font-size: 1.6em; /* Giảm kích thước tiêu đề */
+    }
+
+    .movie-info {
+        width: 100%; /* Full-width */
+        margin-top: 15px; /* Giảm khoảng cách */
+        text-align: justify; /* Giữ mô tả căn chỉnh đều */
+    }
+
+    .movie-description {
+        font-size: 0.9em; /* Kích thước nhỏ hơn */
+        line-height: 1.4; /* Khoảng cách dòng chặt hơn */
+    }
+
+    .movie-detail-container p {
+        font-size: 0.9em; /* Giảm kích thước chữ trong thông tin phụ */
+    }
+}
