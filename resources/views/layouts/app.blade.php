@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,42 +18,43 @@
     <!--=============================== HEADER ========================-->
     <header class="header1">
         <div class="logo">
-          <img src="{{ asset('img/lgo.png') }}" alt="" />
+            <img src="{{ asset('img/lgo.png') }}" alt="" />
         </div>
-        <nav>
-          <ul class="menu">
-            <li><a href="{{ route('home') }}">Trang chủ</a></li>
-            <li><a href="{{ route('profile') }}" class="active">Thông tin</a></li>
-            <li><a href="#contact">Liên hệ</a></li>
-          </ul>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav class="nav-bar" id="navMenu">
+            <ul class="menu">
+                <li><a href="{{ route('home') }}">Trang chủ</a></li>
+                <li><a href="{{ route('profile') }}" class="active">Thông tin</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
         </nav>
-  
+
         <div class="p3">
-          <p>Xin chào!</p>
-          @if (Auth::check())
-            <div class="dropdown">
-                <button 
-                    class="btn btn-secondary dropdown-toggle" 
-                    type="button" 
-                    id="dropdownMenuButton" 
-                    data-bs-toggle="dropdown" 
-                    aria-expanded="false">
-                    {{ Auth::user()->name }}
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <li><a class="dropdown-item" href="{{ route('logout') }}" style='color:green'>Đăng xuất</a></li>
-                </ul>
-            </div>
+            <p>Xin chào!</p>
+            @if (Auth::check())
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ Auth::user()->name }}
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <li><a class="dropdown-item" href="{{ route('logout') }}" style='color:green'>Đăng xuất</a></li>
+                    </ul>
+                </div>
             @else
-            <a href="{{ route('loginU') }}" style='text-decoration: none ; color:green'>Đăng nhập</a>
+                <a href="{{ route('loginU') }}" style='text-decoration: none; color:green'>Đăng nhập</a>
             @endif
         </div>
-      </header>
-    
+    </header>
+
     <!-- Content -->
     <div class="container">
         @yield('content')
-    </div> 
+    </div>
 
 
     <!-- Footer -->
@@ -62,7 +64,7 @@
                 <div class="logo-container">
                     <img src="../img/bap.png" alt="Footer Logo">
                 </div>
-         
+
             </div>
 
             <div class="sec quicklinks">
@@ -98,14 +100,18 @@
                     </li>
                 </ul>
                 <ul class="sci">
-                    <li><a href="https://www.facebook.com/profile.php?id=100069911256288"><i class='bx bxl-facebook'></i></a></li>
-                    <li><a href="https://www.facebook.com/profile.php?id=100069911256288"><i class='bx bxl-instagram'></i></a></li>
-                    <li><a href="https://www.facebook.com/profile.php?id=100069911256288"><i class='bx bxl-twitter'></i></a></li>
-                    <li><a href="https://www.facebook.com/profile.php?id=100069911256288"><i class='bx bxl-youtube'></i></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100069911256288"><i
+                                class='bx bxl-facebook'></i></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100069911256288"><i
+                                class='bx bxl-instagram'></i></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100069911256288"><i
+                                class='bx bxl-twitter'></i></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100069911256288"><i
+                                class='bx bxl-youtube'></i></a></li>
                 </ul>
             </div>
         </div>
-    </section>  
+    </section>
 
     <div class="copyrightText">
         <p>&copy;Bản quyền thuộc về HN & DL | Cung cấp bởi DieuLinh</p>
@@ -114,7 +120,14 @@
 
 
     <!-- Scripts -->
+    <script>
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('show');
+        }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     @yield('scripts')
 </body>
+
 </html>

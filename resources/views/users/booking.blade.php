@@ -90,59 +90,24 @@
 
 
                     </div>
-
                     <!-- Bên phải: Khu vực ghế ngồi -->
                     <div class="col-md-8 text-center">
                         <h3 style="color: white">Màn hình</h3>
                         <div style="background-color: orange; width: 80%; height: 10px; margin-left: 85px"></div><br>
-                        {{-- <div class="seat-selection">
-                            @foreach ($seats as $seat)
-                                <button
-                                    class="seat 
-                                @if (!$seat->is_available) reserved @endif
-                                @if ($seat->type == 'VIP') vip @else normal @endif"
-                                    data-seat="{{ $seat->id }}"
-                                    style="background-color: {{ !$seat->is_available ? 'yellow' : 'initial' }}">
-                                    {{ $seat->number }}
-                                </button>
-                                @if ($loop->iteration % 13 == 0)
-                                    <br>
-                                @endif
-                            @endforeach
-
-
-
+                        <div class="seat-selection">
                             @for ($i = 1; $i <= 104; $i++)
                                 <button
                                     class="seat 
                                 @if ($i >= 79 && $i <= 104) vip 
                                 @else normal @endif"
-                                    data-seat="{{ $i }}">
+                                    data-seat="{{ $i }}">                                                                                                                                                            
                                     {{ $i }}
                                 </button>
                                 @if ($i % 13 == 0)
                                     <br>
                                 @endif
                             @endfor
-                        </div> --}}
-                        <div class="seat-selection">
-                            @foreach ($seats as $seat)
-                                <button
-                                    class="seat 
-                                @if (in_array($seat->id, $bookedSeats->toArray())) reserved @endif
-                                @if ($seat->type == 'VIP') vip @else normal @endif"
-                                    data-seat="{{ $seat->id }}"
-                                    style="background-color: 
-                                @if (in_array($seat->id, $bookedSeats->toArray())) yellow @else white @endif;">
-                                    {{ $seat->number }}
-                                </button>
-                                @if ($loop->iteration % 13 == 0)
-                                    <br>
-                                @endif
-                            @endforeach
                         </div>
-
-
                     </div>
                 </div>
             </div>

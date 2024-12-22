@@ -19,34 +19,39 @@
         <!--=============================== HEADER ========================-->
         <header class="header">
             <div class="logo">
-                <img src="../img/lgo.png" alt="" />
+                <img src="{{ asset('img/lgo.png') }}" alt="" />
             </div>
-            <nav>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <nav class="nav-bar" id="navMenu">
                 <ul class="menu">
                     <li><a href="{{ route('home') }}">Trang chủ</a></li>
-                    <li><a href="{{ route('profile') }}">Thông tin</a></li>
+                    <li><a href="{{ route('profile') }}" class="active">Thông tin</a></li>
                     <li><a href="#contact">Liên hệ</a></li>
                 </ul>
             </nav>
-
             <div class="p3">
                 <p>Xin chào!</p>
-
                 @if (Auth::check())
-                    <div class="dropdown" id="dl">
+                    <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             {{ Auth::user()->name }}
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><a class="dropdown-item" href="{{ route('logout') }}" id="dxuat">Đăng xuất</a></li>
+                            <li><a class="dropdown-item" href="{{ route('logout') }}" style='color:green'>Đăng xuất</a>
+                            </li>
                         </ul>
                     </div>
                 @else
-                    <a href="{{ route('loginU') }}" style='text-decoration: none ; color:green '>Đăng nhập</a>
+                    <a href="{{ route('loginU') }}" style='text-decoration: none; color:green'>Đăng nhập</a>
                 @endif
             </div>
         </header>
+
         <!--=============================== BANNER ========================-->
         <div id="slider" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -66,8 +71,9 @@
         <div class="ticket">
             <!-- button đang chiếu và sắp chiếu -->
             <div class="button-chieu">
-                <button id="btn-dang-chieu" class="btn btn-light" style="background-color: #91D9BF"><b>PHIM ĐANG CHIẾU</b></button>
-                <button id="btn-sap-chieu" class="btn btn-light" ><b>PHIM SẮP
+                <button id="btn-dang-chieu" class="btn btn-light" style="background-color: #91D9BF"><b>PHIM ĐANG
+                        CHIẾU</b></button>
+                <button id="btn-sap-chieu" class="btn btn-light"><b>PHIM SẮP
                         CHIẾU</b></button>
             </div>
 
@@ -115,65 +121,65 @@
 
 
         <!--====================== CINEMA,BRANCH,SCHEDULE ===================-->
-            <div class="ba">
-                {{-- CINEMA --}}
-                <div class="cinema-list">
-                    <h3>Danh sách rạp</h3>
-                    @foreach ($cinemas as $cinema)
-                        <button onclick="showBranches({{ $cinema->id }})"
-                            style="border: none; background: none; cursor: pointer;">
-                            <img src="{{ asset($cinema->logo) }}" alt="Logo of {{ $cinema->cinemaName }}"
-                                style="width: 100px;">
-                        </button>
-                    @endforeach
-                </div>
-
-
-                {{-- BRANCH --}}
-                <div class="branch-details">
-                    <h3>Chi nhánh</h3>
-                    @if (!empty($branches))
-                        @foreach ($branches as $branch)
-                            <form action="{{ route('home') }}" method="GET" class="branch-item">
-                                <input type="hidden" name="cinema_id" value="{{ request('cinema_id') }}">
-                                <input type="hidden" name="branch_id" value="{{ $branch->id }}">
-                                <button type="submit" style="border: none; background: none; cursor: pointer;">
-                                    <div>
-                                        <h4>{{ $branch->branchName }}</h4>
-                                        <p>{{ $branch->address }}</p>
-                                    </div>
-                                </button>
-                            </form>
-                        @endforeach
-                    @endif
-                </div>
-
-                {{-- SCHEDULE --}}
-                <div class="schedule-details">
-                    <h3>Lịch Chiếu</h3>
-                    @if (!empty($schedules))
-                        @foreach ($schedules as $schedule)
-                            <div class="schedule-item">
-                                <!-- Thông tin phim -->
-                                <div class="movie-info">
-                                    <h4>{{ $schedule->movie->movieName }}</h4>
-                                    <img src="{{ asset($schedule->movie->image_path) }}"
-                                        alt="{{ $schedule->movie->movieName }}">
-                                </div>
-
-                                <!-- Giờ chiếu -->
-                                <div class="showtimes">
-                                    @foreach ($schedule->showtime as $item)
-                                        <div class="time">{{ $item }}</div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        @endforeach
-                    @else
-                        {{-- <p>Không có lịch chiếu nào được tìm thấy.</p> --}}
-                    @endif
-                </div>
+        <div class="ba">
+            {{-- CINEMA --}}
+            <div class="cinema-list">
+                <h3>Danh sách rạp</h3>
+                @foreach ($cinemas as $cinema)
+                    <button onclick="showBranches({{ $cinema->id }})"
+                        style="border: none; background: none; cursor: pointer;">
+                        <img src="{{ asset($cinema->logo) }}" alt="Logo of {{ $cinema->cinemaName }}"
+                            style="width: 100px;">
+                    </button>
+                @endforeach
             </div>
+
+
+            {{-- BRANCH --}}
+            <div class="branch-details">
+                <h3>Chi nhánh</h3>
+                @if (!empty($branches))
+                    @foreach ($branches as $branch)
+                        <form action="{{ route('home') }}" method="GET" class="branch-item">
+                            <input type="hidden" name="cinema_id" value="{{ request('cinema_id') }}">
+                            <input type="hidden" name="branch_id" value="{{ $branch->id }}">
+                            <button type="submit" style="border: none; background: none; cursor: pointer;">
+                                <div>
+                                    <h4>{{ $branch->branchName }}</h4>
+                                    <p>{{ $branch->address }}</p>
+                                </div>
+                            </button>
+                        </form>
+                    @endforeach
+                @endif
+            </div>
+
+            {{-- SCHEDULE --}}
+            <div class="schedule-details">
+                <h3>Lịch Chiếu</h3>
+                @if (!empty($schedules))
+                    @foreach ($schedules as $schedule)
+                        <div class="schedule-item">
+                            <!-- Thông tin phim -->
+                            <div class="movie-info">
+                                <h4>{{ $schedule->movie->movieName }}</h4>
+                                <img src="{{ asset($schedule->movie->image_path) }}"
+                                    alt="{{ $schedule->movie->movieName }}">
+                            </div>
+
+                            <!-- Giờ chiếu -->
+                            <div class="showtimes">
+                                @foreach ($schedule->showtime as $item)
+                                    <div class="time">{{ $item }}</div>
+                                @endforeach
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    {{-- <p>Không có lịch chiếu nào được tìm thấy.</p> --}}
+                @endif
+            </div>
+        </div>
         <!--=============================== FOOTER ========================-->
         <section id="contact" class="footer">
             <div class="container">
@@ -253,6 +259,11 @@
                 document.getElementById('btn-sap-chieu').style.backgroundColor = '#91D9BF';
                 document.getElementById('btn-dang-chieu').style.backgroundColor = '';
             });
+
+            function toggleMenu() {
+                const navMenu = document.getElementById('navMenu');
+                navMenu.classList.toggle('active'); // Thêm hoặc xóa class active
+            }
         </script>
 </body>
 

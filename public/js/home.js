@@ -91,3 +91,4 @@ function showSchedules(branchId) {
                 "<h3>Lịch Chiếu</h3><p>Không thể tải lịch chiếu.</p>";
         });
 }
+

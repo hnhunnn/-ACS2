@@ -6,6 +6,13 @@ body {
 a {
     text-decoration: none;
 }
+.wrapper {
+    height: 100vh; /* Đặt chiều cao của wrapper theo chiều cao màn hình */
+    width: 100%; /* Đặt chiều rộng của wrapper theo chiều rộng màn hình */
+    overflow-y: scroll; /* Cho phép cuộn dọc */
+    scrollbar-width: none; /* Ẩn thanh cuộn trong Firefox */
+    flex: 1;
+}
 .navbar {
     margin-bottom: 20px;
 }
@@ -62,6 +69,7 @@ nav {
     margin-top: 10px;
     gap: 20px; /* Khoảng cách giữa các mục menu */
 }
+
 /* dropdown */
 .dropdown-item:hover {
     background-color: #f1f1f1;
@@ -216,4 +224,56 @@ nav {
 
 .copyrightText p {
     margin: 0;
+}
+.hamburger {
+    display: none; /* Hidden by default */
+}
+
+@media only screen and (max-width: 900px) {
+    .hamburger {
+        display: block; /* Show hamburger icon */
+        cursor: pointer;
+    }
+    .hamburger .line {
+        width: 30px;
+        height: 3px;
+        background: #fefefe;
+        margin: 6px 0;
+    }
+    .nav-bar {
+        display: none; /* Hide menu by default */
+        position: absolute;
+        top: 70px; /* Adjust based on header height */
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background: #11101b;
+        transition: max-height 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+        overflow: hidden; /* Hide overflowing content */
+        max-height: 0; /* Start with zero height */
+        opacity: 0; /* Start as invisible */
+    }
+    
+    .nav-bar.show {
+        display: block; /* Show menu when toggled */
+        max-height: 300px; /* Set a max height for the transition */
+        opacity: 1; /* Make it fully visible */
+    }
+    .menu {
+        flex-direction: column; /* Stack menu items vertically */
+        gap: 10px; /* Adjust spacing between items */
+        padding: 10px; /* Add padding for better touch targets */
+    }
+    .menu li {
+        margin-top: 0; /* Remove top margin for vertical alignment */
+    }
+    .menu a {
+        font-size: 18px; /* Adjust font size for readability */
+        text-align: center; /* Center text */
+        padding: 10px 0; /* Add vertical padding */
+        display: block; /* Ensure full clickable area */
+    }
+    .p3{
+        display: none;
+    }
 }

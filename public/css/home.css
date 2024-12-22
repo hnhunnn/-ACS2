@@ -85,7 +85,6 @@ nav {
     margin-top: 10px;
     gap: 20px; /* Khoảng cách giữa các mục menu */
 }
-
 .carousel img {
     width: 100%; /* Điều chỉnh chiều cao */
     object-fit: cover;
@@ -306,7 +305,6 @@ nav {
     color: rgb(0, 0, 0);
 }
 
-
 /* FOOTER */
 .footer {
     position: relative;
@@ -386,8 +384,6 @@ nav {
     }
 }
 
-
-
 .contact .info li {
     display: flex;
     align-items: center;
@@ -450,6 +446,133 @@ nav {
 .copyrightText p {
     margin: 0;
 }
+.hamburger {
+    display: none; /* Ẩn mặc định */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger .line {
+    height: 3px;
+    width: 30px;
+    background-color: white;
+    margin: 4px 0;
+}
 /* Responsive for tablets and smaller laptops (max-width: 991px) */
+@media (max-width: 991px) {
+    .movie-grid {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .movie-card {
+        width: 200px;
+        height: auto;
+    }
+    .button-chieu {
+        margin-left: 50px;
+    }
+}
 
 /* Responsive for mobile devices (max-width: 768px) */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Hiện nút hamburger trên màn hình nhỏ */
+    }
+
+    #navMenu {
+        display: none; /* Ẩn menu mặc định */
+        flex-direction: column; /* Xếp theo chiều dọc */
+        position: absolute;
+        top: 70px; /* Đặt cách đầu trang */
+        left: 0;
+        background-color: black;
+        width: 100%;
+    }
+
+    #navMenu.active {
+        display: flex; /* Hiện menu khi có class active */
+    }
+
+    .menu {
+        flex-direction: column; /* Xếp theo chiều dọc */
+        align-items: center;
+    }
+
+    .ticket {
+        padding: 10px;
+    }
+
+    .movie-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .movie-card {
+        width: 70%;
+        margin-bottom: 20px;
+        margin-right: 30px;
+    }
+
+    .footer {
+        font-size: 10px;
+        /* text-align: center; */
+    }
+    .button-chieu {
+        margin-left: 30px;
+    }
+    .movie-card button {
+        font-size: 10px;
+    }
+    #btn-sap-chieu {
+        font-size: 10px;
+    }
+    #btn-dang-chieu {
+        font-size: 10px;
+    }
+    .copyrightText p {
+        font-size: 10px;
+    }
+    .footer .sec h2 {
+        font-size: 12px;
+    }
+    .logo-container img {
+        width: 12rem;
+        text-align: center;
+    }
+    .cinema-list h3,
+    .branch-details h3,
+    .schedule-details h3 {
+        font-size: 10px;
+    }
+    .cinema-list h4,
+    .branch-details h4,
+    .schedule-details h4 {
+        font-size: 10px;
+    }
+    .branch-details p {
+        font-size: 10px;
+    }
+    .showtimes {
+        margin-left: -1px;
+    }
+    .p3{
+        display: none;
+    }
+    #navMenu {
+        display: none; /* Ẩn menu mặc định */
+        flex-direction: column;
+        position: absolute; /* Đặt menu ở vị trí tuyệt đối */
+        top: 70px; /* Đặt cách đầu trang */
+        left: 0;
+        right: 0; /* Đảm bảo menu chiếm toàn bộ chiều rộng */
+        background-color: black;
+        z-index: 1000; /* Đặt z-index cao hơn để không bị chèn */
+    }
+    
+    #navMenu.active {
+        display: flex; /* Hiện menu khi có class active */
+    }
+}
+
+
