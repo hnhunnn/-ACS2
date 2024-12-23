@@ -94,12 +94,12 @@
                   <!-- Bên phải: Khu vực ghế ngồi -->
                   <div class="col-md-8 text-center">
                     <h3 style="color: white">Màn hình</h3>
-                    <div style="background-color: orange; width: 80%; height: 10px; margin-left: 85px"></div><br>
+                    <div class="br"></div><br>
                     <div class="seat-selection">
-                        @for ($i = 1; $i <= 104; $i++)
+                        @for ($i = 1; $i <= 90; $i++)
                             <button
                                 class="seat 
-                            @if ($i >= 79 && $i <= 104) vip 
+                            @if ($i >= 66 && $i <= 90) vip 
                             @else normal @endif"
                                 data-seat="{{ $i }}">
                                 {{ $i }}
