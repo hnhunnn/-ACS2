@@ -18,15 +18,21 @@
         <div class="logo">
             <img src="../img/lgo.png" alt="" />
         </div>
-        <nav>
+        <div class="hamburger" onclick="toggleMenu()">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav class="nav-bar" id="navMenu">
             <ul class="menu">
                 <li><a href="{{ route('home') }}">Trang chủ</a></li>
-                <li><a href="#">Thông tin</a></li>
+                <li><a href="{{ route('profile') }}" class="">Thông tin</a></li>
+                {{-- <li><a href="#contact">Liên hệ</a></li> --}}
             </ul>
         </nav>
 
         <div class="p3">
-            <p style='margin-top: 10px'>Xin chào!</p>
+            {{-- <p style='margin-top: 10px'>Xin chào!</p> --}}
             
         </div>
     </header>
@@ -103,6 +109,12 @@
         });
 
     });
+</script>
+<script>
+    function toggleMenu() {
+        const navMenu = document.getElementById('navMenu');
+        navMenu.classList.toggle('show');
+    }
 </script>
 
 </html>

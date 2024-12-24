@@ -45,4 +45,13 @@
         width: 100%; /* Nút full-width */
         text-align: center; /* Căn giữa nội dung nút */
     }
+    .mb-2 .form-label {
+        font-size: 12px;
+    }
+    .mb-2 .form-control {
+        font-size: 12px;
+    }
+    .form-select {
+        font-size: 12px;
+    }
 }

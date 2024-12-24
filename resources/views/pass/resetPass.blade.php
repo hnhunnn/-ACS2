@@ -26,7 +26,7 @@
             font-weight: bold;
         }
     
-        form input[type="password"] {
+        form input {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
@@ -37,7 +37,7 @@
             color: #000000;
         }
     
-        form input[type="password"]:focus {
+        form input:focus {
             border-color: #f39c12;
             outline: none;
             background-color: #ffffff;
@@ -78,7 +78,6 @@
             <nav>
                 <ul class="menu">
                     <li><a href="{{ route('home') }}">Trang chủ</a></li>
-                    
                 </ul>
             </nav>
 
@@ -92,6 +91,8 @@
         @csrf
         <input type="hidden" name="token" value="{{ $token }}">
         <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
             @error('email')
                 <span class="error">{{ $message }}</span>
             @enderror
@@ -167,6 +168,5 @@
     <p>&copy;Bản quyền thuộc về HN & DL | Cung cấp bởi DieuLinh</p>
 </div>
 
-    
 </body>
 </html>

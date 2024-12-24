@@ -69,7 +69,6 @@
 .movie-detail-container a:hover {
     text-decoration: underline;
 }
-
 /* RESPONSIVE */
 /* Responsive for tablets and smaller laptops (max-width: 991px) */
 @media (max-width: 991px) {
@@ -117,7 +116,6 @@
     .movie-image {
         height: 300px; /* Giảm chiều cao hơn nữa */
     }
-
     .movie-title {
         font-size: 1.6em; /* Giảm kích thước tiêu đề */
     }

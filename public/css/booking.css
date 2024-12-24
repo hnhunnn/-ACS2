@@ -178,7 +178,6 @@ body {
     .payment-info h3 {
         font-size: 14px; /* Thu nhỏ tiêu đề và giá */
     }
-
     /* Đảm bảo văn bản và các nút không bị tràn */
     .payment-info p {
         font-size: 11px; /* Chữ nhỏ hơn */
@@ -190,5 +189,11 @@ body {
     }
     .sec quicklinks {
         text-align: center;
+    }
+    #confirmBooking {
+        font-size: 10px;
+    }
+    #timeSelect {
+        font-size: 10px;
     }
 }

@@ -154,16 +154,23 @@ nav {
 .save-button:hover {
     background-color: #007bff;
 }
+.hamburger {
+    display: none; /* Ẩn mặc định */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger .line {
+    height: 3px;
+    width: 30px;
+    background-color: white;
+    margin: 4px 0;
+}
 
 /* RESPONSIVE */
 /* RESPONSIVE FOR TABLETS AND SMALLER LAPTOPS (max-width: 991px) */
 
 @media (max-width: 991px) {
-    .logo img {
-        width: 350px;
-        height: 500px;
-    }
-
     .menu {
         flex-direction: column;
         gap: 20px;
@@ -197,28 +204,6 @@ nav {
 /* RESPONSIVE FOR MOBILE DEVICES (max-width: 768px) */
 
 @media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 25px;
-    }
-
-    .logo img {
-        width: 220px;
-        height: 150px;
-        margin-top: -50px;
-    }
-
-    .menu {
-        flex-direction: column; /* Menu xếp theo chiều dọc */
-        gap: 15px;
-        display: flex; /* Đảm bảo menu được hiển thị */
-    }
-
-    .menu a {
-        font-size: 18px;
-    }
-
     .nen {
         height: 400px;
         height: 730px;
@@ -233,5 +218,68 @@ nav {
     .save-button {
         width: 99%;
         margin-left: 0;
+    }
+}
+@media only screen and (max-width: 900px) {
+    .hamburger .line {
+        width: 25px;
+        height: 1.5px;
+        background: #fefefe;
+        margin: 6px 0;
+    }
+    .menu {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px;
+    }
+    .menu li {
+        margin-top: 0;
+    }
+    .menu a {
+        font-size: 13px;
+        text-align: center;
+        padding: 10px 0;
+        display: block;
+    }
+    .p3 {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+        cursor: pointer;
+        z-index: 20; /* Đảm bảo hamburger ở trên */
+    }
+
+    .nav-bar {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #11101b;
+        z-index: 10; /* Menu ở trên nền */
+        transition: max-height 0.3s ease, opacity 0.3s ease;
+        overflow: hidden;
+    }
+
+    .nav-bar.show {
+        display: block;
+        max-height: 300px;
+        opacity: 1;
+    }
+
+    .nen {
+        position: relative;
+        z-index: 1; /* Nền có z-index thấp */
+    }
+    form {
+        margin-left: 10px;
+    }
+    .tab-bar a {
+        font-size: 15px;
+    }
+    .logo img {
+        width: 150px;
+        height: 100px;
     }
 }

@@ -32,16 +32,19 @@
 /* Responsive for mobile devices (max-width: 768px) */
 @media (max-width: 768px) {
     .form-container {
-        max-width: 100%; /* Full-width */
+        max-width: 80%; /* Full-width */
         margin: 20px auto; /* Giảm khoảng cách trên/dưới */
         padding: 10px; /* Giảm padding */
         border-radius: 5px; /* Giảm bo góc hơn nữa */
     }
 
     .form-control {
-        font-size: 12px; /* Giảm font chữ cho mobile */
+        font-size: 10px; /* Giảm font chữ cho mobile */
         padding: 8px; /* Giảm padding để vừa màn hình nhỏ */
         margin-left: 0; /* Đảm bảo không bị lệch */
         width: 100%; /* Full-width để hiển thị tốt */
+    }
+    .mb-2 .form-label {
+        font-size: 10px;
     }
 }

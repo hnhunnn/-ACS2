@@ -218,75 +218,72 @@ nav {
     margin: 0;
 }
 
-/* Đảm bảo menu không bị ẩn khi màn hình rộng */
-.menu {
-    display: flex;
-    list-style: none;
-    gap: 40px;
-    transition: max-height 0.3s ease;
-    overflow: hidden;
-}
-
-/* Khi menu được kích hoạt, hiển thị nó */
-.menu.active {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-/* Nút hamburger chỉ hiển thị khi màn hình nhỏ */
 .hamburger {
-    display: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
+    display: none; /* Hidden by default */
 }
-
-.hamburger div {
-    width: 30px;
-    height: 3px;
-    background-color: white;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+@media (max-width: 768px) {
+    .footer .sec h2 {
+        font-size: 15px;
+    }
+    .copyrightText p {
+        font-size: 13px;
+    }
+    .footer .sec ul li a {
+        font-size: 13px;
+    }
 }
-.hamburger .bar {
-    width: 30px;
-    height: 3px;
-    background-color: white;
-    transition: all 0.3s ease-in-out;
-}
-/* Khi mở hamburger */
-.hamburger.open .bar:nth-child(1) {
-    transform: rotate(45deg);
-    position: relative;
-    top: 7px;
-}
-
-.hamburger.open .bar:nth-child(2) {
-    opacity: 0; /* Ẩn thanh giữa */
-}
-
-.hamburger.open .bar:nth-child(3) {
-    transform: rotate(-45deg);
-    position: relative;
-    bottom: 7px;
-}
-
-/* Responsive: Menu sẽ ẩn và hamburger sẽ hiển thị trên màn hình nhỏ */
-@media (max-width: 767px) {
-    /* Hiển thị hamburger trên màn hình nhỏ */
+@media only screen and (max-width: 900px) {
+    body {
+        font-size: 13px;
+    }
+    .logo img {
+        width: 100px;
+        height: 100px;
+    }
     .hamburger {
-        display: flex;
+        display: block; /* Show hamburger icon */
+        cursor: pointer;
     }
-    /* Menu ẩn khi chưa kích hoạt */
+    .hamburger .line {
+        width: 25px;
+        height: 2px;
+        background: #fefefe;
+        margin: 6px 0;
+    }
+    .nav-bar {
+        display: none; /* Hide menu by default */
+        position: absolute;
+        top: 70px; /* Adjust based on header height */
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background: #11101b;
+        transition: max-height 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+        overflow: hidden; /* Hide overflowing content */
+        max-height: 0; /* Start with zero height */
+        opacity: 0; /* Start as invisible */
+    }
+
+    .nav-bar.show {
+        display: block; /* Show menu when toggled */
+        max-height: 300px; /* Set a max height for the transition */
+        opacity: 1; /* Make it fully visible */
+    }
     .menu {
-        display: none;
+        flex-direction: column; /* Stack menu items vertically */
+        gap: 10px; /* Adjust spacing between items */
+        padding: 10px; /* Add padding for better touch targets */
     }
-    /* Hiển thị menu khi có class 'active' */
-    .menu.active {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
+    .menu li {
+        margin-top: 0; /* Remove top margin for vertical alignment */
+    }
+    .menu a {
+        font-size: 10px; /* Adjust font size for readability */
+        text-align: center; /* Center text */
+        padding: 10px 0; /* Add vertical padding */
+        display: block; /* Ensure full clickable area */
+    }
+    .p3 {
+        display: none;
     }
 }

@@ -96,7 +96,7 @@
                     <h3 style="color: white">Màn hình</h3>
                     <div class="br"></div><br>
                     <div class="seat-selection">
-                        @for ($i = 1; $i <= 90; $i++)
+                        @for ($i = 1; $i <= 84; $i++)
                             <button
                                 class="seat 
                             @if ($i >= 66 && $i <= 90) vip 
@@ -104,7 +104,7 @@
                                 data-seat="{{ $i }}">
                                 {{ $i }}
                             </button>
-                            @if ($i % 13 == 0)
+                            @if ($i % 12 == 0)
                                 <br>
                             @endif
                         @endfor
